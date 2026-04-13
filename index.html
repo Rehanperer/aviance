@@ -1125,9 +1125,10 @@ menuBtn.addEventListener('click', () => {
 const modalOv    = document.getElementById('modalOv');
 const modalBg    = document.getElementById('modalBg');
 const modalClose = document.getElementById('modalClose');
-function openModalDirect() { modalOv.classList.add('open'); document.body.style.overflow = 'hidden'; }
-function openModal(e) { e.preventDefault(); openModalDirect(); }
-function closeModal() { modalOv.classList.remove('open'); document.body.style.overflow = ''; }
+const GMAIL = 'https://mail.google.com/mail/?view=cm&to=aviancelk@gmail.com&su=New%20Inquiry%20%E2%80%94%20Aviance';
+function openModalDirect() { window.open(GMAIL, '_blank'); }
+function openModal(e) { e.preventDefault(); window.open(GMAIL, '_blank'); }
+function closeModal() {}
 document.querySelectorAll('.book-trg').forEach(el => el.addEventListener('click', openModal));
 modalClose.addEventListener('click', closeModal);
 modalBg.addEventListener('click', closeModal);
