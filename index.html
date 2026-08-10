@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.className+=" js";</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aviance — Guaranteed booked sales calls for B2B teams</title>
+<meta name="description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 3 weeks, no setup fee, month-to-month.">
+<link rel="icon" type="image/jpeg" href="favicon.jpg">
+<link rel="apple-touch-icon" href="favicon.jpg">
+<link rel="canonical" href="https://www.aviance.online/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aviance">
+<meta property="og:title" content="Aviance — Guaranteed booked sales calls for B2B teams">
+<meta property="og:description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 3 weeks, no setup fee, month-to-month.">
+<meta property="og:url" content="https://www.aviance.online/">
+<meta property="og:image" content="https://www.aviance.online/preview.png">
+<meta property="og:image:secure_url" content="https://www.aviance.online/preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="315">
+<meta property="og:image:alt" content="Aviance — we don't sell emails, we sell guaranteed booked calls">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aviance — Guaranteed booked sales calls for B2B teams">
+<meta name="twitter:description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 3 weeks, no setup fee, month-to-month.">
+<meta name="twitter:image" content="https://www.aviance.online/preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;border-radius:0!important}
+:root{
+  --bg:#FFFFFF; --ink:#000000; --red:#E0290F; --grey:#5C5C5C; --line:#000000; --line2:rgba(0,0,0,.14);
+  --sans:'Inter Tight',-apple-system,sans-serif; --mono:'JetBrains Mono','Courier New',monospace;
+  --max:1440px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.55;padding-top:73px;overflow-x:hidden;max-width:100%}
+h1,h2,h3,h4{font-family:var(--sans);letter-spacing:-.04em;line-height:1.04;font-weight:700}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+.mono{font-family:var(--mono)}
+.muted{color:var(--grey)}
+section{position:relative}
+::selection{background:var(--ink);color:var(--bg)}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--ink)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:22px 40px;transition:padding .15s linear}
+nav.stuck .nav-in{padding:15px 40px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.03em;text-transform:uppercase}
+.logo i{width:26px;height:26px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-style:normal;font-family:var(--mono);font-size:13px;font-weight:700}
+.nlinks{display:flex;gap:30px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.nlinks a{position:relative;padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .15s linear,color .15s linear}
+.nlinks a:hover{color:var(--red);border-color:var(--red)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:22px;height:2px;background:var(--ink);display:block}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 26px;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--ink);cursor:pointer;transition:background .12s linear,color .12s linear,border-color .12s linear;white-space:nowrap}
+.btn-p{background:var(--ink);color:var(--bg)}
+.btn-p:hover{background:var(--bg);color:var(--ink)}
+.btn-g{background:var(--bg);color:var(--ink);border-color:var(--ink)}
+.btn-g:hover{background:var(--ink);color:var(--bg)}
+.btn-red{background:var(--red);color:var(--bg);border-color:var(--red)}
+.btn-red:hover{background:var(--bg);color:var(--red)}
+.btn-lg{padding:19px 34px;font-size:13.5px}
+
+/* section scaffolding */
+.sec{border-top:1px solid var(--ink);padding:52px 0}
+.hero-sec{padding:28px 0 0}
+.sec-grid{display:grid;grid-template-columns:104px 1fr;column-gap:32px}
+.sec-grid>*{min-width:0}
+.sec-idx{display:flex;gap:8px;align-items:baseline;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--grey);white-space:nowrap}
+.sec-idx b{color:var(--ink);font-weight:700}
+@media(max-width:800px){.sec-grid{grid-template-columns:1fr}.sec-idx{margin-bottom:22px}}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:22px}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--ink)}
+h2{font-size:clamp(30px,4.2vw,52px);max-width:20ch;margin-bottom:20px}
+.lead{color:var(--grey);font-size:16.5px;max-width:58ch}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:48px;flex-wrap:wrap}
+.head-row>div{flex:1 1 420px}
+.head-row .lead{flex:1 1 300px;max-width:44ch}
+
+/* hairline grid helper */
+.hgrid{display:grid;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+.hgrid>*{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:32px;transition:background .12s linear,color .12s linear}
+.hgrid.cols-3{grid-template-columns:repeat(3,1fr)}
+.hgrid.cols-2{grid-template-columns:repeat(2,1fr)}
+.hgrid.hoverable>*:hover{background:var(--ink);color:var(--bg)}
+.hgrid.hoverable>*:hover .muted{color:rgba(255,255,255,.68)}
+.hgrid.hoverable>*:hover .ico{border-color:var(--bg)}
+@media(max-width:800px){.hgrid.cols-3{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.hgrid.cols-3,.hgrid.cols-2{grid-template-columns:1fr}}
+
+.ico{width:42px;height:42px;border:1px solid var(--ink);display:grid;place-items:center;margin-bottom:24px;font-size:18px}
+.card h3{font-size:19px;margin-bottom:10px}
+.card p{color:var(--grey);font-size:14.5px}
+.card ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:9px}
+.card li{font-size:13.5px;color:var(--grey);display:flex;gap:9px;align-items:flex-start}
+.card li::before{content:'→';flex-shrink:0}
+.hgrid.hoverable>.card:hover li{color:rgba(255,255,255,.68)}
+
+/* problems */
+.prob{display:flex;gap:18px}
+.prob .n{font-family:var(--mono);font-size:13px;color:var(--grey);padding-top:2px;flex-shrink:0}
+.hgrid.hoverable>.prob:hover .n{color:rgba(255,255,255,.68)}
+.prob h4{font-size:16.5px;margin-bottom:8px}
+.prob p{font-size:14px;color:var(--grey)}
+
+/* hero */
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--ink);font-family:var(--mono);font-size:12px;letter-spacing:.03em;margin-bottom:30px}
+.pill b{background:var(--red);color:var(--bg);padding:3px 8px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.dot{width:6px;height:6px;background:var(--red);animation:pulse 1.8s infinite steps(2)}
+@keyframes pulse{50%{opacity:.15}}
+h1.hero-h{font-size:clamp(38px,7vw,84px);max-width:16ch;margin-bottom:30px}
+h1.hero-h span.accent{color:var(--red)}
+.hero-p{font-size:clamp(15.5px,1.3vw,18px);color:var(--grey);max-width:56ch;margin-bottom:36px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:26px}
+.micro{font-family:var(--mono);font-size:12.5px;color:var(--ink);display:flex;gap:22px;flex-wrap:wrap}
+.micro span{display:flex;align-items:center;gap:8px}
+.tick{color:var(--red)}
+
+/* live panel */
+.panel{margin-top:56px;border:1px solid var(--ink)}
+.panel-top{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--ink);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.panel-top .dots{display:flex;gap:6px}
+.panel-top .dots i{width:8px;height:8px;background:var(--line2);display:block}
+.panel-body{display:grid;grid-template-columns:1.35fr 1fr}
+.feed{padding:20px;border-right:1px solid var(--ink);min-height:290px}
+.frow{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line2);opacity:0;transform:translateY(6px);animation:fin .4s linear forwards}
+@keyframes fin{to{opacity:1;transform:none}}
+.frow:last-child{border:0}
+.av{width:32px;height:32px;border:1px solid var(--ink);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:600;flex-shrink:0}
+.fmain{flex:1;min-width:0}
+.fmain b{display:block;font-size:13.5px;font-weight:600}
+.fmain small{color:var(--grey);font-family:var(--mono);font-size:11px}
+.tag{font-family:var(--mono);font-size:10px;font-weight:600;padding:4px 8px;letter-spacing:.03em;text-transform:uppercase;flex-shrink:0;border:1px solid var(--ink)}
+.t-ok{background:var(--ink);color:var(--bg)}
+.t-ac{background:var(--bg);color:var(--ink)}
+.t-vi{background:var(--bg);color:var(--grey);border-color:var(--grey)}
+.stats-col{padding:20px;display:flex;flex-direction:column;gap:16px}
+.scard{border:1px solid var(--ink);padding:16px}
+.scard small{font-family:var(--mono);font-size:11px;color:var(--grey);text-transform:uppercase;letter-spacing:.07em}
+.scard b{display:block;font-family:var(--mono);font-size:30px;font-weight:700;margin-top:8px;letter-spacing:-.02em}
+.bar{height:3px;background:var(--line2);margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width 1.3s linear}
+
+/* ticker */
+.ticker-sec{padding:36px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);overflow:hidden}
+.tlabel{font-family:var(--mono);font-size:11px;color:var(--grey);letter-spacing:.1em;text-transform:uppercase;margin-bottom:26px;padding:0 40px}
+.marq{display:flex;gap:64px;width:max-content;animation:scroll 32s linear infinite}
+.marq span{font-family:var(--sans);font-size:22px;font-weight:700;color:var(--ink);white-space:nowrap;letter-spacing:-.02em;text-transform:uppercase;transition:color .15s linear}
+.marq span:hover{color:var(--red)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.mask-x{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+
+/* stat band */
+.band{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink)}
+.band div{border-right:1px solid var(--ink);padding:34px 26px}
+.band div:last-child{border-right:0}
+.band b{display:block;font-family:var(--mono);font-size:clamp(30px,3.4vw,46px);font-weight:700;letter-spacing:-.02em;text-align:right}
+.band p{color:var(--grey);font-size:13.5px;margin-top:10px;text-align:right}
+@media(max-width:800px){.band{grid-template-columns:1fr 1fr}.band div:nth-child(2){border-right:0}}
+@media(max-width:520px){.band{grid-template-columns:1fr}.band div{border-right:0;border-bottom:1px solid var(--ink)}.band div:last-child{border-bottom:0}}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.step{padding:28px 24px 4px;border-right:1px solid var(--ink);position:relative}
+.step:last-child{border-right:0}
+.step::before{content:'';position:absolute;top:-1px;left:0;width:0;height:1px;background:var(--ink);transition:width .8s cubic-bezier(.65,0,.35,1)}
+.step.on::before{width:100%}
+.step .k{font-family:var(--mono);font-size:11px;color:var(--grey);letter-spacing:.08em;font-weight:600;margin-bottom:14px}
+.step h4{font-size:19px;margin-bottom:10px}
+.step p{font-size:14px;color:var(--grey)}
+@media(max-width:800px){.steps{grid-template-columns:1fr 1fr}.step{border-bottom:1px solid var(--ink);padding-bottom:24px}.step:nth-child(2){border-right:0}.step:nth-child(4){border-right:0}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}.step{border-right:0!important}}
+
+/* calculator */
+.calc{border:1px solid var(--ink);display:grid;grid-template-columns:.9fr 1.1fr}
+.calc-in{padding:32px;border-right:1px solid var(--ink);display:flex;flex-direction:column;gap:26px}
+.fld{display:block}
+.flab{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);font-weight:600;margin-bottom:10px}
+.flab b{font-family:var(--mono);font-size:14px}
+.fld small{display:block;font-family:var(--mono);font-size:11.5px;color:var(--grey);margin-top:9px;line-height:1.5}
+.fld select,.money input{width:100%;background:var(--bg);border:1px solid var(--ink);padding:13px 15px;color:var(--ink);font-family:var(--mono);font-size:14px;outline:none;-webkit-appearance:none;appearance:none}
+.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:38px;cursor:pointer}
+.fld select option{background:var(--bg);color:var(--ink)}
+.fld select:focus,.money input:focus{outline:2px solid var(--ink);outline-offset:-2px}
+.money{position:relative}
+.money i{position:absolute;left:15px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--grey);font-size:14px;font-family:var(--mono)}
+.money input{padding-left:30px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink)}
+.seg button{background:var(--bg);border:0;border-right:1px solid var(--ink);color:var(--ink);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em;font-weight:600;padding:12px 6px;cursor:pointer;transition:.12s linear}
+.seg button:last-child{border-right:0}
+.seg button:hover{background:var(--line2)}
+.seg button.on{background:var(--ink);color:var(--bg)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--ink);outline:none;margin-top:6px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;background:var(--ink);cursor:pointer;transition:transform .12s linear}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border:0;background:var(--ink);cursor:pointer}
+.calc-out{display:flex;flex-direction:column}
+.res{display:grid;grid-template-columns:1fr 1fr}
+.res>div{padding:28px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.res>div:nth-child(2n){border-right:0}
+.res>div:nth-last-child(-n+2){border-bottom:0}
+.res small{display:block;font-family:var(--mono);font-size:11.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.res b{font-family:var(--mono);font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1;display:block;text-align:right;transition:opacity .1s linear}
+.res b.hi{color:var(--red)}
+.res b.flash{opacity:.3}
+.res-foot{border-top:1px solid var(--ink);padding:24px 28px;display:flex;gap:22px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.res-foot p{font-size:13.5px;color:var(--grey);max-width:44ch;margin:0}
+.disc{margin-top:22px;font-family:var(--mono);font-size:11.5px;color:var(--grey);max-width:92ch;line-height:1.7}
+@media(max-width:900px){.calc{grid-template-columns:1fr}.calc-in{border-right:0;border-bottom:1px solid var(--ink)}}
+@media(max-width:520px){.res{grid-template-columns:1fr}.res>div{border-right:0!important}.res>div:last-child{border-bottom:0}}
+
+/* pricing table */
+.ptable{margin-top:26px;border:1px solid var(--ink);overflow-x:auto}
+.ptable table{width:100%;border-collapse:collapse;min-width:660px}
+.ptable th,.ptable td{padding:15px 20px;text-align:right;font-family:var(--mono);font-size:13px;border-bottom:1px solid var(--line2);color:var(--ink);font-weight:400}
+.ptable th{background:var(--ink);color:var(--bg);font-family:var(--mono);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.ptable tr td:first-child,.ptable tr th:first-child{text-align:left;color:var(--ink);font-weight:500;width:38%;font-family:var(--sans);letter-spacing:0;text-transform:none}
+.ptable tbody tr:hover td{background:var(--line2)}
+.ptable tr:last-child td{border-bottom:0}
+.ptable .y{color:var(--ink);font-weight:700}
+.ptable .n{color:var(--grey)}
+.ptable th.pop{background:var(--red)}
+
+/* case */
+.case{display:flex;flex-direction:column}
+.case-top{padding:28px;border-bottom:1px solid var(--ink);flex:1}
+.hgrid.hoverable>.case:hover .case-top{border-color:var(--bg)}
+.case-top small{font-family:var(--mono);font-size:11px;color:var(--grey);letter-spacing:.06em;text-transform:uppercase}
+.hgrid.hoverable>.case:hover .case-top small{color:rgba(255,255,255,.68)}
+.case-top h4{font-size:19px;margin:10px 0 12px}
+.case-top p{font-size:14px;color:var(--grey)}
+.case-num{display:grid;grid-template-columns:1fr 1fr}
+.case-num div{padding:20px 24px;border-right:1px solid var(--ink)}
+.case-num div:last-child{border-right:0}
+.hgrid.hoverable>.case:hover .case-num div{border-color:var(--bg)}
+.case-num b{display:block;font-family:var(--mono);font-size:25px;font-weight:700;letter-spacing:-.02em}
+.case-num small{font-size:11.5px;color:var(--grey);font-family:var(--mono)}
+
+/* testimonials */
+.quote{display:flex;flex-direction:column;gap:18px}
+.stars{font-family:var(--mono);font-size:14px;letter-spacing:2px}
+.quote p{font-size:15px;flex:1}
+.who{display:flex;align-items:center;gap:12px}
+.who .av{width:36px;height:36px;border:1px solid var(--ink);color:var(--ink);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:600}
+.hgrid.hoverable>.quote:hover .who .av{border-color:var(--bg)}
+.who b{font-size:13.5px;font-weight:600;display:block}
+.who small{font-size:12px;color:var(--grey);font-family:var(--mono)}
+
+/* pricing */
+.pricegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--ink);border-right:0}
+.price{border-right:1px solid var(--ink);padding:34px;display:flex;flex-direction:column;position:relative}
+.price.hot{background:var(--ink);color:var(--bg)}
+.badge{position:absolute;top:0;left:0;background:var(--red);color:var(--bg);font-family:var(--mono);font-size:11px;font-weight:700;padding:6px 14px;letter-spacing:.05em;text-transform:uppercase}
+.price h3{font-size:19px}
+.price .amt{font-family:var(--mono);font-size:38px;font-weight:700;letter-spacing:-.02em;margin:30px 0 6px}
+.price .amt small{font-size:14px;color:var(--grey);font-weight:400;font-family:var(--mono)}
+.price.hot .amt small{color:rgba(255,255,255,.6)}
+.price>p{font-size:13.5px;color:var(--grey);margin-bottom:24px}
+.price.hot>p{color:rgba(255,255,255,.68)}
+.price.hot .amt b,.price.hot p b{color:var(--red)!important}
+.price ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1}
+.price li{font-size:13.5px;color:var(--grey);display:flex;gap:10px;align-items:flex-start}
+.price.hot li{color:rgba(255,255,255,.68)}
+.price li::before{content:'✓';color:var(--ink);font-weight:700;flex-shrink:0}
+.price.hot li::before{color:var(--bg)}
+@media(max-width:800px){.pricegrid{grid-template-columns:1fr}.price{border-right:0;border-bottom:1px solid var(--ink)}}
+
+/* faq */
+.faq{border-bottom:1px solid var(--ink)}
+.faq button{width:100%;background:none;border:0;color:var(--ink);text-align:left;padding:26px 0;font-family:var(--sans);font-size:17.5px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;letter-spacing:-.02em}
+.faq .pm{font-family:var(--mono);font-size:20px;transition:transform .25s linear;line-height:1;flex-shrink:0}
+.faq.open .pm{transform:rotate(45deg)}
+.faq .ans{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.65,0,.35,1)}
+.faq .ans p{padding-bottom:26px;color:var(--grey);font-size:14.8px;max-width:75ch}
+
+/* cta */
+.cta-box{border:1px solid var(--ink);padding:64px 40px;text-align:center}
+.cta-box h2{margin:0 auto 18px;max-width:18ch}
+.cta-box .lead{margin:0 auto 32px}
+.cta-in{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* footer */
+footer{border-top:1px solid var(--ink);padding:56px 0 0}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;border-top:1px solid var(--ink)}
+.fgrid>div{padding:32px;border-right:1px solid var(--ink)}
+.fgrid>div:last-child{border-right:0}
+.fgrid h5{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--grey);margin-bottom:18px;font-weight:600}
+.fgrid a.logo{display:inline-flex;font-size:18px;color:var(--ink);margin-bottom:18px}
+.fgrid a,.fgrid p{display:block;color:var(--grey);font-size:13.8px;margin-bottom:11px}
+.fgrid a:hover{color:var(--red)}
+.fbot{border-top:1px solid var(--ink);padding:22px 40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:var(--grey);max-width:var(--max);margin:0 auto}
+@media(max-width:800px){.fgrid{grid-template-columns:1fr 1fr}.fgrid>div{border-bottom:1px solid var(--ink)}}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s linear,transform .6s cubic-bezier(.65,0,.35,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .nlinks,.nav-in .btn{display:none}
+  .burger{display:flex}
+  .panel-body{grid-template-columns:1fr}
+  .feed{border-right:0;border-bottom:1px solid var(--ink)}
+}
+@media(max-width:640px){
+  .wrap{padding:0 18px}
+  .sec{padding:56px 0}
+  .head-row{margin-bottom:32px}
+  .cta-box{padding:40px 20px}
+  .nav-in{padding:16px 18px}
+  nav.stuck .nav-in{padding:12px 18px}
+}
+@media(max-width:380px){
+  .wrap{padding:0 14px}
+  .price,.calc-in,.hgrid>*,.fgrid>div{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#" class="logo"><i>A</i>Aviance</a>
+    <div class="nlinks">
+          <a href="#process">Process</a>
+          <a href="#calculator">ROI calculator</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          </div>
+    <a href="#book" class="btn btn-p">Book a call →</a>
+    <div class="burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-sec">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div class="sec-idx"><b>00</b> / Intro</div>
+      <div>
+        <div class="pill rv"><b>Cold email</b><span class="dot"></span> One channel · guaranteed booked calls · live in 3 weeks</div>
+        <h1 class="hero-h rv">We don't sell emails. We sell <span class="accent">guaranteed booked calls</span> — on your calendar.</h1>
+        <p class="hero-p rv">Aviance is a done-for-you outbound engine for B2B teams. Domains, warmed inboxes, verified prospect lists, copywriting, sending and reply handling — all run by us. You show up to the calls. Every plan comes with a guaranteed number of booked discovery calls each month.</p>
+        <div class="hero-cta rv">
+          <a href="#book" class="btn btn-p btn-lg">Book a call</a>
+          <a href="#calculator" class="btn btn-g btn-lg">Calculate your return</a>
+        </div>
+        <div class="micro rv">
+          <span><i class="tick">✓</i> Live within 3 weeks — guaranteed</span>
+          <span><i class="tick">✓</i> No-shows replaced free</span>
+          <span><i class="tick">✓</i> No setup fee · month-to-month</span>
+        </div>
+
+        
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE STRIP -->
+<section class="ticker-sec">
+  <div class="tlabel">What we put in writing</div>
+  <div class="mask-x"><div class="marq" id="marq"></div></div>
+</section>
+
+<!-- STATS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div class="sec-idx"><b>01</b> / Numbers</div>
+      <div class="band rv">
+        <div><b><span class="cnt" data-to="3">0</span> weeks</b><p>To your first booked calls — guaranteed</p></div>
+        <div><b><span class="cnt" data-to="50">0</span>/mo</b><p>Guaranteed booked calls on our top plan</p></div>
+        <div><b>$<span class="cnt" data-to="170">0</span></b><p>Lowest cost per booked discovery call</p></div>
+        <div><b>$<span class="cnt" data-to="0">0</span></b><p>Setup fees, hidden infra charges, ever</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+
+
+<!-- SERVICES -->
+
+
+<!-- PROCESS -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div class="sec-idx"><b>02</b> / Process</div>
+      <div>
+        <div class="head-row rv">
+          <div><div class="eyebrow">Your first 3 weeks</div><h2 class="reveal">Kickoff to calls on your calendar in 21 days</h2></div>
+          <p class="lead">A fixed, transparent build. You approve everything before a single email goes out. If campaigns aren't live within 3 weeks, your next month is free.</p>
+        </div>
+        <div class="steps" id="steps">
+          <div class="step rv"><div class="k">WEEK 1 — FOUNDATION</div><h4>Kickoff &amp; setup</h4><p>Kickoff call, ideal customer profile agreed and signed off, domains purchased, inboxes created and placed into warmup.</p></div>
+          <div class="step rv"><div class="k">WEEK 2 — BUILD</div><h4>Lists, copy &amp; calendar</h4><p>Verified prospect list built, email sequences written and approved by you, calendar and booking flow connected, deliverability tested.</p></div>
+          <div class="step rv"><div class="k">WEEK 3 — LAUNCH</div><h4>Campaigns go live</h4><p>Sending starts and the first discovery calls land on your calendar. From here, your monthly guarantee is in effect.</p></div>
+          <div class="step rv"><div class="k">ONGOING</div><h4>Guarantee in force</h4><p>Your guaranteed call count every month. Any shortfall rolls over on top of next month's number. No-shows are replaced free.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEQUENCE ANATOMY -->
+
+
+<!-- CALCULATOR -->
+<section class="sec" id="calculator">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div class="sec-idx"><b>03</b> / Calculator</div>
+      <div>
+        <div class="rv" style="margin-bottom:40px">
+          <div class="eyebrow">ROI calculator</div>
+          <h2 class="reveal" style="max-width:24ch">We track revenue, not emails sent</h2>
+          <p class="lead" style="margin-top:16px">Enter your numbers to see what a year of guaranteed booked calls could realistically return.</p>
+        </div>
+
+        <div class="calc rv">
+          <div class="calc-in">
+            <div class="fld">
+              <span class="flab">Your plan</span>
+              <div class="seg" id="segPlan">
+                <button type="button" data-plan="starter">Starter</button>
+                <button type="button" data-plan="growth" class="on">Growth</button>
+                <button type="button" data-plan="scale">Scale</button>
+              </div>
+              <small id="planNote">20 guaranteed booked calls / month &middot; $3,997 per month</small>
+            </div>
+
+            <label class="fld">
+              <span class="flab">Your industry</span>
+              <select id="ind">
+                <option value="22" data-deal="25000">SaaS &amp; Software</option>
+                <option value="18" data-deal="40000">Fintech &amp; Finance</option>
+                <option value="25" data-deal="18000">Logistics &amp; Supply Chain</option>
+                <option value="20" data-deal="35000">Manufacturing</option>
+                <option value="28" data-deal="15000">Consulting &amp; Agencies</option>
+                <option value="24" data-deal="22000">IT Services</option>
+                <option value="15" data-deal="50000">Healthcare</option>
+                <option value="20" data-deal="25000">Other B2B</option>
+              </select>
+              <small>Sets a benchmark close rate and deal size. Override both below.</small>
+            </label>
+
+            <label class="fld">
+              <span class="flab">Average sales cycle</span>
+              <select id="cyc">
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>
+                <option value="3" selected>3 months</option>
+                <option value="6">6 months</option>
+                <option value="9">9 months</option>
+                <option value="12">12 months</option>
+              </select>
+            </label>
+
+            <label class="fld">
+              <span class="flab">Average deal size (USD)</span>
+              <div class="money"><i>$</i><input type="text" id="deal" value="25,000" inputmode="numeric"></div>
+            </label>
+
+            <label class="fld">
+              <span class="flab">Average close rate <b id="crv">22%</b></span>
+              <input type="range" id="cr" min="1" max="60" value="22">
+              <small>Share of discovery calls that become closed-won deals.</small>
+            </label>
+          </div>
+
+          <div class="calc-out">
+            <div class="res">
+              <div><small>Booked calls / year</small><b id="oCalls">225</b></div>
+              <div><small>Projected revenue</small><b class="hi" id="oRev">$1.24M</b></div>
+              <div><small>Deals closed / year</small><b id="oDeals">50</b></div>
+              <div><small>ROI / year</small><b class="hi" id="oRoi">2,480%</b></div>
+            </div>
+            <div class="res-foot">
+              <p id="foot"></p>
+              <a href="#book" class="btn btn-p">Book a call &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <p class="disc rv">Illustrative only. Figures assume a 3-week setup followed by your guaranteed call volume every month, and show the full value of 12 months of booked calls at your close rate — your sales cycle determines how much of that is recognised in year one versus year two. ROI is measured against 12 monthly payments. No-shows are replaced free, so every call counted here is a call that actually happens. Actual results depend on your offer, market and sales process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEFINITIONS -->
+
+
+<!-- DELIVERABLES -->
+
+
+<!-- DIFFERENTIATORS -->
+
+
+<!-- WHAT WE DON'T PROMISE -->
+
+
+<!-- WORKSTREAMS -->
+
+
+<!-- PRICING -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div class="sec-idx"><b>04</b> / Pricing</div>
+      <div>
+        <div style="margin-bottom:44px" class="rv">
+          <div class="eyebrow">Plans &amp; pricing</div>
+          <h2 class="reveal" style="max-width:26ch">Simple monthly subscription. Guaranteed calls.</h2>
+          <p class="lead">You're not paying for outreach activity — you're paying for outcomes. No setup fees, no hidden infrastructure charges, and your first calls are on the calendar within three weeks of kickoff &mdash; guaranteed.</p>
+        </div>
+
+        <!-- transparent pricing rule -->
+        <div class="rule-box rv">
+          <div class="rule-lab">Transparent by design — how our pricing works</div>
+          <p class="rule-body">There is no pricing mystery here, and no plan built to look bad so another one looks good. Every plan on this page is generated by a single rule:</p>
+          <div class="rule-formula"><b>$2,497</b> for your first 10 booked calls <span>·</span> <b>$150</b> for every call after that</div>
+          <p class="rule-body">The more calls you take, the less each one costs — <b>$250</b> per call at Starter, <b>$200</b> at Growth, <b>$170</b> at Scale. The larger plans are genuinely the better value per call, and you can check the arithmetic yourself. The only real question is how many conversations a month your sales team can actually handle.</p>
+        </div>
+
+        <div class="pricegrid rv">
+          <div class="price">
+            <h3>Starter</h3>
+            <div class="amt">$2,497<small>/mo</small></div>
+            <p><b>10 guaranteed booked calls</b> &middot; $250 per call<br>Proving the channel works.</p>
+            <ul><li>The full engine — infrastructure, lists, copy, reply handling</li><li>ICP Blueprint researched, documented and signed off</li><li>Verified lists rebuilt and re-verified monthly</li><li>No-show replacement, free of charge</li></ul>
+            <a href="#book" class="btn btn-g">Get started</a>
+          </div>
+          <div class="price hot">
+            <div class="badge">★ Most popular</div>
+            <h3>Growth</h3>
+            <div class="amt">$3,997<small>/mo</small></div>
+            <p><b>20 guaranteed booked calls</b> &middot; $200 per call<br>Building a real pipeline.</p>
+            <ul><li>Everything in Starter</li><li>Twice the calls for $1,500 more — cost per call drops a fifth</li><li>Dedicated strategist</li><li>Up to 3 campaign segments · monthly sequence rewrites</li></ul>
+            <a href="#book" class="btn btn-red">Book a call</a>
+          </div>
+          <div class="price">
+            <h3>Scale</h3>
+            <div class="amt">$8,497<small>/mo</small></div>
+            <p><b>50 guaranteed booked calls</b> &middot; $170 per call<br>Outbound as the growth engine.</p>
+            <ul><li>Everything in Growth</li><li>More than two booked calls every working day</li><li>Unlimited segments · continuous sequence refresh</li><li>Multi-market &amp; multi-language expansion</li></ul>
+            <a href="#book" class="btn btn-g">Talk to us</a>
+          </div>
+        </div>
+
+        <p class="ent rv">Running multiple brands, regions or product lines? <b>Enterprise programmes start at $15,000 per month</b> and are built around your structure — dedicated pods, custom volume, and commercial terms to match. <a href="#book">Let's talk →</a></p>
+
+        <p class="tblnote">Full feature-by-feature comparison of all three plans is available on the call, or ask us to send the one-page pricing sheet.</p>
+
+        <div class="hgrid cols-3 hoverable" style="margin-top:26px">
+          <div class="card rv"><div class="ico">◆</div><h3>What counts as a booked call</h3><p>A prospect matching the ideal customer profile we agreed at kickoff, who has accepted a meeting at a confirmed time on your calendar. If they don't show, we replace that call free of charge — no-shows never count toward your number.</p></div>
+          <div class="card rv"><div class="ico">↻</div><h3>If we miss your number</h3><p>The shortfall rolls over — we owe you those calls on top of next month's guarantee. And if your campaigns are not live within three weeks of kickoff, your next month is free.</p></div>
+          <div class="card rv"><div class="ico">⇄</div><h3>Month-to-month</h3><p>Billed monthly in advance, in USD. Upgrade at any point with prorated billing; downgrade or cancel with 14 days' notice before your next billing date. Domains, inboxes, warmup, data and software all included.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div class="sec-idx"><b>05</b> / FAQ</div>
+      <div style="max-width:840px">
+        <div style="margin-bottom:36px" class="rv">
+          <div class="eyebrow">FAQ</div>
+          <h2 class="reveal">Questions we get asked most</h2>
+        </div>
+        <div class="rv">
+          
+      
+      <div class="faq"><button>What if you miss my guaranteed number?<span class="pm">+</span></button><div class="ans"><p>The shortfall rolls over. If we deliver fewer than your guaranteed calls in a month, we owe you those calls on top of next month's number. They don't expire and you don't pay extra for them.</p></div></div>
+      <div class="faq"><button>How do I know the meetings will actually be a fit?<span class="pm">+</span></button><div class="ans"><p>Because you define the criteria before anything sends. In week one we agree and document your ideal customer profile — company size, sector, roles, and the accounts to exclude — and you sign it off. A call only counts toward your guarantee if the prospect matches it. We don't move those criteria later to make a month look better.</p></div></div>
+      <div class="faq"><button>How fast will I see my first booked call?<span class="pm">+</span></button><div class="ans"><p>Three weeks. Week one is foundation — kickoff call, ICP signed off, domains purchased, inboxes into warmup. Week two is build — verified list, sequences written and approved by you, calendar and booking flow connected. Week three, campaigns go live and calls start landing. If we're not live within 3 weeks of kickoff, your next month is free.</p></div></div>
+          <div class="faq"><button>What exactly counts as a "booked call"?<span class="pm">+</span></button><div class="ans"><p>So there's never any ambiguity: a prospect matching the ideal customer profile we agreed at kickoff, who has accepted a meeting at a confirmed time on your calendar. Nothing looser than that gets counted toward your guarantee.</p></div></div>
+          <div class="faq"><button>What happens if a prospect no-shows?<span class="pm">+</span></button><div class="ans"><p>We replace that call free of charge. No-shows never count toward your monthly number — only calls that actually happen do.</p></div></div>
+          
+          
+          
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" id="book">
+  <div class="wrap">
+    <div class="cta-box rv">
+      <div class="eyebrow" style="justify-content:center">Let's talk</div>
+      <h2 class="reveal">Your first guaranteed calls are 3 weeks away</h2>
+      <p class="lead">Book a 30-minute call. We'll agree your ideal customer profile, pick the plan that matches your close rate, and start the 3-week build. Your first guaranteed discovery calls are three weeks away.</p>
+      <div class="cta-in">
+        <a href="mailto:aviancelk@gmail.com" class="btn btn-red btn-lg">Book a call</a>
+        <a href="mailto:aviancelk@gmail.com" class="btn btn-g btn-lg">Email us instead</a>
+      </div>
+      <p class="mono" style="margin-top:26px;font-size:12px;color:var(--grey)">No pitch deck, no pressure — we will tell you on the call if outbound is wrong for your offer</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="#" class="logo" style="margin-bottom:18px"><i>A</i>Aviance</a>
+        <p style="max-width:34ch">AI-native cold email and appointment setting for B2B teams that need a pipeline they can count on.</p>
+        <p style="margin-top:16px"><a href="mailto:aviancelk@gmail.com">aviancelk@gmail.com</a></p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <a href="#services">Cold email outreach</a>
+        <a href="#services">Appointment setting</a>
+        <a href="#services">Deliverability consulting</a>
+        <a href="#services">Lead research</a>
+        <a href="#services">Outsourced SDR</a>
+      </div>
+      <div>
+        <h5>Industries</h5>
+        <a href="#">SaaS &amp; Software</a>
+        <a href="#">Fintech &amp; Finance</a>
+        <a href="#">Logistics</a>
+        <a href="#">Manufacturing</a>
+        <a href="#">Consulting &amp; Agencies</a>
+        <a href="#">Healthcare</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="#calculator">ROI calculator</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#process">Our process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#book">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 Aviance Inc. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Use · Cookie Policy</span>
+  </div>
+</footer>
+
+<script>
+// nav
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>30));
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+
+// counters
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return; cio.unobserve(e.target);
+  const el=e.target,to=+el.dataset.to;let s=null;
+  const step=t=>{if(!s)s=t;const p=Math.min((t-s)/1400,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);
+}),{threshold:.5});
+document.querySelectorAll('.cnt').forEach(el=>cio.observe(el));
+
+// bars
+const bio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';bio.unobserve(e.target)}}),{threshold:.5});
+document.querySelectorAll('.bar i').forEach(el=>bio.observe(el));
+
+// steps
+const sio=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*180);sio.unobserve(e.target)}}),{threshold:.4});
+document.querySelectorAll('.step').forEach(el=>sio.observe(el));
+
+// ticker
+const logos=['Live in 3 weeks — guaranteed','No-shows replaced free','Shortfall rolls over','No setup fee','Month-to-month','You approve the copy','Raw data, exportable','Your domain never used for cold sending'];
+document.getElementById('marq').innerHTML=[...logos,...logos].map(l=>`<span>${l}</span>`).join('');
+
+// faq
+document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',()=>{
+  const f=b.parentElement,a=f.querySelector('.ans'),open=f.classList.contains('open');
+  document.querySelectorAll('.faq').forEach(x=>{x.classList.remove('open');x.querySelector('.ans').style.maxHeight=null});
+  if(!open){f.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+}));
+
+// (live campaign feed removed — nothing simulated on this page)
+
+/* ---------- ROI CALCULATOR ---------- */
+const PLANS={
+  starter:{calls:10,price:2497,label:'10'},
+  growth :{calls:20,price:3997,label:'20'},
+  scale  :{calls:50,price:8497,label:'50'}
+};
+const SETUP_MONTHS=0.75;               // 3-week build before campaigns go live
+const ACTIVE=12-SETUP_MONTHS;          // months of guaranteed calls in year one
+let plan='growth';
+
+const $=id=>document.getElementById(id);
+const fmtMoney=n=>{
+  if(n>=1e9)return '$'+(n/1e9).toFixed(n/1e9<10?2:1)+'B';
+  if(n>=1e6)return '$'+(n/1e6).toFixed(n/1e6<10?2:1)+'M';
+  if(n>=1e3)return '$'+Math.round(n/1e3)+'K';
+  return '$'+Math.round(n).toLocaleString();
+};
+const fmtNum=n=>Math.round(n).toLocaleString();
+
+function flash(el,val){ if(el.textContent===val)return; el.classList.add('flash');
+  setTimeout(()=>{el.textContent=val;el.classList.remove('flash')},110); }
+
+function calc(){
+  const p=PLANS[plan];
+  const cycle=+$('cyc').value;
+  const close=+$('cr').value/100;
+  const deal=+($('deal').value.replace(/[^0-9]/g,''))||0;
+
+  const callsYear   = p.calls*ACTIVE;                       // calls booked in 12 months
+  const deals       = callsYear*close;                      // deals from a full year of calls
+  const revenue     = deals*deal;
+  const cost        = p.price*12;
+  const roi         = (revenue-cost)/cost*100;
+  // how much of that revenue is recognised inside the first 12 months
+  const inYear      = Math.round(Math.max(0,Math.min(1,(ACTIVE-cycle)/ACTIVE))*100);
+  const firstRev    = Math.round(SETUP_MONTHS+1+cycle);
+
+  flash($('oCalls'),fmtNum(callsYear));
+  flash($('oDeals'),fmtNum(deals));
+  flash($('oRev'),fmtMoney(revenue));
+  flash($('oRoi'),(roi>=0?'':'−')+fmtNum(Math.abs(roi))+'%');
+
+  $('planNote').innerHTML=p.calls+' guaranteed booked calls / month &middot; $'+p.price.toLocaleString()+' per month';
+  $('crv').textContent=$('cr').value+'%';
+  $('foot').innerHTML='Based on <b style="color:#FF5C3D;font-weight:600">'+p.calls+' guaranteed calls a month</b> at $'+
+    p.price.toLocaleString()+'/mo, live from week 3 — no-shows replaced free. With a '+cycle+'-month sales cycle, first revenue lands around <b style="color:var(--ink);font-weight:600">month '+firstRev+
+    '</b> and roughly <b style="color:var(--ink);font-weight:600">'+inYear+'%</b> of the above is recognised inside the first 12 months.';
+}
+
+$('segPlan').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-plan]'); if(!b)return;
+  plan=b.dataset.plan;
+  [...$('segPlan').children].forEach(x=>x.classList.toggle('on',x===b));
+  calc();
+});
+$('ind').addEventListener('change',e=>{
+  const o=e.target.selectedOptions[0];
+  $('cr').value=o.value;
+  $('deal').value=(+o.dataset.deal).toLocaleString();
+  calc();
+});
+$('cyc').addEventListener('change',calc);
+$('cr').addEventListener('input',calc);
+$('deal').addEventListener('input',e=>{
+  const raw=e.target.value.replace(/[^0-9]/g,'');
+  e.target.value=raw?(+raw).toLocaleString():'';
+  calc();
+});
+$('deal').addEventListener('blur',()=>{ if(!$('deal').value){$('deal').value='25,000';calc()} });
+calc();
+
+// burger
+document.querySelector('.burger').addEventListener('click',()=>{
+  const l=document.querySelector('.nlinks');
+  const open=l.style.display==='flex';
+  Object.assign(l.style,open?{display:'none'}:{display:'flex',position:'absolute',top:'62px',left:'0',right:'0',background:'#fff',flexDirection:'column',padding:'24px',gap:'18px',borderBottom:'1px solid #000',borderTop:'1px solid #000'});
+});
+</script>
+<style id="mobile-fix">
+
+
+
+/* ---- definitions list ---- */
+.deflist{border-top:1px solid var(--ink)}
+.defrow{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:24px 0;border-bottom:1px solid var(--line2)}
+.js .defrow{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.defrow.in{opacity:1;transform:none}
+.dt{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding-top:2px}
+.dd{font-size:15px;color:var(--grey);max-width:74ch;line-height:1.65}
+@media(max-width:760px){.defrow{grid-template-columns:1fr;gap:8px}}
+
+/* ---- sequence anatomy ---- */
+.seq{border-top:1px solid var(--ink)}
+.seqrow{display:grid;grid-template-columns:110px 1fr 110px;gap:28px;align-items:start;padding:22px 0;border-bottom:1px solid var(--line2);position:relative}
+.js .seqrow{opacity:0;transform:translateX(-16px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
+.seqrow.in{opacity:1;transform:none}
+.sday{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.06em}
+.sbody b{display:block;font-size:16.5px;font-weight:600;margin-bottom:6px;letter-spacing:-.02em}
+.sbody p{font-size:14.2px;color:var(--grey);max-width:70ch;margin:0}
+.slen{font-family:var(--mono);font-size:11.5px;color:var(--grey);text-align:right;padding-top:3px}
+.seqnote{margin-top:22px;padding-left:20px;border-left:3px solid var(--red);font-size:14.5px;color:var(--grey);max-width:80ch}
+@media(max-width:760px){.seqrow{grid-template-columns:1fr;gap:6px}.slen{text-align:left}}
+
+/* ---- boundaries ("what we won't promise") ---- */
+.nope{width:34px;height:34px;border:1px solid var(--red);color:var(--red);display:grid;place-items:center;
+  font-size:15px;margin-bottom:20px;font-family:var(--mono)}
+.hgrid.hoverable>.card:hover .nope{border-color:var(--bg);color:var(--bg)}
+
+/* ================= MOTION LAYER ================= */
+/* scroll progress */
+.prog{position:fixed;top:0;left:0;height:2px;background:var(--red);z-index:200;width:0;transition:width .08s linear}
+/* nav hides going down, returns coming up */
+nav{transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+nav.hide{transform:translateY(-102%)}
+/* live section rail */
+.railmark{position:fixed;left:14px;top:50%;right:auto;bottom:auto;transform:translateY(-50%);z-index:90;display:none;flex-direction:column;gap:9px;width:auto;height:auto;background:none!important;border:0!important;padding:0;margin:0;box-shadow:none}
+@media(min-width:1200px){.railmark{display:flex}}
+.railmark a{width:22px;height:2px;background:var(--ink);opacity:.18;transition:.3s;display:block}
+.railmark a:hover{opacity:.55}
+.railmark a.on{opacity:1;background:var(--red);width:34px}
+/* word-by-word headline reveal */
+h2.reveal .wd{display:inline-block;overflow:hidden;vertical-align:bottom}
+.js h2.reveal .wd i{display:inline-block;font-style:normal;transform:translateY(105%);
+  transition:transform .62s cubic-bezier(.16,.9,.3,1)}
+h2.reveal.in .wd i{transform:translateY(0)}
+/* staggered grid entry */
+.js .hgrid>*{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
+.hgrid>*.in{opacity:1;transform:none}
+/* calculator digit roll */
+.res b{transition:opacity .12s linear,transform .18s cubic-bezier(.2,.8,.2,1)}
+.res b.roll{opacity:0;transform:translateY(-8px)}
+/* primary button gets a sweep */
+.btn-p,.btn-red{position:relative;overflow:hidden;isolation:isolate}
+.btn-p::after,.btn-red::after{content:'';position:absolute;inset:0;background:var(--bg);
+  transform:scaleX(0);transform-origin:right;transition:transform .34s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.btn-p:hover::after,.btn-red:hover::after{transform:scaleX(1);transform-origin:left}
+/* rules that draw themselves */
+.drawline{position:relative}
+.drawline::after{content:'';position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--ink);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.drawline.in::after{width:100%}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hgrid>*,.defrow,.seqrow{opacity:1!important;transform:none!important}
+  h2.reveal .wd i{transform:none!important}
+  .marq{animation:none!important}
+}
+
+/* ---- infrastructure spec panel (replaces the old live feed) ---- */
+.spec{display:flex;justify-content:space-between;gap:20px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--line2)}
+.spec:last-child{border-bottom:0}
+.sk{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--grey);flex-shrink:0}
+.sv{font-size:14px;color:var(--ink);text-align:right;font-weight:500}
+.scard.why{display:flex;flex-direction:column;gap:9px}
+.scard.why p{font-size:13.2px;color:var(--grey);line-height:1.55}
+
+/* ---- founder note ---- */
+.note{border-left:3px solid var(--red);padding:6px 0 6px 30px;max-width:80ch}
+.note p{font-size:16px;color:var(--ink);margin-bottom:18px;line-height:1.68}
+.note p:last-child{margin-bottom:0}
+.sig{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey)!important}
+@media(max-width:640px){.note{padding-left:18px}.note p{font-size:15px}
+  .spec{flex-direction:column;gap:3px}.sv{text-align:left}}
+
+.tblnote{font-family:var(--mono);font-size:12px;color:var(--grey);margin:0 0 12px;letter-spacing:.02em}
+/* ---- pricing rule box (transparent-by-design) ---- */
+.rule-box{border:1px solid var(--ink);padding:30px 32px;margin-bottom:26px;background:var(--bg)}
+.rule-lab{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-bottom:16px}
+.rule-body{font-size:14.8px;color:var(--grey);max-width:78ch}
+.rule-body b{color:var(--ink);font-weight:600}
+.rule-formula{margin:20px 0;padding:20px 24px;border:1px solid var(--ink);border-left:6px solid var(--red);
+  font-family:var(--mono);font-size:clamp(14px,1.5vw,19px);font-weight:500;color:var(--ink);line-height:1.5}
+.rule-formula b{font-weight:700;color:var(--red)}
+.rule-formula span{color:var(--grey);padding:0 6px}
+
+/* ---- enterprise note ---- */
+.ent{margin-top:22px;padding:18px 22px;border-left:3px solid var(--ink);font-size:14.5px;color:var(--grey);max-width:88ch}
+.ent b{color:var(--ink);font-weight:600}
+.ent a{border-bottom:1px solid var(--red);color:var(--ink);font-weight:500;white-space:nowrap}
+.ent a:hover{background:var(--red);color:var(--bg);border-color:var(--red)}
+
+/* ---- comparison table: sub-labels + group rows ---- */
+.ptable thead th i{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;
+  font-weight:400;letter-spacing:.05em;opacity:.72;margin-top:5px;text-transform:none}
+.ptable tr.grp td{background:var(--ink);color:var(--bg);font-family:var(--mono);font-size:11px;
+  font-weight:700;letter-spacing:.13em;text-transform:uppercase;text-align:left;padding:11px 20px}
+.ptable tr.grp:hover td{background:var(--ink)}
+.ptable tbody td b{font-family:var(--mono);font-weight:700;font-size:14px}
+.ptable tbody tr td:first-child{line-height:1.4}
+@media(max-width:640px){
+  .rule-box{padding:22px 18px}
+  .rule-formula{padding:16px 16px;border-left-width:4px}
+  .ent{padding:14px 16px}
+}
+
+
+/* anchor targets were landing under the fixed nav */
+html{scroll-padding-top:var(--navpad,104px)}
+/* first header cell of the comparison table was ink-on-ink (invisible) */
+.ptable thead th:first-child{color:var(--bg)!important}
+
+
+/* header cell must stay legible even after the sticky-column script sets an inline background */
+.ptable thead th:first-child{background:var(--ink)!important;color:var(--bg)!important}
+/* calc footnote sits on white -> deeper red; the black Growth card -> brighter red */
+.res-foot #foot b[style*="FF5C3D"]{color:#C42408!important}
+.price.hot p b{color:#FF5C3D!important}
+
+/* ===== MOBILE HARDENING (applies to all designs) ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:hidden}
+img,svg,video,table{max-width:100%}
+@media (max-width:900px){
+  /* iOS auto-zoom on focus happens below 16px — this is the fix */
+  input,select,textarea{font-size:16px!important}
+  input[type=range]{height:28px}
+  input[type=range]::-webkit-slider-thumb{width:26px;height:26px}
+  input[type=range]::-moz-range-thumb{width:26px;height:26px}
+
+  /* touch targets: 44px minimum */
+  .btn,a.btn,button.btn,.seg button,.faq button,.mnav a{min-height:46px}
+  .seg button{padding-top:13px;padding-bottom:13px}
+  .faq button{padding-top:20px;padding-bottom:20px}
+  footer a{display:inline-block;padding:7px 0;min-height:40px}
+
+  /* kill expensive fixed blurs on phones */
+  .glow,[class*=glow],[class*=aurora],[class*=blob]{filter:blur(90px)!important;opacity:.5!important}
+
+  /* hover-only affordances don't exist on touch */
+  .card::before{display:none!important}
+}
+@media (hover:none){
+  .btn:hover,a:hover{transform:none!important}
+}
+
+/* horizontally scrollable data table with a real affordance */
+.mscroll{position:relative}
+.mscroll-inner{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.mscroll-hint{display:none;font-size:12.5px;opacity:.65;padding:8px 2px 10px;align-items:center;gap:7px}
+.mscroll-hint b{font-weight:600}
+@media (max-width:820px){.mscroll-hint{display:flex}}
+
+
+/* sticky row-label column so ticks stay meaningful while swiping */
+@media (max-width:820px){
+  .mscroll-inner table tbody td:first-child,
+  .mscroll-inner table thead th:first-child{
+    position:sticky;left:0;z-index:3;
+    background:var(--mstickybg,#fff);
+    box-shadow:1px 0 0 var(--mstickyline,rgba(128,128,128,.35));
+  }
+  .mscroll-inner table thead th:first-child{z-index:4}
+  .mscroll-inner table{min-width:560px}
+}
+
+/* mobile menu panel */
+.mnav{position:fixed;inset:0;z-index:9998;display:none;flex-direction:column;padding:88px 26px 32px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.mnav.on{display:flex}
+.mnav a{font-size:21px;font-weight:600;padding:15px 0;text-decoration:none;display:flex;align-items:center;border-bottom:1px solid currentColor;opacity:.95}
+.mnav a:last-child{border-bottom:0}
+.mnav .mclose{position:absolute;top:24px;right:22px;width:46px;height:46px;border:0;background:none;font-size:30px;line-height:1;cursor:pointer;padding:0;border-bottom:0}
+body.mlock{overflow:hidden}
+</style>
+<script id="mobile-fix-js">
+/* ===== MOBILE HARDENING JS ===== */
+(function(){
+  var isTouchWidth=function(){return window.innerWidth<=900};
+
+  /* 1. theme-color from the page's own background */
+  try{
+    var bg=getComputedStyle(document.body).backgroundColor;
+    var m=document.createElement('meta'); m.name='theme-color'; m.content=bg;
+    document.head.appendChild(m);
+  }catch(e){}
+
+  /* 2. floor tiny text at 12.5px on phones */
+  function bumpTinyText(){
+    if(!isTouchWidth())return;
+    var els=document.querySelectorAll('p,li,td,th,small,span,label,a,div');
+    for(var i=0;i<els.length;i++){
+      var e=els[i];
+      if(!e.textContent||e.textContent.trim().length<6)continue;
+      if(e.children.length>2)continue;
+      var fs=parseFloat(getComputedStyle(e).fontSize);
+      if(fs&&fs<12.5)e.style.fontSize='12.5px';
+    }
+  }
+
+  /* 3. wrap wide tables so they scroll, with a visible hint */
+  function wrapTables(){
+    var tables=document.querySelectorAll('table');
+    for(var i=0;i<tables.length;i++){
+      var t=tables[i];
+      if(t.closest('.mscroll'))continue;
+      var host=t.parentElement;
+      var wrap=document.createElement('div'); wrap.className='mscroll';
+      var inner=document.createElement('div'); inner.className='mscroll-inner';
+      var hint=document.createElement('div'); hint.className='mscroll-hint';
+      hint.innerHTML='<b>&#8596;</b> Swipe the table sideways to compare all three plans';
+      host.insertBefore(wrap,t);
+      wrap.appendChild(hint); wrap.appendChild(inner); inner.appendChild(t);
+      /* inherit the host's text colour for the hint */
+      try{hint.style.color=getComputedStyle(host).color}catch(e){}
+    }
+  }
+
+  /* 4. robust mobile menu — replaces whatever per-page handler existed */
+  function buildMenu(){
+    var burger=document.querySelector('.burger,[class*=burger],[class*=hamburger],[class*=menu-toggle]');
+    if(!burger)return;
+    /* strip any existing listeners by cloning */
+    var fresh=burger.cloneNode(true);
+    burger.parentNode.replaceChild(fresh,burger);
+    fresh.setAttribute('role','button');
+    fresh.setAttribute('aria-label','Open menu');
+    fresh.style.minWidth='44px'; fresh.style.minHeight='44px';
+    fresh.style.justifyContent='center'; fresh.style.alignItems='center';
+
+    var src=document.querySelector('.nlinks,[class*=nlinks],[class*=nav-links]');
+    var links=[];
+    if(src){ links=[].slice.call(src.querySelectorAll('a')); }
+    if(!links.length){
+      var nav=document.querySelector('nav');
+      if(nav)links=[].slice.call(nav.querySelectorAll('a')).filter(function(a){
+        return a.getAttribute('href')&&a.getAttribute('href').charAt(0)==='#';});
+    }
+    if(!links.length)return;
+
+    var panel=document.createElement('div'); panel.className='mnav';
+    var cs=getComputedStyle(document.body);
+    panel.style.background=cs.backgroundColor;
+    panel.style.color=cs.color;
+
+    var close=document.createElement('button');
+    close.className='mclose'; close.innerHTML='&times;';
+    close.setAttribute('aria-label','Close menu');
+    close.style.color=cs.color;
+    panel.appendChild(close);
+
+    links.forEach(function(a){
+      var c=document.createElement('a');
+      c.href=a.getAttribute('href');
+      c.textContent=a.textContent.trim();
+      c.style.color=cs.color;
+      c.style.borderBottomColor='rgba(128,128,128,.28)';
+      panel.appendChild(c);
+    });
+    /* carry the primary CTA into the menu */
+    var cta=document.querySelector('nav .btn,nav [class*=btn]');
+    if(cta){
+      var c2=document.createElement('a');
+      c2.href=cta.getAttribute('href')||'#book';
+      c2.textContent=cta.textContent.trim();
+      c2.style.cssText='margin-top:22px;justify-content:center;border-bottom:0;font-size:18px;padding:16px;'+
+        'background:'+getComputedStyle(cta).backgroundColor+';color:'+getComputedStyle(cta).color+';'+
+        'border-radius:'+getComputedStyle(cta).borderRadius;
+      if(getComputedStyle(cta).backgroundImage!=='none')c2.style.backgroundImage=getComputedStyle(cta).backgroundImage;
+      panel.appendChild(c2);
+    }
+    document.body.appendChild(panel);
+
+    function setOpen(v){
+      panel.classList.toggle('on',v);
+      document.body.classList.toggle('mlock',v);
+      fresh.setAttribute('aria-expanded',v?'true':'false');
+    }
+    fresh.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();setOpen(!panel.classList.contains('on'))});
+    close.addEventListener('click',function(){setOpen(false)});
+    panel.addEventListener('click',function(e){if(e.target.tagName==='A')setOpen(false)});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+    window.addEventListener('resize',function(){if(!isTouchWidth())setOpen(false)});
+  }
+
+
+  /* give the sticky first column an opaque background pulled from the design */
+  function stickyBg(){
+    var t=document.querySelector('.mscroll-inner table'); if(!t)return;
+    var probe=t.querySelector('tbody td:first-child')||t;
+    var bg=getComputedStyle(probe).backgroundColor;
+    if(!bg||bg==='rgba(0, 0, 0, 0)'||bg==='transparent'){
+      var n=t.parentElement;
+      while(n&&n!==document.body){
+        var c=getComputedStyle(n).backgroundColor;
+        if(c&&c!=='rgba(0, 0, 0, 0)'&&c!=='transparent'){bg=c;break}
+        n=n.parentElement;
+      }
+    }
+    if(!bg||bg==='rgba(0, 0, 0, 0)')bg=getComputedStyle(document.body).backgroundColor;
+    document.documentElement.style.setProperty('--mstickybg',bg);
+    var hd=t.querySelector('thead th:first-child');
+    if(hd){
+      var hbg=getComputedStyle(hd).backgroundColor;
+      if(hbg&&hbg!=='rgba(0, 0, 0, 0)')hd.style.background=hbg;
+      else hd.style.background=bg;
+    }
+  }
+
+
+  try{
+    var nav=document.querySelector('nav');
+    if(nav){var sync=function(){document.documentElement.style.setProperty('--navpad',(nav.offsetHeight+14)+'px')};
+      sync();window.addEventListener('resize',sync);}
+  }catch(e){}
+
+  function init(){ wrapTables(); stickyBg(); buildMenu(); bumpTinyText(); }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+  else init();
+  window.addEventListener('resize',function(){clearTimeout(window.__mt);window.__mt=setTimeout(bumpTinyText,250)});
+})();
+
+/* ================= MOTION LAYER ================= */
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* scroll progress bar */
+  var bar=document.createElement('div'); bar.className='prog'; document.body.appendChild(bar);
+  function prog(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    bar.style.width=(h>0?(scrollY/h)*100:0)+'%';
+  }
+  addEventListener('scroll',prog,{passive:true}); prog();
+
+  /* nav hides on the way down, returns on the way up */
+  var nav=document.getElementById('nav')||document.querySelector('nav'), last=0;
+  addEventListener('scroll',function(){
+    var y=scrollY;
+    if(nav){
+      /* keep the bar (and the CTA) permanently visible on phones */
+      if(innerWidth>900 && y>260 && y>last) nav.classList.add('hide');
+      else nav.classList.remove('hide');
+    }
+    last=y;
+  },{passive:true});
+
+  /* word-by-word headline reveal */
+  document.querySelectorAll('h2.reveal').forEach(function(h){
+    if(h.dataset.split)return; h.dataset.split=1;
+    var words=h.textContent.trim().split(/\s+/);
+    h.innerHTML=words.map(function(w,i){
+      return '<span class="wd"><i style="transition-delay:'+(i*42)+'ms">'+w+'</i></span>';
+    }).join(' ');
+  });
+
+  /* one observer drives every entry animation */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  },{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+
+  document.querySelectorAll('h2.reveal,.drawline,.defrow,.seqrow').forEach(function(el){io.observe(el)});
+
+  /* stagger the cards inside each grid */
+  document.querySelectorAll('.hgrid').forEach(function(grid){
+    var kids=[].slice.call(grid.children);
+    var gio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting)return;
+        kids.forEach(function(k,i){ setTimeout(function(){k.classList.add('in')}, reduce?0:i*70) });
+        gio.disconnect();
+      });
+    },{threshold:.12});
+    gio.observe(grid);
+  });
+
+  /* live section rail */
+  var secs=[].slice.call(document.querySelectorAll('section[class*=sec]')).filter(function(s){
+    return s.querySelector('.sec-idx');
+  });
+  if(secs.length>3){
+    var rail=document.createElement('div'); rail.className='railmark'; rail.setAttribute('aria-label','Section progress');
+    secs.forEach(function(sec,i){
+      var a=document.createElement('a');
+      var lab=(sec.querySelector('.sec-idx')||{}).textContent||('Section '+i);
+      a.href='#'; a.title=lab.replace(/\s+/g,' ').trim();
+      a.addEventListener('click',function(ev){ev.preventDefault();sec.scrollIntoView({behavior:reduce?'auto':'smooth'})});
+      rail.appendChild(a);
+    });
+    document.body.appendChild(rail);
+    var marks=[].slice.call(rail.children);
+    var rio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var i=secs.indexOf(e.target);
+        if(i<0)return;
+        if(e.isIntersecting){marks.forEach(function(m){m.classList.remove('on')});marks[i].classList.add('on')}
+      });
+    },{threshold:.5});
+    secs.forEach(function(s){rio.observe(s)});
+  }
+
+  /* calculator numbers roll rather than snap */
+  ['oCalls','oDeals','oRev','oRoi'].forEach(function(id){
+    var el=document.getElementById(id); if(!el||reduce)return;
+    var mo=new MutationObserver(function(){
+      el.classList.add('roll');
+      setTimeout(function(){el.classList.remove('roll')},120);
+    });
+    mo.observe(el,{childList:true,characterData:true,subtree:true});
+  });
+})();
+
+</script>
+</body>
+</html>
