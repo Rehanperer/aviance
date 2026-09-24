@@ -1187,6 +1187,9 @@ nav.navlock{transform:none!important}
     </div>
 
     <form class="bform appform" id="appform" novalidate>
+      <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+        <label>Leave this empty <input type="text" name="company_url2" id="a_hp" tabindex="-1" autocomplete="off"></label>
+      </div>
       <div class="bgrid">
         <label class="bf"><span>Your name <i>*</i></span>
           <input type="text" name="name" id="a_name" autocomplete="name" required maxlength="80"></label>
@@ -1343,6 +1346,7 @@ nav.navlock{transform:none!important}
 <script>
 (function(){
   var EMAIL = "aviancelk@gmail.com";   /* where applications land */
+  var MACHINE_APPLY = "https://email-distributor.vercel.app/api/apply";   /* the trial machine: applications land in the Aviance hub */
 
   var nav=document.getElementById('nav');
   addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>10)},{passive:true});
@@ -1415,6 +1419,15 @@ nav.navlock{transform:none!important}
     if(!agree){err.textContent='We do need that box ticked — the quote and the review are the whole deal.';err.hidden=false;return}
 
     btn.disabled=true; btn.textContent='Sending…';
+    var proof=Array.prototype.map.call(form.querySelectorAll('input[name="proof"]:checked'),function(i){return i.value});
+    /* 1) The trial machine: the application lands in the Aviance hub for review. */
+    var machine={
+      source:'website', name:name, email:mail, website:site, city:city, sell:sell,
+      value:pick('value'), capacity:pick('capacity'), strangers:pick('strangers'),
+      calendar:pick('calendar'), then:pick('then'), notes:notes, agree:true, proof:proof,
+      company_url2:(document.getElementById('a_hp')||{}).value||''
+    };
+    /* 2) The email copy we have always sent (kept as a backup). */
     var payload={
       _subject:'TRIAL APPLICATION — '+name+' ('+site+')',
       _template:'table', _captcha:'false', _replyto:mail,
@@ -1427,19 +1440,36 @@ nav.navlock{transform:none!important}
       'If it works':pick('then'),
       'Notes':notes||'—',
       'Agreed to honest review':'Yes',
-      'Open to (proof)':Array.prototype.map.call(form.querySelectorAll('input[name="proof"]:checked'),function(i){return i.value}).join(', ')||'nothing ticked',
+      'Open to (proof)':proof.join(', ')||'nothing ticked',
       'Sent at':new Date().toISOString()
     };
-    fetch('https://formsubmit.co/ajax/'+encodeURIComponent(EMAIL),{
-      method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(payload)
-    }).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
-      .then(function(){form.hidden=true;done.hidden=false;done.scrollIntoView({block:'nearest'})})
-      .catch(function(){
-        btn.disabled=false;btn.textContent='Send the application';
-        err.innerHTML='That did not send. Email <a href="mailto:'+EMAIL+'?subject=Trial%20application" style="border-bottom:1px solid currentColor">'+EMAIL+'</a> and we will pick it up from there.';
-        err.hidden=false;
+    function fail(html){
+      btn.disabled=false;btn.textContent='Send the application';
+      err.innerHTML=html;err.hidden=false;
+    }
+    function toMachine(){
+      return fetch(MACHINE_APPLY,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(machine)})
+        .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {status:r.status,ok:r.ok&&j.ok!==false,body:j}})})
+        .catch(function(){return {status:0,ok:false,body:{}}});
+    }
+    function toEmail(){
+      return fetch('https://formsubmit.co/ajax/'+encodeURIComponent(EMAIL),{
+        method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(payload)
+      }).then(function(r){return r.ok}).catch(function(){return false});
+    }
+    toMachine().then(function(m){
+      /* The machine read it and said the details are wrong (e.g. the website): let them fix it. */
+      if(m.status===400&&m.body&&m.body.errors){
+        var e=m.body.errors,msgs=Array.isArray(e)?e:Object.keys(e).map(function(k){return e[k]});
+        fail(msgs.join(' ')||'Something in the form does not look right.');return;
+      }
+      if(m.status===429){fail('Too many applications from this connection in the last hour — please try again later, or email <a href="mailto:'+EMAIL+'?subject=Trial%20application" style="border-bottom:1px solid currentColor">'+EMAIL+'</a>.');return;}
+      return toEmail().then(function(mailed){
+        if(m.ok||mailed){form.hidden=true;done.hidden=false;done.scrollIntoView({block:'nearest'});return;}
+        fail('That did not send. Email <a href="mailto:'+EMAIL+'?subject=Trial%20application" style="border-bottom:1px solid currentColor">'+EMAIL+'</a> and we will pick it up from there.');
       });
+    });
   });
   /* ---- motion layer (same feel as the main page) ---- */
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
