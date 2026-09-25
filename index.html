@@ -668,6 +668,9 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
 
         <!-- step 4: details -->
         <form class="bform" id="bform" hidden novalidate>
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+            <label>Leave this empty <input type="text" name="company_url2" id="f_hp" tabindex="-1" autocomplete="off"></label>
+          </div>
           <div class="bpick" id="bpick"></div>
           <div class="bgrid">
             <label class="bf"><span>Your name <i>*</i></span>
@@ -1422,6 +1425,7 @@ body.mlock{overflow:hidden}
    ========================================================================== */
 var BOOKING = {
   EMAIL       : "aviancelk@gmail.com",   /* where bookings land            */
+  MACHINE     : "https://email-distributor.vercel.app/api/inquiry",  /* the Aviance hub: inquiries land there too */
   HOST_TZ     : "Asia/Colombo",          /* your timezone, shown in the email */
   SLOT_MINS   : 15,
   DAY_START   : 9,                       /* 9:00 AM  visitor's time        */
@@ -1727,13 +1731,27 @@ var BOOKING = {
       'Booked at (Sri Lanka)' : fmt(new Date(),BOOKING.HOST_TZ,LONG)
     };
 
-    fetch('https://formsubmit.co/ajax/' + encodeURIComponent(BOOKING.EMAIL), {
+    /* 1) The Aviance hub: the inquiry lands there and on the owner's phone. */
+    var toHub = fetch(BOOKING.MACHINE, {
+      method : 'POST',
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
+      body   : JSON.stringify({
+        name: name, email: mail, company: co, website: site, sells: what, plan: pickedPlan,
+        slotStart: chosenSlot.toISOString(), slotEnd: end.toISOString(), theirTz: tz,
+        whenTheirs: whenYou, whenHost: whenHost, page: location.pathname,
+        company_url2: (document.getElementById('f_hp')||{}).value || ''
+      })
+    }).then(function(r){ return r.ok; }).catch(function(){ return false; });
+
+    /* 2) The email copy we have always sent (kept as a backup). */
+    var toEmail = fetch('https://formsubmit.co/ajax/' + encodeURIComponent(BOOKING.EMAIL), {
       method : 'POST',
       headers: {'Content-Type':'application/json','Accept':'application/json'},
       body   : JSON.stringify(payload)
-    })
-    .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
-    .then(function(){ succeed(whenYou); })
+    }).then(function(r){ return r.ok; }).catch(function(){ return false; });
+
+    Promise.all([toHub, toEmail])
+    .then(function(res){ if(!(res[0] || res[1])) throw new Error('neither got it'); succeed(whenYou); })
     .catch(function(){
       btn.disabled = false; btn.textContent = 'Confirm this time';
       elErr.innerHTML = 'That did not send. Please email <a href="mailto:'+BOOKING.EMAIL+
@@ -1750,10 +1768,14 @@ var BOOKING = {
   }
 
   /* ---- CTA buttons jump here ---------------------------------------- */
+  var pickedPlan = null;   /* the plan card the visitor came from, if any */
   document.querySelectorAll('[data-book]').forEach(function(btn){
     btn.setAttribute('href','#book');
     btn.addEventListener('click', function(ev){
       ev.preventDefault();
+      var card = btn.closest && btn.closest('.price');
+      var h = card && card.querySelector('h3');
+      pickedPlan = h ? h.textContent.trim().toLowerCase() : pickedPlan;
       document.getElementById('book').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
     });
   });
