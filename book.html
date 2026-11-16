@@ -406,15 +406,15 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
       <p class="lead">Fifteen minutes to hear what you sell, tell you honestly whether cold email fits it, and agree the number you want on your calendar each month.</p>
 
       <ol class="bsteps" id="bsteps" aria-label="Booking steps">
-        <li class="on" data-step="1"><b>1</b> Who you'll meet</li>
-        <li data-step="2"><b>2</b> Pick a time</li>
+        <li class="on" data-step="1"><b>1</b> Pick a time</li>
+        <li data-step="2"><b>2</b> Who you'll meet</li>
         <li data-step="3"><b>3</b> You're booked</li>
       </ol>
 
       <!-- STEP 1 — WHO THEY'RE MEETING (before the calendar).
            Keep every line true for your team. To add the closer's name/photo,
            put them in .tm-who, e.g. <b>Name</b>, role, one real line of background. -->
-      <div class="tm tm-intro" id="stepIntro">
+      <div class="tm tm-intro" id="stepIntro" hidden>
         <div class="tm-head">
           <div class="tm-k">Who you're meeting</div>
               <h3 class="tm-h">You're in good hands.</h3>
@@ -426,13 +426,13 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
           <div><span>03</span><h4>They do the work, not just the talking</h4><p>The team you meet is the team that builds your lists, writes your emails and books your calls.</p></div>
             </div>
         <div class="tm-go">
-          <p><b>Ready?</b> Pick a time that suits you. We'll email you a calendar invite straight away.</p>
-          <button type="button" class="btn btn-red btn-lg" id="bGoTime">Yes &mdash; pick a time &rarr;</button>
+          <div><p class="tm-when" id="introWhen"></p><p><b>Happy with that?</b> Confirm and we'll email your calendar invite straight away. <button type="button" class="tm-back" id="bBack">Change the time</button></p></div>
+          <button type="button" class="btn btn-red btn-lg" id="bConfirm">Confirm my call &rarr;</button>
         </div>
       </div>
 
 
-      <div class="sched" id="sched" hidden>
+      <div class="sched" id="sched">
 
         <!-- step 1: timezone -->
         <div class="tzbar">
@@ -498,7 +498,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
           </div>
           <p class="berr mono" id="berr" hidden></p>
           <div class="bactions">
-            <button type="submit" class="btn btn-red btn-lg" id="bsubmit">Confirm this time</button>
+            <button type="submit" class="btn btn-red btn-lg" id="bsubmit">Continue &rarr;</button>
             <button type="button" class="btn btn-g" id="bback">Pick another time</button>
           </div>
           <p class="mono bnote">We reply from a person, not an autoresponder. If the slot has gone we will offer the nearest one.</p>
@@ -1492,6 +1492,13 @@ var BOOKING = {
       elErr.textContent = !chosenSlot ? 'Please pick a time first.' : 'Please fill in the marked fields.';
       elErr.hidden = false; return;
     }
+    /* step 2 first: who they'll meet, then "Confirm my call" sends it */
+    if(!window.__bookConfirmed){
+      var iw=document.getElementById('introWhen');
+      if(iw) iw.innerHTML='Your call: <b>'+fmt(chosenSlot,tz,{weekday:'long',month:'long',day:'numeric'})+' at '+fmt(chosenSlot,tz,{hour:'numeric',minute:'2-digit'})+' '+tzAbbr(chosenSlot,tz)+'</b>';
+      if(typeof bookStep==='function') bookStep(2);
+      return;
+    }
 
     var end = new Date(chosenSlot.getTime() + BOOKING.SLOT_MINS*60000);
     lastAns = {role:role, deal:deal, chan:chan, cap:cap, when:when, co:co, start:chosenSlot, end:end};
@@ -1556,7 +1563,7 @@ var BOOKING = {
     Promise.all([toHub, toEmail])
     .then(function(res){ if(!(res[0] || res[1])) throw new Error('neither got it'); succeed(whenYou); })
     .catch(function(){
-      btn.disabled = false; btn.textContent = 'Confirm this time';
+      btn.disabled = false; btn.textContent = 'Continue →'; window.__bookConfirmed = false;
       elErr.innerHTML = 'That did not send. Please email <a href="mailto:'+BOOKING.EMAIL+
         '?subject=Booking%20'+encodeURIComponent(whenYou)+'" style="border-bottom:1px solid currentColor">'+
         BOOKING.EMAIL+'</a> and we will lock the slot in.';
@@ -1569,6 +1576,7 @@ var BOOKING = {
   function succeed(whenYou){
     form.hidden = true; elDone.hidden = false;
     if (typeof bookStep === 'function') bookStep(3);
+    window.__bookConfirmed = false;
     var inv = document.getElementById('binvite'), em = document.getElementById('f_email');
     if (inv && em && em.value) inv.textContent = 'Calendar invite sent to ' + em.value.trim();
     ['.tzbar','#dayrow','#slotwrap','#slotnone'].forEach(function(q){ var e=document.querySelector('#sched '+q); if(e) e.style.display='none'; });
@@ -1644,6 +1652,8 @@ var BOOKING = {
 .tm-go{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:24px 26px;background:#FFF1EE;text-align:left}
 .tm-go p{color:var(--grey);font-size:15.5px;max-width:52ch}.tm-go p b{color:var(--ink)}
 .tm-after{border-top:1px solid var(--ink)}
+.tm-when{font-family:var(--mono);font-size:13.5px;color:var(--ink);margin-bottom:6px}
+.tm-back{background:none;border:0;padding:0;font:inherit;color:var(--red);text-decoration:underline;cursor:pointer;margin-left:6px}
 .binvite{font-family:var(--mono);font-size:13px;color:var(--ink);margin:-4px 0 16px}
 @media(max-width:560px){.bsteps li{font-size:10px;padding:10px 4px;gap:5px;letter-spacing:.02em}.tm-go .btn{width:100%;justify-content:center}}
 </style>
@@ -1722,21 +1732,27 @@ var BOOKING = {
 })();
 </script>
 <script id="book-steps">
+/* 1 Pick a time (calendar + details) → 2 Who you'll meet (Confirm my call) → 3 You're booked */
 function bookStep(n){
   var intro=document.getElementById('stepIntro'), sched=document.getElementById('sched');
-  if(intro) intro.hidden = n!==1;
-  if(sched) sched.hidden = n===1;
+  if(intro) intro.hidden = n!==2;
+  if(sched) sched.hidden = n===2;
   [].forEach.call(document.querySelectorAll('#bsteps li'),function(li){
     var k=+li.getAttribute('data-step'); li.classList.toggle('on',k===n); li.classList.toggle('done',k<n);
   });
   var top=document.getElementById('bsteps');
-  if(top && n>1) top.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth', block:'start'});
+  if(top) top.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth', block:'start'});
 }
 (function(){
-  var go=document.getElementById('bGoTime');
-  if(go) go.addEventListener('click',function(){ bookStep(2); });
-  var first=document.querySelector('#bsteps li[data-step="1"]');
-  if(first){ first.style.cursor='pointer'; first.addEventListener('click',function(){ if(!document.getElementById('bdone') || document.getElementById('bdone').hidden) bookStep(1); }); }
+  var form=document.getElementById('bform');
+  var ok=document.getElementById('bConfirm'), back=document.getElementById('bBack');
+  if(ok) ok.addEventListener('click',function(){
+    window.__bookConfirmed=true; bookStep(1);
+    if(form.requestSubmit) form.requestSubmit(); else form.dispatchEvent(new Event('submit',{cancelable:true}));
+    /* a send that fails shows its error on the form; let them confirm again from there */
+    setTimeout(function(){ var e=document.getElementById('berr'); if(e && !e.hidden) window.__bookConfirmed=false; }, 9000);
+  });
+  if(back) back.addEventListener('click',function(){ window.__bookConfirmed=false; bookStep(1); });
 })();
 </script>
 </body>
