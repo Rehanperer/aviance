@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aviance — Guaranteed booked sales calls for B2B teams</title>
-<meta name="description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 3 weeks, no setup fee, month-to-month.">
+<meta name="description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 2 weeks. Miss your number in month one and we pay you back double. No setup fee.">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aviance">
 <meta property="og:title" content="Aviance — Guaranteed booked sales calls for B2B teams">
-<meta property="og:description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 3 weeks, no setup fee, month-to-month.">
+<meta property="og:description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 2 weeks. Miss your number in month one and we pay you back double. No setup fee.">
 <meta property="og:url" content="https://www.aviance.online/">
 <meta property="og:image" content="https://www.aviance.online/preview.png">
 <meta property="og:image:type" content="image/png">
@@ -26,12 +26,12 @@
 <meta property="og:image:alt" content="Aviance — we don't sell emails, we sell guaranteed booked calls">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aviance — Guaranteed booked sales calls for B2B teams">
-<meta name="twitter:description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 3 weeks, no setup fee, month-to-month.">
+<meta name="twitter:description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 2 weeks. Miss your number in month one and we pay you back double. No setup fee.">
 <meta name="twitter:image" content="https://www.aviance.online/preview.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;border-radius:0!important}
 :root{
@@ -122,10 +122,51 @@ h2{font-size:clamp(30px,4.2vw,52px);max-width:20ch;margin-bottom:20px}
 @keyframes pulse{50%{opacity:.15}}
 h1.hero-h{font-size:clamp(38px,7vw,84px);max-width:16ch;margin-bottom:30px}
 h1.hero-h span.accent{color:var(--red)}
+.hero-split h1.hero-h{font-weight:900;letter-spacing:-.058em;line-height:.94}
+.hero-split h1.hero-h .accent{display:block;margin-top:.12em;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.025em;font-size:1.12em;line-height:.95}
+.dbl{position:relative;display:inline-block}
+.dbl svg{position:absolute;left:-2%;bottom:-.06em;width:104%;height:.26em;overflow:visible}
+.dbl path{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-dasharray:320;stroke-dashoffset:320;animation:dblDraw 1s .6s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes dblDraw{to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.dbl path{animation:none;stroke-dashoffset:0}}
+.hero-fine{font-family:var(--mono);font-size:12.5px;letter-spacing:.01em;color:var(--grey);margin:-12px 0 26px;padding-left:12px;border-left:3px solid var(--red);max-width:60ch}
+.hero-fine b{color:var(--ink);font-weight:600}
+.promise td small{display:block;font-size:10.5px;font-weight:500;color:var(--grey);margin-top:3px;letter-spacing:.02em}
 .hero-p{font-size:clamp(15.5px,1.3vw,18px);color:var(--grey);max-width:56ch;margin-bottom:36px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:26px}
 .micro{font-family:var(--mono);font-size:12.5px;color:var(--ink);display:flex;gap:22px;flex-wrap:wrap}
 .micro span{display:flex;align-items:center;gap:8px}
+.hero-split{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}
+.hero-split h1.hero-h{font-size:clamp(38px,5.6vw,78px);max-width:15ch}
+.promise{border:1px solid var(--ink);background:var(--bg);position:relative;z-index:1;box-shadow:12px 12px 0 var(--ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.rot{display:inline-block;background:var(--ink);color:var(--bg);padding:0 .14em;margin-right:.12em;min-width:1.35em;text-align:center;overflow:hidden;vertical-align:bottom;line-height:1.02}
+.rot span{display:inline-block}
+.rot span.out{animation:rotOut .28s ease-in forwards}.rot span.in{animation:rotIn .34s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes rotOut{to{transform:translateY(-100%);opacity:0}}@keyframes rotIn{from{transform:translateY(100%);opacity:0}}
+.seal{position:absolute;width:132px;height:132px;top:-62px;right:-40px;z-index:3;filter:drop-shadow(0 6px 0 rgba(0,0,0,.9))}
+.seal-spin{transform-origin:100px 100px;animation:sealSpin 18s linear infinite}
+@keyframes sealSpin{to{transform:rotate(360deg)}}
+.promise tbody tr{transition:background .3s linear}
+.promise tbody tr td:first-child{position:relative}
+.promise tr.hl td:first-child::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red)}
+@media(max-width:1000px){.seal{width:104px;height:104px;top:-48px;right:-8px}.promise{box-shadow:8px 8px 0 var(--ink);margin-right:8px}}
+@media(prefers-reduced-motion:reduce){.seal-spin,.rot span{animation:none!important}}
+.pr-top{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:var(--bg);padding:16px 22px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
+.pr-top b{background:var(--red);font-family:var(--sans);font-size:24px;letter-spacing:-.03em;padding:2px 10px;line-height:1.2}
+.promise table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13.5px}
+.promise th{text-align:left;font-weight:500;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);padding:14px 22px 10px;border-bottom:1px solid var(--ink)}
+.promise td{padding:16px 22px;border-bottom:1px solid var(--line2);font-weight:600}
+.promise td:last-child{color:var(--red);white-space:nowrap}
+.promise tr.hl td{background:#FFF1EE}
+.pr-foot{padding:16px 22px 18px;font-size:13.5px;color:var(--grey);line-height:1.5;border-top:1px solid var(--ink)}
+.pr-foot b{color:var(--ink)}
+@media(max-width:1000px){.hero-split{grid-template-columns:minmax(0,1fr);gap:56px}}
+.promise .mscroll-hint{display:none!important}
+.promise .mscroll-inner{overflow:visible}
+.promise .mscroll-inner table{min-width:0!important}
+@media(max-width:480px){.promise th{font-size:9.5px;letter-spacing:.04em}.promise td:last-child{white-space:normal}.hero-cta .btn{width:100%;justify-content:center}}
+@media(max-width:480px){.promise th,.promise td{padding-left:12px;padding-right:12px}.promise table{font-size:12.5px}}
 .tick{color:var(--red)}
 
 /* live panel */
@@ -265,6 +306,14 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border:0;background:v
 .badge{position:absolute;top:0;left:0;background:var(--red);color:var(--bg);font-family:var(--mono);font-size:11px;font-weight:700;padding:6px 14px;letter-spacing:.05em;text-transform:uppercase}
 .price h3{font-size:19px}
 .price .amt{font-family:var(--mono);font-size:38px;font-weight:700;letter-spacing:-.02em;margin:30px 0 6px}
+.billtog{display:flex;justify-content:center;margin:0 0 22px}
+.billtog .seg{grid-template-columns:repeat(2,auto);min-width:min(100%,420px)}
+.billtog .seg button{padding:12px 22px}
+.price .amt s{font-size:18px;color:var(--grey);font-weight:400;margin-right:10px;vertical-align:middle;text-decoration-color:var(--red)}
+.price.hot .amt s{color:rgba(255,255,255,.55)}
+.billnote{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--grey);margin:0 0 14px;min-height:1.4em}
+.billnote b{color:var(--red);font-weight:600}
+.price.hot .billnote{color:rgba(255,255,255,.6)}
 .price .amt small{font-size:14px;color:var(--grey);font-weight:400;font-family:var(--mono)}
 .price.hot .amt small{color:rgba(255,255,255,.6)}
 .price>p{font-size:13.5px;color:var(--grey);margin-bottom:24px}
@@ -328,7 +377,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Aviance","url":"https://www.aviance.online/","logo":"https://www.aviance.online/icon-512.png","image":"https://www.aviance.online/preview.png","email":"aviancelk@gmail.com","description":"Done-for-you cold email outreach for B2B teams. Guaranteed booked sales calls on your calendar, month to month, with a free 30-day trial."}
+{"@context":"https://schema.org","@type":"Organization","name":"Aviance","url":"https://www.aviance.online/","logo":"https://www.aviance.online/icon-512.png","image":"https://www.aviance.online/preview.png","email":"aviancelk@gmail.com","description":"Done-for-you cold email outreach for B2B teams. Guaranteed booked sales calls on your calendar, month to month, backed by a money-back guarantee that pays double in month one."}
 </script>
 </head>
 <body>
@@ -338,10 +387,10 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
     <a href="#" class="logo" aria-label="Aviance — home"><svg class="mk" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><polygon points="28,88 100,128 172,88 172,150 100,190 28,150" fill="#101015" /><polygon points="28,88 100,128 100,190 28,150" fill="#1C1C22" /><polygon points="100,128 172,88 172,150 100,190" fill="#0A0A0C" /><polygon points="30,72 100,110 170,72 100,34" fill="#E0290F" /><g transform="matrix(0.35,-0.19,0.35,0.19,30,72)"><g transform="translate(4,4) scale(0.92)"><path fill-rule="evenodd" d="M100 18 L156 172 L128 172 L117 140 L83 140 L72 172 L44 172 Z M91 114 L109 114 L100 84 Z" fill="#FFFFFF"/></g></g></svg><span>Aviance</span></a>
     <div class="nlinks">
           <a href="#process">Process</a>
-          <a href="#calculator">ROI calculator</a>
+          <a href="#guarantee">Guarantee</a>
           <a href="#pricing">Pricing</a>
+          <a href="#calculator">ROI calculator</a>
           <a href="#faq">FAQ</a>
-          <a href="trial.html">30-day free trial</a>
           </div>
     <a href="#book" class="btn btn-p" data-book>Book a call →</a>
     <div class="burger"><span></span><span></span><span></span></div>
@@ -354,18 +403,35 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
     <div class="sec-grid">
       <div class="sec-idx"><b>00</b> / Intro</div>
       <div>
-        <div class="heromark rv" aria-hidden="true"><svg class="mk" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><polygon points="28,88 100,128 172,88 172,150 100,190 28,150" fill="#101015" /><polygon points="28,88 100,128 100,190 28,150" fill="#1C1C22" /><polygon points="100,128 172,88 172,150 100,190" fill="#0A0A0C" /><polygon points="30,72 100,110 170,72 100,34" fill="#E0290F" /><g transform="matrix(0.35,-0.19,0.35,0.19,30,72)"><g transform="translate(4,4) scale(0.92)"><path fill-rule="evenodd" d="M100 18 L156 172 L128 172 L117 140 L83 140 L72 172 L44 172 Z M91 114 L109 114 L100 84 Z" fill="#FFFFFF"/></g></g></svg></div>
-        <div class="pill rv"><b>Cold email</b><span class="dot"></span> One channel · guaranteed booked calls · live in 3 weeks</div>
-        <h1 class="hero-h rv">We don't sell emails. We sell <span class="accent">guaranteed booked calls</span> — on your calendar.</h1>
-        <p class="hero-p rv">Aviance is a done-for-you outbound engine for B2B teams. Domains, warmed inboxes, verified prospect lists, copywriting, sending and reply handling — all run by us. You show up to the calls. Every plan comes with a guaranteed number of booked discovery calls each month.</p>
+        
+        <div class="hero-split">
+        <div class="hero-copy">
+        <div class="pill rv"><b>New</b><span class="dot"></span> 3-month plans now 20% off &middot; guarantee included</div>
+        <h1 class="hero-h rv"><span class="rot" aria-hidden="true"><span id="rotN">10</span></span><span class="sr">5, 10 or 15</span> sales calls on your calendar every month. <span class="accent">Or we pay you <span class="dbl">double<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 16 C 70 4, 150 4, 296 12" /></svg></span>.</span></h1>
+        <div class="hero-fine rv"><b>Month one:</b> miss your number, get double back. <b>Every month after:</b> a full refund.</div>
+        <p class="hero-p rv">Pick 5, 10 or 15 qualified sales calls a month. We build and run the whole cold email engine &mdash; domains, inboxes, lists, copy, replies &mdash; and put the calls on your calendar. Miss your number in your first month and <b style="color:var(--ink)">we refund twice what you paid.</b> Miss it in any month after, and that month is refunded in full.</p>
         <div class="hero-cta rv">
-          <a href="#book" class="btn btn-p btn-lg" data-book>Book a call</a>
-          <a href="trial.html" class="btn btn-g btn-lg">Try it free for 30 days</a>
+          <a href="#book" class="btn btn-red btn-lg" data-book>Book a 15-minute call</a>
+          <a href="#pricing" class="btn btn-g btn-lg">See plans &amp; pricing</a>
         </div>
         <div class="micro rv">
-          <span><i class="tick">✓</i> Live within 3 weeks — guaranteed</span>
-          <span><i class="tick">✓</i> No-shows replaced free</span>
-          <span><i class="tick">✓</i> No setup fee · month-to-month</span>
+          <span><i class="tick">✓</i> Live within 2 weeks</span>
+          <span><i class="tick">✓</i> No setup fee</span>
+        </div>
+        </div>
+        <aside class="promise rv" aria-label="The guarantee, plan by plan">
+          <svg class="seal" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="sealPath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs><circle cx="100" cy="100" r="98" fill="#E0290F"/><g class="seal-spin"><text font-family="JetBrains Mono,monospace" font-size="15.5" font-weight="700" letter-spacing="3.2" fill="#fff"><textPath href="#sealPath">DOUBLE MONEY BACK &#183; MONTH ONE &#183; </textPath></text></g><text x="100" y="118" text-anchor="middle" font-family="Inter Tight,sans-serif" font-size="58" font-weight="800" fill="#fff" letter-spacing="-3">2&#215;</text></svg>
+          <div class="pr-top"><span>The guarantee, in numbers</span><b>2&times;</b></div>
+          <table>
+            <thead><tr><th>Plan</th><th>Calls / mo</th><th>You pay</th><th>If we miss</th></tr></thead>
+            <tbody>
+              <tr data-n="5"><td>Starter</td><td>5</td><td>$1,500</td><td>$3,000 back<small>month one &middot; then $1,500</small></td></tr>
+              <tr data-n="10" class="hl"><td>Growth</td><td>10</td><td>$3,000</td><td>$6,000 back<small>month one &middot; then $3,000</small></td></tr>
+              <tr data-n="15"><td>Scale</td><td>15</td><td>$4,500</td><td>$9,000 back<small>month one &middot; then $4,500</small></td></tr>
+            </tbody>
+          </table>
+          <div class="pr-foot"><b>Commit for 3 months, save 20%.</b> Starter becomes $3,600 for the quarter instead of $4,500 &mdash; and the guarantee covers every month.</div>
+        </aside>
         </div>
 
         
@@ -375,22 +441,22 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
   </div>
 </section>
 
-<!-- THE OFFER: 30-day free trial -->
-<section class="trial-band" id="trial">
+<!-- THE GUARANTEE: double your money back -->
+<section class="trial-band" id="guarantee">
   <div class="wrap">
     <div class="tb-grid">
       <div>
-        <div class="tb-stamp rv"><span>30-day</span><b>free</b><span>trial</span></div>
-        <h2 class="tb-h rv">A $250 booked call. <em>Free.</em></h2>
-        <p class="tb-p rv">The same qualified call our Starter clients pay $250 for, booked onto your calendar by the engine below &mdash; in your name, at no charge. No card. If nobody books inside thirty days, <b>we keep going until someone does.</b></p>
+        <div class="tb-stamp rv"><span>Double</span><b>2&times;</b><span>money back</span></div>
+        <h2 class="tb-h rv">Double back in month one. <em>Full refund after.</em></h2>
+        <p class="tb-p rv">Most agencies sell activity &mdash; emails sent, open rates, &ldquo;pipeline influenced&rdquo;. We sell one number: qualified calls on your calendar. We agree it in writing before anything sends, and if your first month ends below it, <b>we refund twice what you paid.</b> After that, any month that ends below your number is <b>refunded in full</b>. Not a credit. Not extra calls later. Money back in your account. A promise that expensive only works if the engine works &mdash; that's the point.</p>
       </div>
       <div class="tb-side rv">
-        <div class="tb-pair"><span class="was">$250</span><span class="arr">&rarr;</span><span class="now">$0</span><span class="lab">per booked<br>call</span></div>
+        <div class="tb-pair"><span class="was" style="text-decoration:none">$3,000</span><span class="arr">&rarr;</span><span class="now">$6,000</span><span class="lab">back if Growth misses<br>10 calls in month one</span></div>
         <div class="tb-cta">
-          <a href="trial.html#apply" class="btn btn-red btn-lg">Apply for a slot</a>
-          <a href="trial.html" class="btn btn-g btn-lg">How the trial works</a>
+          <a href="#book" class="btn btn-red btn-lg" data-book>Book a call</a>
+          <a href="#pricing" class="btn btn-g btn-lg">See the plans</a>
         </div>
-        <div class="tb-micro">Three slots at a time &middot; one ask: an honest review at the end</div>
+        <div class="tb-micro">Every plan, monthly or 3-month &middot; month one pays double, every month after pays in full</div>
       </div>
     </div>
   </div>
@@ -409,10 +475,10 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
     <div class="sec-grid">
       <div class="sec-idx"><b>01</b> / Numbers</div>
       <div class="band rv">
-        <div><b><span class="cnt" data-to="3">0</span> weeks</b><p>To your first booked calls — guaranteed</p></div>
-        <div><b><span class="cnt" data-to="50">0</span>/mo</b><p>Guaranteed booked calls on our top plan</p></div>
-        <div><b>$<span class="cnt" data-to="170">0</span></b><p>Lowest cost per booked discovery call</p></div>
-        <div><b>$<span class="cnt" data-to="0">0</span></b><p>Setup fees, hidden infra charges, ever</p></div>
+        <div><b><span class="cnt" data-to="2">0</span> weeks</b><p>From kickoff to campaigns live</p></div>
+        <div><b><span class="cnt" data-to="15">0</span>/mo</b><p>Guaranteed booked calls on our top plan</p></div>
+        <div><b>$<span class="cnt" data-to="240">0</span></b><p>Per booked call on a 3-month plan &mdash; 20% off</p></div>
+        <div><b><span class="cnt" data-to="2">0</span>&times;</b><p>Your money back if we miss your number in month one</p></div>
       </div>
     </div>
   </div>
@@ -431,14 +497,14 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
       <div class="sec-idx"><b>02</b> / Process</div>
       <div>
         <div class="head-row rv">
-          <div><div class="eyebrow">Your first 3 weeks</div><h2 class="reveal">Kickoff to calls on your calendar in 21 days</h2></div>
-          <p class="lead">A fixed, transparent build. You approve everything before a single email goes out. If campaigns aren't live within 3 weeks, your next month is free.</p>
+          <div><div class="eyebrow">Your first 2 weeks</div><h2 class="reveal">Kickoff to campaigns live in 14 days</h2></div>
+          <p class="lead">A fixed, transparent build. You approve everything before a single email goes out. If campaigns aren't live within 2 weeks, your next month is free.</p>
         </div>
         <div class="steps" id="steps">
-          <div class="step rv"><div class="k">WEEK 1 — FOUNDATION</div><h4>Kickoff &amp; setup</h4><p>Kickoff call, ideal customer profile agreed and signed off, domains purchased, inboxes created and placed into warmup.</p></div>
-          <div class="step rv"><div class="k">WEEK 2 — BUILD</div><h4>Lists, copy &amp; calendar</h4><p>Verified prospect list built, email sequences written and approved by you, calendar and booking flow connected, deliverability tested.</p></div>
-          <div class="step rv"><div class="k">WEEK 3 — LAUNCH</div><h4>Campaigns go live</h4><p>Sending starts and the first discovery calls land on your calendar. From here, your monthly guarantee is in effect.</p></div>
-          <div class="step rv"><div class="k">ONGOING</div><h4>Guarantee in force</h4><p>Your guaranteed call count every month. Any shortfall rolls over on top of next month's number. No-shows are replaced free.</p></div>
+          <div class="step rv"><div class="k">DAYS 1–4 — FOUNDATION</div><h4>Kickoff &amp; setup</h4><p>Kickoff call, ideal customer profile agreed and signed off, domains purchased, inboxes created and placed into warmup.</p></div>
+          <div class="step rv"><div class="k">DAYS 5–11 — BUILD</div><h4>Lists, copy &amp; calendar</h4><p>Verified prospect list built, email sequences written and approved by you, calendar and booking flow connected, deliverability tested.</p></div>
+          <div class="step rv"><div class="k">DAY 14 — LAUNCH</div><h4>Campaigns go live</h4><p>Sending starts and the first replies come in, with discovery calls landing on your calendar. From here, your monthly guarantee is in effect.</p></div>
+          <div class="step rv"><div class="k">ONGOING</div><h4>Money-back guarantee</h4><p>Your guaranteed call count every month. Miss it in month one and we refund double what you paid. Miss it in any month after and that month is refunded in full.</p></div>
         </div>
       </div>
     </div>
@@ -448,11 +514,95 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
 <!-- SEQUENCE ANATOMY -->
 
 
+<!-- DEFINITIONS -->
+
+
+<!-- DELIVERABLES -->
+
+
+<!-- DIFFERENTIATORS -->
+
+
+<!-- WHAT WE DON'T PROMISE -->
+
+
+<!-- WORKSTREAMS -->
+
+
+<!-- PRICING -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div class="sec-idx"><b>03</b> / Pricing</div>
+      <div>
+        <div style="margin-bottom:44px" class="rv">
+          <div class="eyebrow">Plans &amp; pricing</div>
+          <h2 class="reveal" style="max-width:26ch">Simple monthly subscription. Guaranteed calls.</h2>
+          <p class="lead">You're not paying for outreach activity — you're paying for outcomes. No setup fees, no hidden infrastructure charges, and campaigns are live within two weeks of kickoff. Miss your number in month one and you get double your money back &mdash; and a full refund for any month after.</p>
+        </div>
+
+        <!-- transparent pricing rule -->
+        <div class="rule-box rv">
+          <div class="rule-lab">Transparent by design — how our pricing works</div>
+          <p class="rule-body">There is no pricing mystery here, and no plan built to look bad so another one looks good. Every plan on this page is generated by a single rule:</p>
+          <div class="rule-formula"><b>$300</b> per guaranteed booked call <span>·</span> <b>20% off</b> when you commit for 3 months</div>
+          <p class="rule-body">Every plan costs the same per call &mdash; <b>$300</b> month-to-month, or <b>$240</b> when you commit for three months. The only real question is how many conversations a month your sales team can actually handle.</p>
+        </div>
+
+        <div class="billtog rv" role="group" aria-label="Billing period">
+          <div class="seg" id="segBill">
+            <button type="button" data-bill="1" aria-pressed="false">Monthly</button>
+            <button type="button" data-bill="3" class="on" aria-pressed="true">3 months &middot; save 20%</button>
+          </div>
+        </div>
+
+        <div class="pricegrid rv">
+          <div class="price">
+            <h3>Starter</h3>
+            <div class="amt" data-m="1500">$1,500<small>/mo</small></div>
+            <div class="billnote">Billed monthly &middot; cancel with 14 days' notice</div>
+            <p><b>5 guaranteed booked calls</b> &middot; <span class="pc">$300</span> per call<br>Proving the channel works.</p>
+            <ul><li>The full engine — infrastructure, lists, copy, reply handling</li><li>ICP Blueprint researched, documented and signed off</li><li>Verified lists rebuilt and re-verified monthly</li></ul>
+            <a href="#book" class="btn btn-g" data-book>Get started</a>
+          </div>
+          <div class="price hot">
+            <div class="badge">★ Most popular</div>
+            <h3>Growth</h3>
+            <div class="amt" data-m="3000">$3,000<small>/mo</small></div>
+            <div class="billnote">Billed monthly &middot; cancel with 14 days' notice</div>
+            <p><b>10 guaranteed booked calls</b> &middot; <span class="pc">$300</span> per call<br>Building a real pipeline.</p>
+            <ul><li>Everything in Starter</li><li>Twice the calls of Starter</li><li>Dedicated strategist</li><li>Up to 3 campaign segments · monthly sequence rewrites</li></ul>
+            <a href="#book" class="btn btn-red" data-book>Book a call</a>
+          </div>
+          <div class="price">
+            <h3>Scale</h3>
+            <div class="amt" data-m="4500">$4,500<small>/mo</small></div>
+            <div class="billnote">Billed monthly &middot; cancel with 14 days' notice</div>
+            <p><b>15 guaranteed booked calls</b> &middot; <span class="pc">$300</span> per call<br>Outbound as the growth engine.</p>
+            <ul><li>Everything in Growth</li><li>A booked call almost every working day</li><li>Unlimited segments · continuous sequence refresh</li><li>Multi-market &amp; multi-language expansion</li></ul>
+            <a href="#book" class="btn btn-g" data-book>Talk to us</a>
+          </div>
+        </div>
+
+        <p class="ent rv">Running multiple brands, regions or product lines? <b>Enterprise programmes start at $15,000 per month</b> and are built around your structure — dedicated pods, custom volume, and commercial terms to match. <a href="#book">Let's talk →</a></p>
+
+        <p class="tblnote">Full feature-by-feature comparison of all three plans is available on the call, or ask us to send the one-page pricing sheet.</p>
+
+        <div class="hgrid cols-3 hoverable" style="margin-top:26px">
+          <div class="card rv"><div class="ico">◆</div><h3>What counts as a booked call</h3><p>A prospect matching the ideal customer profile we agreed at kickoff, who has accepted a meeting at a confirmed time on your calendar. Calls only count toward your number once they actually happen.</p></div>
+          <div class="card rv"><div class="ico">↻</div><h3>If we miss your number</h3><p>In your first month, we refund double what you paid &mdash; $3,000 on Growth means $6,000 back. In any month after, we refund that month in full. And if your campaigns are not live within two weeks of kickoff, your next month is free.</p></div>
+          <div class="card rv"><div class="ico">⇄</div><h3>3 months for 20% less, or monthly</h3><p>Billed monthly in advance, in USD &mdash; or commit to three months, billed up front, and every plan is 20% cheaper. Upgrade at any point with prorated billing; on monthly, downgrade or cancel with 14 days' notice before your next billing date. Domains, inboxes, warmup, data and software all included.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CALCULATOR -->
 <section class="sec" id="calculator">
   <div class="wrap">
     <div class="sec-grid">
-      <div class="sec-idx"><b>03</b> / Calculator</div>
+      <div class="sec-idx"><b>04</b> / Calculator</div>
       <div>
         <div class="rv" style="margin-bottom:40px">
           <div class="eyebrow">ROI calculator</div>
@@ -469,7 +619,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
                 <button type="button" data-plan="growth" class="on">Growth</button>
                 <button type="button" data-plan="scale">Scale</button>
               </div>
-              <small id="planNote">20 guaranteed booked calls / month &middot; $3,997 per month</small>
+              <small id="planNote">10 guaranteed booked calls / month &middot; $3,000 per month</small>
             </div>
 
             <label class="fld">
@@ -524,86 +674,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
             </div>
           </div>
         </div>
-        <p class="disc rv">Illustrative only. Figures assume a 3-week setup followed by your guaranteed call volume every month, and show the full value of 12 months of booked calls at your close rate — your sales cycle determines how much of that is recognised in year one versus year two. ROI is measured against 12 monthly payments. No-shows are replaced free, so every call counted here is a call that actually happens. Actual results depend on your offer, market and sales process.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DEFINITIONS -->
-
-
-<!-- DELIVERABLES -->
-
-
-<!-- DIFFERENTIATORS -->
-
-
-<!-- WHAT WE DON'T PROMISE -->
-
-
-<!-- WORKSTREAMS -->
-
-
-<!-- PRICING -->
-<section class="sec" id="pricing">
-  <div class="wrap">
-    <div class="sec-grid">
-      <div class="sec-idx"><b>04</b> / Pricing</div>
-      <div>
-        <div style="margin-bottom:44px" class="rv">
-          <div class="eyebrow">Plans &amp; pricing</div>
-          <h2 class="reveal" style="max-width:26ch">Simple monthly subscription. Guaranteed calls.</h2>
-          <p class="lead">You're not paying for outreach activity — you're paying for outcomes. No setup fees, no hidden infrastructure charges, and your first calls are on the calendar within three weeks of kickoff &mdash; guaranteed.</p>
-        </div>
-
-        <!-- transparent pricing rule -->
-        <div class="rule-box rv">
-          <div class="rule-lab">Transparent by design — how our pricing works</div>
-          <p class="rule-body">There is no pricing mystery here, and no plan built to look bad so another one looks good. Every plan on this page is generated by a single rule:</p>
-          <div class="rule-formula"><b>$2,497</b> for your first 10 booked calls <span>·</span> <b>$150</b> for every call after that</div>
-          <p class="rule-body">The more calls you take, the less each one costs — <b>$250</b> per call at Starter, <b>$200</b> at Growth, <b>$170</b> at Scale. The larger plans are genuinely the better value per call, and you can check the arithmetic yourself. The only real question is how many conversations a month your sales team can actually handle.</p>
-        </div>
-
-        <div class="rule-box rv" style="margin-bottom:26px">
-          <div class="rule-lab">Not ready to pick a plan?</div>
-          <p class="rule-body">A $250 booked call, free. The <a href="trial.html" style="border-bottom:1px solid var(--red)">30-day free trial</a> runs a slice of this engine in your name &mdash; verified list, copy you approve, replies handled, one qualified call booked onto your calendar. No card. If nobody books inside thirty days we keep going until someone does, and you get a written report of what your market said either way. Three slots at a time.</p>
-        </div>
-
-        <div class="pricegrid rv">
-          <div class="price">
-            <h3>Starter</h3>
-            <div class="amt">$2,497<small>/mo</small></div>
-            <p><b>10 guaranteed booked calls</b> &middot; $250 per call<br>Proving the channel works.</p>
-            <ul><li>The full engine — infrastructure, lists, copy, reply handling</li><li>ICP Blueprint researched, documented and signed off</li><li>Verified lists rebuilt and re-verified monthly</li><li>No-show replacement, free of charge</li></ul>
-            <a href="#book" class="btn btn-g" data-book>Get started</a>
-          </div>
-          <div class="price hot">
-            <div class="badge">★ Most popular</div>
-            <h3>Growth</h3>
-            <div class="amt">$3,997<small>/mo</small></div>
-            <p><b>20 guaranteed booked calls</b> &middot; $200 per call<br>Building a real pipeline.</p>
-            <ul><li>Everything in Starter</li><li>Twice the calls for $1,500 more — cost per call drops a fifth</li><li>Dedicated strategist</li><li>Up to 3 campaign segments · monthly sequence rewrites</li></ul>
-            <a href="#book" class="btn btn-red" data-book>Book a call</a>
-          </div>
-          <div class="price">
-            <h3>Scale</h3>
-            <div class="amt">$8,497<small>/mo</small></div>
-            <p><b>50 guaranteed booked calls</b> &middot; $170 per call<br>Outbound as the growth engine.</p>
-            <ul><li>Everything in Growth</li><li>More than two booked calls every working day</li><li>Unlimited segments · continuous sequence refresh</li><li>Multi-market &amp; multi-language expansion</li></ul>
-            <a href="#book" class="btn btn-g" data-book>Talk to us</a>
-          </div>
-        </div>
-
-        <p class="ent rv">Running multiple brands, regions or product lines? <b>Enterprise programmes start at $15,000 per month</b> and are built around your structure — dedicated pods, custom volume, and commercial terms to match. <a href="#book">Let's talk →</a></p>
-
-        <p class="tblnote">Full feature-by-feature comparison of all three plans is available on the call, or ask us to send the one-page pricing sheet.</p>
-
-        <div class="hgrid cols-3 hoverable" style="margin-top:26px">
-          <div class="card rv"><div class="ico">◆</div><h3>What counts as a booked call</h3><p>A prospect matching the ideal customer profile we agreed at kickoff, who has accepted a meeting at a confirmed time on your calendar. If they don't show, we replace that call free of charge — no-shows never count toward your number.</p></div>
-          <div class="card rv"><div class="ico">↻</div><h3>If we miss your number</h3><p>The shortfall rolls over — we owe you those calls on top of next month's guarantee. And if your campaigns are not live within three weeks of kickoff, your next month is free.</p></div>
-          <div class="card rv"><div class="ico">⇄</div><h3>Month-to-month</h3><p>Billed monthly in advance, in USD. Upgrade at any point with prorated billing; downgrade or cancel with 14 days' notice before your next billing date. Domains, inboxes, warmup, data and software all included.</p></div>
-        </div>
+        <p class="disc rv">Illustrative only. Figures assume a 2-week setup followed by your guaranteed call volume every month, and show the full value of 12 months of booked calls at your close rate — your sales cycle determines how much of that is recognised in year one versus year two. ROI is measured against 12 monthly payments. Only calls that actually happen are counted. Actual results depend on your offer, market and sales process.</p>
       </div>
     </div>
   </div>
@@ -622,11 +693,12 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
         <div class="rv">
           
       
-      <div class="faq"><button>What if you miss my guaranteed number?<span class="pm">+</span></button><div class="ans"><p>The shortfall rolls over. If we deliver fewer than your guaranteed calls in a month, we owe you those calls on top of next month's number. They don't expire and you don't pay extra for them.</p></div></div>
+      <div class="faq"><button>What's the catch with the money-back guarantee?<span class="pm">+</span></button><div class="ans"><p>There isn't a hidden one. Double back applies to your first month; after that, a missed month is refunded in full. The guarantee depends on the things we need to do the work: you sign off your ideal customer profile and approve the copy at kickoff, and you keep time free on your calendar for the calls we book. Calls only count when they match the profile you signed off and actually happen &mdash; which is exactly what you'd want counted anyway.</p></div></div>
+      <div class="faq"><button>What if you miss my guaranteed number?<span class="pm">+</span></button><div class="ans"><p>You get your money back &mdash; doubled in your first month. If we book fewer than your guaranteed calls in month one &mdash; 5 on Starter, 10 on Growth, 15 on Scale &mdash; we refund twice what you paid for that month. If we miss in any month after that, we refund that month in full. On a 3-month plan, it works on each month's share of what you paid. Calls only count when they actually happen.</p></div></div>
       <div class="faq"><button>How do I know the meetings will actually be a fit?<span class="pm">+</span></button><div class="ans"><p>Because you define the criteria before anything sends. In week one we agree and document your ideal customer profile — company size, sector, roles, and the accounts to exclude — and you sign it off. A call only counts toward your guarantee if the prospect matches it. We don't move those criteria later to make a month look better.</p></div></div>
-      <div class="faq"><button>How fast will I see my first booked call?<span class="pm">+</span></button><div class="ans"><p>Three weeks. Week one is foundation — kickoff call, ICP signed off, domains purchased, inboxes into warmup. Week two is build — verified list, sequences written and approved by you, calendar and booking flow connected. Week three, campaigns go live and calls start landing. If we're not live within 3 weeks of kickoff, your next month is free.</p></div></div>
+      <div class="faq"><button>How fast will I see my first booked call?<span class="pm">+</span></button><div class="ans"><p>Campaigns go live within two weeks. Days one to four are foundation — kickoff call, ICP signed off, domains purchased, inboxes into warmup. Days five to eleven are build — verified list, sequences written and approved by you, calendar and booking flow connected. By day fourteen campaigns are live and replies start coming in. If we're not live within 2 weeks of kickoff, your next month is free.</p></div></div>
           <div class="faq"><button>What exactly counts as a "booked call"?<span class="pm">+</span></button><div class="ans"><p>So there's never any ambiguity: a prospect matching the ideal customer profile we agreed at kickoff, who has accepted a meeting at a confirmed time on your calendar. Nothing looser than that gets counted toward your guarantee.</p></div></div>
-          <div class="faq"><button>What happens if a prospect no-shows?<span class="pm">+</span></button><div class="ans"><p>We replace that call free of charge. No-shows never count toward your monthly number — only calls that actually happen do.</p></div></div>
+          <div class="faq"><button>What happens if a prospect no-shows?<span class="pm">+</span></button><div class="ans"><p>It doesn't count toward your monthly number &mdash; only calls that actually happen do. We keep booking until you hit it.</p></div></div>
           
           
           
@@ -645,7 +717,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
     <div class="cta-box rv">
       <div class="eyebrow" style="justify-content:center">Let's talk</div>
       <h2 class="reveal">Book a 15-minute call</h2>
-      <p class="lead">Pick a slot below. Fifteen minutes to hear what you sell, tell you honestly whether cold email fits it, and if it does, agree the number you want on your calendar each month.</p>
+      <p class="lead">Pick a slot and tell us a little about your business. Fifteen minutes to hear what you sell, tell you honestly whether cold email fits it, and agree the number you want on your calendar each month.</p>
 
       <div class="sched" id="sched">
 
@@ -682,7 +754,34 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
             <label class="bf"><span>Website</span>
               <input type="text" name="website" id="f_site" placeholder="yourcompany.com" maxlength="120"></label>
             <label class="bf bf-wide"><span>What do you sell, and who to? <i>*</i></span>
-              <textarea name="what_you_sell" id="f_what" rows="3" required maxlength="500"></textarea></label>
+              <textarea name="what_you_sell" id="f_what" rows="3" required maxlength="500" placeholder="e.g. Payroll software for UK construction firms with 50–500 staff"></textarea></label>
+          </div>
+
+          <div class="bq-head">
+            <b>Five quick questions</b>
+            <span>So we can work out your number before the call &mdash; about 30 seconds.</span>
+          </div>
+          <div class="bgrid">
+            <label class="bf"><span>Your role <i>*</i></span>
+              <select name="role" id="q_role" required>
+                <option value="">Choose&hellip;</option><option>Founder / CEO</option><option>Head of Sales / CRO</option><option>Marketing / Growth</option><option>Other</option>
+              </select></label>
+            <label class="bf"><span>Average deal size <i>*</i></span>
+              <select name="deal_size" id="q_deal" required>
+                <option value="">Choose&hellip;</option><option>Under $5,000</option><option>$5,000 – $25,000</option><option>$25,000 – $100,000</option><option>Over $100,000</option>
+              </select></label>
+            <label class="bf"><span>How do you win customers today? <i>*</i></span>
+              <select name="channel" id="q_chan" required>
+                <option value="">Choose&hellip;</option><option>Mostly referrals</option><option>Inbound (ads, SEO, content)</option><option>Our own outbound</option><option>An agency</option><option>Not consistently yet</option>
+              </select></label>
+            <label class="bf"><span>Sales calls your team could take a month <i>*</i></span>
+              <select name="capacity" id="q_cap" required>
+                <option value="">Choose&hellip;</option><option>Around 5</option><option>Around 10</option><option>15 or more</option><option>Not sure yet</option>
+              </select></label>
+            <label class="bf bf-wide"><span>When would you want calls on your calendar?</span>
+              <select name="timing" id="q_when">
+                <option value="">Choose&hellip;</option><option>As soon as possible</option><option>Within the next month</option><option>In 1–3 months</option><option>Just exploring</option>
+              </select></label>
           </div>
           <p class="berr mono" id="berr" hidden></p>
           <div class="bactions">
@@ -697,7 +796,39 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
           <div class="tick" aria-hidden="true">&check;</div>
           <h3>You're booked</h3>
           <p class="bconf" id="bconf"></p>
-          <p class="mono bsub">A confirmation is on its way to your inbox. If it hasn't arrived in a few minutes, check spam &mdash; then email <a href="mailto:aviancelk@gmail.com">aviancelk@gmail.com</a>.</p>
+          <a class="btn btn-g" id="bcal" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+          <p class="mono bsub" style="margin-top:16px">A confirmation is on its way to your inbox. If it hasn't arrived in a few minutes, check spam &mdash; then email <a href="mailto:aviancelk@gmail.com">aviancelk@gmail.com</a>.</p>
+
+          <!-- WHO THEY'RE MEETING — shown after booking.
+               Keep every line here true for your team. To add the closer's name/photo,
+               put them in .tm-who below, e.g. <b>Name</b>, role, one real line of background. -->
+          <div class="tm">
+            <div class="tm-head">
+              <div class="tm-k">Who you're meeting</div>
+              <h3 class="tm-h">You're in good hands.</h3>
+              <p class="tm-who">The person on your call works on outbound every day &mdash; targeting, copy and deliverability &mdash; not a booking agent reading a script. They'll have read your answers before you join, so the 15 minutes goes on your business, not on introductions.</p>
+            </div>
+            <div class="tm-grid">
+              <div><span>01</span><h4>They'll tell you the truth</h4><p>If cold email isn't right for your offer, you'll hear it on the call. We only take on clients we're confident we can deliver for.</p></div>
+              <div><span>02</span><h4>Their word is backed by our money</h4><p>The number they agree with you is guaranteed. Miss it in month one and you get double your fee back; miss it after that and the month is refunded in full &mdash; so nobody sets it lightly.</p></div>
+              <div><span>03</span><h4>They do the work, not just the talking</h4><p>The team you meet is the team that builds your lists, writes your emails and books your calls.</p></div>
+            </div>
+            <div class="tm-prep">
+              <div>
+                <div class="tm-k">Prepared for your call</div>
+                <div class="tm-plan" id="tmPlan"></div>
+                <p class="tm-ans" id="tmAns"></p>
+              </div>
+              <div>
+                <div class="tm-k">Before the call</div>
+                <ul class="tm-list">
+                  <li>Think of your best 2&ndash;3 customers &mdash; we'll aim for more like them.</li>
+                  <li>Know roughly how long a deal takes to close.</li>
+                  <li>If someone else takes your sales calls, bring them along.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -745,7 +876,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
         <a href="#pricing">Pricing</a>
         <a href="#process">Our process</a>
         <a href="#faq">FAQ</a>
-        <a href="trial.html">30-day free trial</a>
+        <a href="#guarantee">Guarantee</a>
         <a href="#book">Contact</a>
       </div>
     </div>
@@ -783,7 +914,7 @@ const sio=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){s
 document.querySelectorAll('.step').forEach(el=>sio.observe(el));
 
 // ticker
-const logos=['Live in 3 weeks — guaranteed','No-shows replaced free','Shortfall rolls over','No setup fee','Month-to-month','You approve the copy','Raw data, exportable','Your domain never used for cold sending'];
+const logos=['Live in 2 weeks','Miss month one — double your money back','Miss after that — full refund','No setup fee','Month-to-month','You approve the copy','Raw data, exportable','Your domain never used for cold sending'];
 document.getElementById('marq').innerHTML=[...logos,...logos].map(l=>`<span>${l}</span>`).join('');
 
 // faq
@@ -797,13 +928,15 @@ document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',(
 
 /* ---------- ROI CALCULATOR ---------- */
 const PLANS={
-  starter:{calls:10,price:2497,label:'10'},
-  growth :{calls:20,price:3997,label:'20'},
-  scale  :{calls:50,price:8497,label:'50'}
+  starter:{calls:5, price:1500,label:'5'},
+  growth :{calls:10,price:3000,label:'10'},
+  scale  :{calls:15,price:4500,label:'15'}
 };
-const SETUP_MONTHS=0.75;               // 3-week build before campaigns go live
+const SETUP_MONTHS=0.5;                // 2-week build before campaigns go live
 const ACTIVE=12-SETUP_MONTHS;          // months of guaranteed calls in year one
 let plan='growth';
+const QDISC=0.20;                      // 20% off when committing for 3 months
+let BILL=3;                            // 1 = monthly, 3 = 3-month commitment
 
 const $=id=>document.getElementById(id);
 const fmtMoney=n=>{
@@ -818,7 +951,7 @@ function flash(el,val){ if(el.textContent===val)return; el.classList.add('flash'
   setTimeout(()=>{el.textContent=val;el.classList.remove('flash')},110); }
 
 function calc(){
-  const p=PLANS[plan];
+  const p0=PLANS[plan]; const p={calls:p0.calls,price:Math.round(p0.price*(BILL===3?1-QDISC:1))};
   const cycle=+$('cyc').value;
   const close=+$('cr').value/100;
   const deal=+($('deal').value.replace(/[^0-9]/g,''))||0;
@@ -840,7 +973,7 @@ function calc(){
   $('planNote').innerHTML=p.calls+' guaranteed booked calls / month &middot; $'+p.price.toLocaleString()+' per month';
   $('crv').textContent=$('cr').value+'%';
   $('foot').innerHTML='Based on <b style="color:#FF5C3D;font-weight:600">'+p.calls+' guaranteed calls a month</b> at $'+
-    p.price.toLocaleString()+'/mo, live from week 3 — no-shows replaced free. With a '+cycle+'-month sales cycle, first revenue lands around <b style="color:var(--ink);font-weight:600">month '+firstRev+
+    p.price.toLocaleString()+'/mo'+(BILL===3?' (3-month plan, 20% off)':'')+', live after a 2-week build. With a '+cycle+'-month sales cycle, first revenue lands around <b style="color:var(--ink);font-weight:600">month '+firstRev+
     '</b> and roughly <b style="color:var(--ink);font-weight:600">'+inYear+'%</b> of the above is recognised inside the first 12 months.';
 }
 
@@ -857,6 +990,28 @@ $('ind').addEventListener('change',e=>{
   calc();
 });
 $('cyc').addEventListener('change',calc);
+
+/* ---------- BILLING TOGGLE (monthly / 3 months, 20% off) ---------- */
+function renderBill(){
+  document.querySelectorAll('.price .amt[data-m]').forEach(el=>{
+    const m=+el.dataset.m, card=el.closest('.price');
+    const calls=+card.querySelector('p b').textContent.match(/\d+/)[0];
+    const per=BILL===3?Math.round(m*(1-QDISC)):m;
+    el.innerHTML=(BILL===3?'<s>$'+m.toLocaleString()+'</s>':'')+'$'+per.toLocaleString()+'<small>/mo</small>';
+    card.querySelector('.billnote').innerHTML=BILL===3
+      ? '$'+(per*3).toLocaleString()+' for 3 months instead of $'+(m*3).toLocaleString()+' &middot; <b>save $'+((m-per)*3).toLocaleString()+'</b>'
+      : 'Billed monthly &middot; cancel with 14 days\' notice';
+    card.querySelector('.pc').textContent='$'+Math.round(per/calls).toLocaleString();
+  });
+  calc();
+}
+renderBill();
+$('segBill').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-bill]'); if(!b)return;
+  BILL=+b.dataset.bill;
+  [...$('segBill').children].forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});
+  renderBill();
+});
 $('cr').addEventListener('input',calc);
 $('deal').addEventListener('input',e=>{
   const raw=e.target.value.replace(/[^0-9]/g,'');
@@ -1010,6 +1165,12 @@ h2.reveal.in .wd i{transform:translateY(0)}
 .slotgroup h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--grey);font-weight:400;margin-bottom:10px}
 .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:7px}
+.hrows{display:flex;flex-direction:column;gap:7px}
+.hrow{display:grid;grid-template-columns:62px repeat(4,minmax(0,1fr));gap:7px;align-items:stretch}
+.hlab{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--grey);display:flex;align-items:center;border-right:1px solid var(--line2);padding-right:8px}
+.slot.gone{border-style:dashed;border-color:var(--line2);color:transparent;cursor:default;background:repeating-linear-gradient(-45deg,transparent 0 6px,rgba(0,0,0,.035) 6px 7px)}
+.slot.gone:hover{background:repeating-linear-gradient(-45deg,transparent 0 6px,rgba(0,0,0,.035) 6px 7px);color:transparent}
+@media(max-width:480px){.hrow{grid-template-columns:44px repeat(4,minmax(0,1fr));gap:5px}.hlab{font-size:10px;padding-right:4px}.hrow .slot{font-size:12px;padding:10px 0}}
 .slot{font-family:var(--mono);font-size:13px;padding:11px 4px;border:1px solid var(--ink);background:var(--bg);
   color:var(--ink);cursor:pointer;text-align:center;transition:background .1s linear,color .1s linear}
 .slot:hover{background:var(--ink);color:var(--bg)}
@@ -1020,6 +1181,10 @@ h2.reveal.in .wd i{transform:translateY(0)}
 .bpick{font-family:var(--mono);font-size:13px;padding:12px 14px;border:1px solid var(--red);
   border-left-width:5px;margin-bottom:20px;line-height:1.6}
 .bpick b{font-weight:700}
+.bq-head{margin:26px 0 14px;padding-top:22px;border-top:1px solid var(--ink);text-align:left}
+.bq-head b{display:block;font-size:18px;letter-spacing:-.02em}
+.bq-head span{font-family:var(--mono);font-size:12px;color:var(--grey)}
+.bprep{max-width:52ch;margin:0 auto 12px;color:var(--grey)}
 .bpick small{display:block;color:var(--grey);font-size:11.5px;margin-top:3px}
 .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .bf{display:block}
@@ -1029,6 +1194,9 @@ h2.reveal.in .wd i{transform:translateY(0)}
 .bf span i{color:var(--red);font-style:normal}
 .bf input,.bf textarea{width:100%;border:1px solid var(--ink);background:var(--bg);color:var(--ink);
   font-family:var(--sans);font-size:15px;padding:11px 12px;outline:0;resize:vertical}
+.bf select{width:100%;border:1px solid var(--ink);background-color:var(--bg);color:var(--ink);font-family:var(--mono);font-size:13.5px;padding:12px 34px 12px 14px;-webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.bf select:focus{outline:2px solid var(--red);outline-offset:-2px}
+.bf.bad select{border-color:var(--red);background-color:#FFF6F4}
 .bf input:focus,.bf textarea:focus{outline:2px solid var(--red);outline-offset:-2px}
 .bf.bad input,.bf.bad textarea{border-color:var(--red);background:#FFF6F4}
 .berr{margin-top:14px;color:#C42408;font-size:12.5px}
@@ -1044,6 +1212,23 @@ h2.reveal.in .wd i{transform:translateY(0)}
 .bconf b{color:var(--red)}
 .bsub{font-size:12px;color:var(--grey);max-width:52ch;margin:0 auto}
 .bsub a{border-bottom:1px solid var(--red)}
+.tm{margin-top:34px;border:1px solid var(--ink);text-align:left}
+.tm-head{background:var(--ink);color:var(--bg);padding:30px 32px}
+.tm-k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.tm-h{font-size:30px!important;letter-spacing:-.04em;margin-bottom:10px!important;color:var(--bg)}
+.tm-who{color:rgba(255,255,255,.72);font-size:15.5px;max-width:66ch}
+.tm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--ink)}
+.tm-grid>div{padding:24px 26px;border-right:1px solid var(--ink)}.tm-grid>div:last-child{border-right:0}
+.tm-grid span{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--red)}
+.tm-grid h4{font-size:17px;margin:10px 0 6px;letter-spacing:-.02em}.tm-grid p{font-size:14px;color:var(--grey)}
+.tm-prep{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);background:#FFF1EE}
+.tm-prep>div{padding:24px 26px}.tm-prep>div:first-child{border-right:1px solid var(--ink)}
+.tm-plan{font-family:var(--mono);font-size:14px;line-height:1.6}.tm-plan b{font-size:18px}
+.tm-plan span{display:block;color:var(--red);font-weight:700;margin-top:4px}
+.tm-ans{font-size:13px;color:var(--grey);margin-top:10px}
+.tm-list{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:14px;color:var(--grey)}
+.tm-list li::before{content:'→  ';color:var(--red);font-weight:700}
+@media(max-width:800px){.tm-grid,.tm-prep{grid-template-columns:1fr}.tm-grid>div{border-right:0;border-bottom:1px solid var(--ink)}.tm-grid>div:last-child{border-bottom:0}.tm-prep>div:first-child{border-right:0;border-bottom:1px solid var(--ink)}.tm-head,.tm-grid>div,.tm-prep>div{padding:22px 20px}}
 @media(max-width:640px){
   .bgrid{grid-template-columns:1fr}
   .slots{grid-template-columns:repeat(auto-fill,minmax(86px,1fr))}
@@ -1457,28 +1642,10 @@ var BOOKING = {
     {id:'America/Denver',      name:'Mountain',       where:'CO, UT, NM, WY, MT, ID (south), NE (west), ND (southwest), TX (El Paso)'},
     {id:'America/Phoenix',     name:'Arizona',        where:'Arizona. Stays on Mountain Standard all year, no daylight saving'},
     {id:'America/Los_Angeles', name:'Pacific',        where:'CA, WA, OR, NV, ID (north)'},
-    {id:'America/Anchorage',   name:'Alaska',         where:'Alaska. Anchorage, Fairbanks, Juneau, Nome'},
-    {id:'America/Adak',        name:'Hawaii–Aleutian',where:'Aleutian Islands, west of 169°30′W'},
-    {id:'Pacific/Honolulu',    name:'Hawaii',         where:'Hawaii. No daylight saving'},
-    {id:'America/Puerto_Rico', name:'Atlantic',       where:'Puerto Rico and the US Virgin Islands'},
-    {id:'Pacific/Guam',        name:'Chamorro',       where:'Guam and the Northern Mariana Islands'},
-    {id:'Pacific/Pago_Pago',   name:'Samoa',          where:'American Samoa'}
+    {id:'America/Anchorage',   name:'Alaska',         where:'Alaska. Anchorage, Fairbanks, Juneau'},
+    {id:'Pacific/Honolulu',    name:'Hawaii',         where:'Hawaii. No daylight saving'}
   ];
-  var OTHER_ZONES = [
-    {id:'America/Toronto',   name:'Canada — Eastern',  where:'Ontario, Quebec'},
-    {id:'America/Winnipeg',  name:'Canada — Central',  where:'Manitoba, Saskatchewan'},
-    {id:'America/Edmonton',  name:'Canada — Mountain', where:'Alberta'},
-    {id:'America/Vancouver', name:'Canada — Pacific',  where:'British Columbia'},
-    {id:'America/Mexico_City',name:'Mexico',           where:'Mexico City'},
-    {id:'Europe/London',     name:'United Kingdom',    where:'London, Dublin'},
-    {id:'Europe/Berlin',     name:'Central Europe',    where:'Berlin, Paris, Madrid, Amsterdam'},
-    {id:'Asia/Dubai',        name:'Gulf',              where:'Dubai, Abu Dhabi'},
-    {id:'Asia/Kolkata',      name:'India',             where:'Mumbai, Delhi, Bengaluru'},
-    {id:'Asia/Colombo',      name:'Sri Lanka',         where:'Colombo'},
-    {id:'Asia/Singapore',    name:'Singapore',         where:'Singapore, Kuala Lumpur'},
-    {id:'Australia/Sydney',  name:'Australia — East',  where:'Sydney, Melbourne, Brisbane'}
-  ];
-  var ZONES = US_ZONES.concat(OTHER_ZONES);
+  var ZONES = US_ZONES;   /* US only — that's who we sell to */
   function zoneById(id){ for(var i=0;i<ZONES.length;i++) if(ZONES[i].id===id) return ZONES[i]; return null; }
 
   /* ---- timezone maths ---------------------------------------------- */
@@ -1516,17 +1683,22 @@ var BOOKING = {
   }
 
   /* ---- state -------------------------------------------------------- */
-  var tz = 'America/New_York', detected = null;
+  var tz = 'America/New_York';
+  /* Pre-select the visitor's own US zone. Zones we don't list by name
+     (America/Detroit, America/Boise, ...) map to the US zone on the same clock.
+     Anyone outside the US starts on Eastern and can switch. */
+  function offsetMin(id, d){
+    var p = partsIn(d, id);
+    return Math.round((Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute) - Math.floor(d.getTime()/60000)*60000)/60000);
+  }
   try{
     var guess = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    if(guess){
-      if(zoneById(guess)){ tz = guess; }
-      else{
-        /* an IANA zone we do not list (e.g. America/Detroit, America/Boise).
-           Add it at the top so nobody is ever forced into the wrong clock. */
-        detected = {id:guess, name:guess.split('/').pop().replace(/_/g,' '), where:'Detected from your device'};
-        ZONES.unshift(detected);
-        tz = guess;
+    if(guess && zoneById(guess)) tz = guess;
+    else if(guess && /^(America|Pacific)\//.test(guess)){
+      var jan = new Date(Date.UTC(new Date().getFullYear(),0,15)), jul = new Date(Date.UTC(new Date().getFullYear(),6,15));
+      for(var zi=0; zi<US_ZONES.length; zi++){
+        var zid = US_ZONES[zi].id;
+        if(offsetMin(zid,jan)===offsetMin(guess,jan) && offsetMin(zid,jul)===offsetMin(guess,jul)){ tz = zid; break; }
       }
     }
   }catch(e){}
@@ -1560,9 +1732,7 @@ var BOOKING = {
     });
     selTz.appendChild(g);
   }
-  addGroup('Detected', detected ? [detected] : []);
   addGroup('United States', US_ZONES);
-  addGroup('Elsewhere', OTHER_ZONES);
 
   selTz.value = tz;
   selTz.addEventListener('change', function(){ tz = selTz.value; buildDays(); paintNow(); });
@@ -1630,27 +1800,40 @@ var BOOKING = {
     groups.forEach(function(g){
       var name=g[0], from=Math.max(g[1],BOOKING.DAY_START), to=Math.min(g[2],BOOKING.DAY_END);
       var box=document.createElement('div'); box.className='slotgroup';
-      var grid=document.createElement('div'); grid.className='slots';
+      var rows=document.createElement('div'); rows.className='hrows';
       var n=0;
       for(var h=from; h<to; h++){
+        var row=document.createElement('div'); row.className='hrow';
+        var lab=document.createElement('div'); lab.className='hlab';
+        lab.textContent = (h%12||12) + (h<12?' AM':' PM');
+        row.appendChild(lab);
+        var open=0;
         for(var mi=0; mi<60; mi+=BOOKING.SLOT_MINS){
           var t = toUTC(Y,M,D,h,mi,tz);
-          if(t.getTime() < cutoff) continue;
-          if(BOOKING.HOST_QUIET){
+          var ok = t.getTime() >= cutoff;
+          if(ok && BOOKING.HOST_QUIET){
             var hh = +partsIn(t, BOOKING.HOST_TZ).hour;
             var q  = BOOKING.HOST_QUIET;
             var inQuiet = q.from < q.to ? (hh >= q.from && hh < q.to)
                                         : (hh >= q.from || hh < q.to);
-            if(inQuiet) continue;
+            if(inQuiet) ok = false;
           }
           var b=document.createElement('button');
-          b.type='button'; b.className='slot'; b.dataset.iso=t.toISOString();
-          b.textContent = fmt(t,tz,{hour:'numeric',minute:'2-digit'});
-          b.addEventListener('click', function(){ pickSlot(this); });
-          grid.appendChild(b); n++; total++;
+          b.type='button'; b.className='slot';
+          b.textContent = fmt(t,tz,{hour:'numeric',minute:'2-digit'}).replace(/\s?(AM|PM)$/,'');
+          if(ok){
+            b.dataset.iso=t.toISOString();
+            b.setAttribute('aria-label', fmt(t,tz,{hour:'numeric',minute:'2-digit'}));
+            b.addEventListener('click', function(){ pickSlot(this); });
+            open++;
+          } else {
+            b.disabled = true; b.classList.add('gone'); b.setAttribute('aria-hidden','true'); b.tabIndex = -1;
+          }
+          row.appendChild(b);
         }
+        if(open){ rows.appendChild(row); n+=open; total+=open; }
       }
-      if(n){ box.innerHTML='<h4>'+name+'</h4>'; box.appendChild(grid); elWrap.appendChild(box); }
+      if(n){ box.innerHTML='<h4>'+name+'</h4>'; box.appendChild(rows); elWrap.appendChild(box); }
     });
     elNone.hidden = total>0;
     elWrap.style.display = total>0 ? '' : 'none';
@@ -1679,6 +1862,10 @@ var BOOKING = {
 
   /* ---- submit -------------------------------------------------------- */
   function bad(id,on){ var f=document.getElementById(id); if(f) f.parentElement.classList.toggle('bad',!!on); }
+  ['input','change'].forEach(function(t){ form.addEventListener(t,function(e){
+    var l=e.target.closest && e.target.closest('.bf'); if(l && e.target.value && e.target.value.trim()) l.classList.remove('bad');
+    if(!form.querySelector('.bf.bad')) elErr.hidden=true;
+  }); });
 
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
@@ -1689,15 +1876,19 @@ var BOOKING = {
     var co  =document.getElementById('f_company').value.trim();
     var site=document.getElementById('f_site').value.trim();
     var what=document.getElementById('f_what').value.trim();
+    var qv=function(id){var e=document.getElementById(id);return e?e.value:''};
+    var role=qv('q_role'), deal=qv('q_deal'), chan=qv('q_chan'), cap=qv('q_cap'), when=qv('q_when');
 
     var okMail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail);
     bad('f_name',!name); bad('f_email',!okMail); bad('f_company',!co); bad('f_what',!what);
-    if(!name || !okMail || !co || !what || !chosenSlot){
+    bad('q_role',!role); bad('q_deal',!deal); bad('q_chan',!chan); bad('q_cap',!cap);
+    if(!name || !okMail || !co || !what || !role || !deal || !chan || !cap || !chosenSlot){
       elErr.textContent = !chosenSlot ? 'Please pick a time first.' : 'Please fill in the marked fields.';
       elErr.hidden = false; return;
     }
 
     var end = new Date(chosenSlot.getTime() + BOOKING.SLOT_MINS*60000);
+    lastAns = {role:role, deal:deal, chan:chan, cap:cap, when:when, co:co, start:chosenSlot, end:end};
     var LONG = {weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'numeric',minute:'2-digit'};
     var whenYou   = fmt(chosenSlot,tz,LONG) + ' ' + tzAbbr(chosenSlot,tz);
     var whenHost  = fmt(chosenSlot,BOOKING.HOST_TZ,LONG);
@@ -1724,6 +1915,11 @@ var BOOKING = {
       'Company'   : co,
       'Website'   : site || '—',
       'They sell' : what,
+      'Role'          : role,
+      'Deal size'     : deal,
+      'Wins customers': chan,
+      'Call capacity' : cap,
+      'Wants to start': when || '—',
 
       'Their timezone'  : tz,
       'Starts (UTC)'    : chosenSlot.toISOString(),
@@ -1737,6 +1933,7 @@ var BOOKING = {
       headers: {'Content-Type':'application/json','Accept':'application/json'},
       body   : JSON.stringify({
         name: name, email: mail, company: co, website: site, sells: what, plan: pickedPlan,
+        role: role, dealSize: deal, channel: chan, capacity: cap, timing: when,
         slotStart: chosenSlot.toISOString(), slotEnd: end.toISOString(), theirTz: tz,
         whenTheirs: whenYou, whenHost: whenHost, page: location.pathname,
         company_url2: (document.getElementById('f_hp')||{}).value || ''
@@ -1761,9 +1958,34 @@ var BOOKING = {
     });
   });
 
+  var lastAns = null;
+  function esc(t){ return String(t||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]}); }
   function succeed(whenYou){
     form.hidden = true; elDone.hidden = false;
+    ['.tzbar','#dayrow','#slotwrap','#slotnone'].forEach(function(q){ var e=document.querySelector('#sched '+q); if(e) e.style.display='none'; });
     elConf.innerHTML = '<b>' + whenYou + '</b><br>15 minutes, video link to follow.';
+    var a = lastAns || {};
+    /* plan to discuss, from the calls-a-month answer */
+    var PLAN = {'Around 5':['Starter',5,1500],'Around 10':['Growth',10,3000],'15 or more':['Scale',15,4500]}[a.cap];
+    var tp = document.getElementById('tmPlan');
+    if(tp){
+      tp.innerHTML = PLAN
+        ? '<b>'+PLAN[0]+'</b> &middot; '+PLAN[1]+' calls a month &middot; $'+(PLAN[2]*0.8).toLocaleString()+'/mo on a 3-month plan <span>$'+(PLAN[2]*2).toLocaleString()+' back if we miss in month one &middot; full refund after</span>'
+        : '<b>Your number</b> &middot; we\'ll work out 5, 10 or 15 calls a month together <span>Every plan: double back in month one, full refund after</span>';
+    }
+    var ta = document.getElementById('tmAns');
+    if(ta){
+      var bits=[]; if(a.deal) bits.push('Deal size: '+esc(a.deal)); if(a.chan) bits.push('Wins customers today: '+esc(a.chan)); if(a.when) bits.push('Wants to start: '+esc(a.when));
+      ta.innerHTML = bits.join(' &middot; ');
+    }
+    var cal = document.getElementById('bcal');
+    if(cal && a.start){
+      var z=function(d){ return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,''); };
+      cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+        + '&text=' + encodeURIComponent('Aviance call — ' + (a.co||'booked calls'))
+        + '&dates=' + z(a.start) + '/' + z(a.end)
+        + '&details=' + encodeURIComponent('15-minute call with Aviance. Video link to follow by email.');
+    } else if(cal){ cal.hidden = true; }
     elDone.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth', block:'center'});
   }
 
@@ -1804,6 +2026,10 @@ var BOOKING = {
 .trial-band .btn-g:hover{background:var(--bg);color:var(--ink)}
 .tb-micro{font-family:var(--mono);font-size:11.5px;color:rgba(255,255,255,.6);letter-spacing:.04em;line-height:1.6}
 @media(max-width:900px){.tb-grid{grid-template-columns:1fr;gap:28px}.tb-side{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.25);padding-top:26px}.trial-band{padding:44px 0}}
+.tb-grid>*{min-width:0}
+.tb-pair{flex-wrap:wrap;row-gap:6px}
+@media(max-width:1200px){.tb-pair .was{font-size:28px}.tb-pair .now{font-size:44px}}
+@media(max-width:480px){.tb-pair .was{font-size:24px}.tb-pair .now{font-size:40px}.tb-pair .lab{margin-left:0;flex-basis:100%}}
 </style>
 <style id="anchor-fix">nav.navlock{transform:none!important}</style>
 <script id="anchor-fix-js">
@@ -1850,6 +2076,20 @@ var BOOKING = {
   }
   if(document.readyState==='complete')fromHash();else addEventListener('load',fromHash);
   addEventListener('hashchange',fromHash);
+})();
+</script>
+<script>
+(function(){
+  var el=document.getElementById('rotN'); if(!el)return;
+  var rows=[].slice.call(document.querySelectorAll('.promise tbody tr'));
+  var seq=[5,10,15], i=1;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  setInterval(function(){
+    i=(i+1)%seq.length; var n=seq[i];
+    el.className='out';
+    setTimeout(function(){el.textContent=n;el.className='in';
+      rows.forEach(function(r){r.classList.toggle('hl',+r.dataset.n===n)});},260);
+  },2600);
 })();
 </script>
 </body>
