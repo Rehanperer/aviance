@@ -403,9 +403,36 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
     <div class="cta-box rv">
       <div class="eyebrow" style="justify-content:center">Let's talk</div>
       <h2 class="reveal">Book a 15-minute call</h2>
-      <p class="lead">Pick a slot and tell us a little about your business. Fifteen minutes to hear what you sell, tell you honestly whether cold email fits it, and agree the number you want on your calendar each month.</p>
+      <p class="lead">Fifteen minutes to hear what you sell, tell you honestly whether cold email fits it, and agree the number you want on your calendar each month.</p>
 
-      <div class="sched" id="sched">
+      <ol class="bsteps" id="bsteps" aria-label="Booking steps">
+        <li class="on" data-step="1"><b>1</b> Who you'll meet</li>
+        <li data-step="2"><b>2</b> Pick a time</li>
+        <li data-step="3"><b>3</b> You're booked</li>
+      </ol>
+
+      <!-- STEP 1 — WHO THEY'RE MEETING (before the calendar).
+           Keep every line true for your team. To add the closer's name/photo,
+           put them in .tm-who, e.g. <b>Name</b>, role, one real line of background. -->
+      <div class="tm tm-intro" id="stepIntro">
+        <div class="tm-head">
+          <div class="tm-k">Who you're meeting</div>
+              <h3 class="tm-h">You're in good hands.</h3>
+              <p class="tm-who">The person on your call works on outbound every day &mdash; targeting, copy and deliverability &mdash; not a booking agent reading a script. They'll have read your answers before you join, so the 15 minutes goes on your business, not on introductions.</p>
+            </div>
+        <div class="tm-grid">
+          <div><span>01</span><h4>They'll tell you the truth</h4><p>If cold email isn't right for your offer, you'll hear it on the call. We only take on clients we're confident we can deliver for.</p></div>
+          <div><span>02</span><h4>Their word is backed by our money</h4><p>The number they agree with you is guaranteed. Miss it in month one and you get double your fee back; miss it after that and the month is refunded in full &mdash; so nobody sets it lightly.</p></div>
+          <div><span>03</span><h4>They do the work, not just the talking</h4><p>The team you meet is the team that builds your lists, writes your emails and books your calls.</p></div>
+            </div>
+        <div class="tm-go">
+          <p><b>Ready?</b> Pick a time that suits you. We'll email you a calendar invite straight away.</p>
+          <button type="button" class="btn btn-red btn-lg" id="bGoTime">Yes &mdash; pick a time &rarr;</button>
+        </div>
+      </div>
+
+
+      <div class="sched" id="sched" hidden>
 
         <!-- step 1: timezone -->
         <div class="tzbar">
@@ -433,7 +460,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
           <div class="bgrid">
             <label class="bf"><span>Your name <i>*</i></span>
               <input type="text" name="name" id="f_name" autocomplete="name" required maxlength="80"></label>
-            <label class="bf"><span>Work email <i>*</i></span>
+            <label class="bf"><span>Email for the calendar invite <i>*</i></span>
               <input type="email" name="email" id="f_email" autocomplete="email" required maxlength="120"></label>
             <label class="bf"><span>Company <i>*</i></span>
               <input type="text" name="company" id="f_company" autocomplete="organization" required maxlength="80"></label>
@@ -482,23 +509,11 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
           <div class="tick" aria-hidden="true">&check;</div>
           <h3>You're booked</h3>
           <p class="bconf" id="bconf"></p>
+          <p class="binvite" id="binvite"></p>
           <a class="btn btn-g" id="bcal" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
-          <p class="mono bsub" style="margin-top:16px">A confirmation is on its way to your inbox. If it hasn't arrived in a few minutes, check spam &mdash; then email <a href="mailto:aviancelk@gmail.com">aviancelk@gmail.com</a>.</p>
+          <p class="mono bsub" style="margin-top:16px">Open the email and press <b>Yes</b> on the invite to put it in your calendar. Not there in a few minutes? Check spam &mdash; then email <a href="mailto:aviancelk@gmail.com">aviancelk@gmail.com</a>.</p>
 
-          <!-- WHO THEY'RE MEETING — shown after booking.
-               Keep every line here true for your team. To add the closer's name/photo,
-               put them in .tm-who below, e.g. <b>Name</b>, role, one real line of background. -->
-          <div class="tm">
-            <div class="tm-head">
-              <div class="tm-k">Who you're meeting</div>
-              <h3 class="tm-h">You're in good hands.</h3>
-              <p class="tm-who">The person on your call works on outbound every day &mdash; targeting, copy and deliverability &mdash; not a booking agent reading a script. They'll have read your answers before you join, so the 15 minutes goes on your business, not on introductions.</p>
-            </div>
-            <div class="tm-grid">
-              <div><span>01</span><h4>They'll tell you the truth</h4><p>If cold email isn't right for your offer, you'll hear it on the call. We only take on clients we're confident we can deliver for.</p></div>
-              <div><span>02</span><h4>Their word is backed by our money</h4><p>The number they agree with you is guaranteed. Miss it in month one and you get double your fee back; miss it after that and the month is refunded in full &mdash; so nobody sets it lightly.</p></div>
-              <div><span>03</span><h4>They do the work, not just the talking</h4><p>The team you meet is the team that builds your lists, writes your emails and books your calls.</p></div>
-            </div>
+          <div class="tm tm-after">
             <div class="tm-prep">
               <div>
                 <div class="tm-k">Prepared for your call</div>
@@ -1553,6 +1568,9 @@ var BOOKING = {
   function esc(t){ return String(t||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]}); }
   function succeed(whenYou){
     form.hidden = true; elDone.hidden = false;
+    if (typeof bookStep === 'function') bookStep(3);
+    var inv = document.getElementById('binvite'), em = document.getElementById('f_email');
+    if (inv && em && em.value) inv.textContent = 'Calendar invite sent to ' + em.value.trim();
     ['.tzbar','#dayrow','#slotwrap','#slotnone'].forEach(function(q){ var e=document.querySelector('#sched '+q); if(e) e.style.display='none'; });
     elConf.innerHTML = '<b>' + whenYou + '</b><br>15 minutes, video link to follow.';
     var a = lastAns || {};
@@ -1613,7 +1631,22 @@ var BOOKING = {
 @media(max-width:1200px){.tb-pair .was{font-size:28px}.tb-pair .now{font-size:44px}}
 @media(max-width:480px){.tb-pair .was{font-size:24px}.tb-pair .now{font-size:40px}.tb-pair .lab{margin-left:0;flex-basis:100%}}
 </style>
-<style id="book-page">.book-page{padding-top:56px}</style>
+<style id="book-page">.book-page{padding-top:56px}
+.sched[hidden],.tm[hidden]{display:none!important}
+.bsteps{list-style:none;display:flex;justify-content:center;gap:0;margin:0 auto 28px;max-width:640px;border:1px solid var(--ink)}
+.bsteps li{flex:1;padding:12px 10px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);border-right:1px solid var(--ink);display:flex;align-items:center;justify-content:center;gap:8px}
+.bsteps li:last-child{border-right:0}
+.bsteps li b{display:inline-grid;place-items:center;width:22px;height:22px;border:1px solid currentColor;font-size:11px}
+.bsteps li.on{background:var(--ink);color:var(--bg)}
+.bsteps li.done{color:var(--ink)}
+.bsteps li.done b{background:var(--red);border-color:var(--red);color:#fff}
+.tm-intro{max-width:1040px;margin:0 auto}
+.tm-go{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:24px 26px;background:#FFF1EE;text-align:left}
+.tm-go p{color:var(--grey);font-size:15.5px;max-width:52ch}.tm-go p b{color:var(--ink)}
+.tm-after{border-top:1px solid var(--ink)}
+.binvite{font-family:var(--mono);font-size:13px;color:var(--ink);margin:-4px 0 16px}
+@media(max-width:560px){.bsteps li{font-size:10px;padding:10px 4px;gap:5px;letter-spacing:.02em}.tm-go .btn{width:100%;justify-content:center}}
+</style>
 <style id="anchor-fix">nav.navlock{transform:none!important}</style>
 <script id="anchor-fix-js">
 /* anchor-fix: in-page links land on the section's number, just under the nav,
@@ -1686,6 +1719,24 @@ var BOOKING = {
     btn.setAttribute('target', '_blank');
     btn.setAttribute('rel', 'noopener');
   });
+})();
+</script>
+<script id="book-steps">
+function bookStep(n){
+  var intro=document.getElementById('stepIntro'), sched=document.getElementById('sched');
+  if(intro) intro.hidden = n!==1;
+  if(sched) sched.hidden = n===1;
+  [].forEach.call(document.querySelectorAll('#bsteps li'),function(li){
+    var k=+li.getAttribute('data-step'); li.classList.toggle('on',k===n); li.classList.toggle('done',k<n);
+  });
+  var top=document.getElementById('bsteps');
+  if(top && n>1) top.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth', block:'start'});
+}
+(function(){
+  var go=document.getElementById('bGoTime');
+  if(go) go.addEventListener('click',function(){ bookStep(2); });
+  var first=document.querySelector('#bsteps li[data-step="1"]');
+  if(first){ first.style.cursor='pointer'; first.addEventListener('click',function(){ if(!document.getElementById('bdone') || document.getElementById('bdone').hidden) bookStep(1); }); }
 })();
 </script>
 </body>
