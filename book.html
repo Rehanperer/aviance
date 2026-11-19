@@ -12,13 +12,13 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="manifest" href="site.webmanifest">
-<link rel="canonical" href="https://www.aviance.online/book.html">
+<link rel="canonical" href="https://www.aviance.online/book">
 <meta name="theme-color" content="#E0290F">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aviance">
 <meta property="og:title" content="Aviance — Guaranteed booked sales calls for B2B teams">
 <meta property="og:description" content="We don't sell emails. We sell guaranteed booked discovery calls, on your calendar. Domains, warmed inboxes, verified lists, copywriting and reply handling — all run for you. Live in 2 weeks. Miss your number in month one and we pay you back double. No setup fee.">
-<meta property="og:url" content="https://www.aviance.online/book.html">
+<meta property="og:url" content="https://www.aviance.online/book">
 <meta property="og:image" content="https://www.aviance.online/preview.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -384,13 +384,13 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
 
 <nav id="nav">
   <div class="nav-in">
-    <a href="index.html" class="logo" aria-label="Aviance — home"><svg class="mk" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><polygon points="28,88 100,128 172,88 172,150 100,190 28,150" fill="#101015" /><polygon points="28,88 100,128 100,190 28,150" fill="#1C1C22" /><polygon points="100,128 172,88 172,150 100,190" fill="#0A0A0C" /><polygon points="30,72 100,110 170,72 100,34" fill="#E0290F" /><g transform="matrix(0.35,-0.19,0.35,0.19,30,72)"><g transform="translate(4,4) scale(0.92)"><path fill-rule="evenodd" d="M100 18 L156 172 L128 172 L117 140 L83 140 L72 172 L44 172 Z M91 114 L109 114 L100 84 Z" fill="#FFFFFF"/></g></g></svg><span>Aviance</span></a>
+    <a href="/" class="logo" aria-label="Aviance — home"><svg class="mk" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><polygon points="28,88 100,128 172,88 172,150 100,190 28,150" fill="#101015" /><polygon points="28,88 100,128 100,190 28,150" fill="#1C1C22" /><polygon points="100,128 172,88 172,150 100,190" fill="#0A0A0C" /><polygon points="30,72 100,110 170,72 100,34" fill="#E0290F" /><g transform="matrix(0.35,-0.19,0.35,0.19,30,72)"><g transform="translate(4,4) scale(0.92)"><path fill-rule="evenodd" d="M100 18 L156 172 L128 172 L117 140 L83 140 L72 172 L44 172 Z M91 114 L109 114 L100 84 Z" fill="#FFFFFF"/></g></g></svg><span>Aviance</span></a>
     <div class="nlinks">
-          <a href="index.html#process">Process</a>
-          <a href="index.html#guarantee">Guarantee</a>
-          <a href="index.html#pricing">Pricing</a>
-          <a href="index.html#calculator">ROI calculator</a>
-          <a href="index.html#faq">FAQ</a>
+          <a href="/#process">Process</a>
+          <a href="/#guarantee">Guarantee</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#calculator">ROI calculator</a>
+          <a href="/#faq">FAQ</a>
           </div>
     <a href="#book" class="btn btn-p" data-book>Book a call →</a>
     <div class="burger"><span></span><span></span><span></span></div>
@@ -471,8 +471,8 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
           </div>
 
           <div class="bq-head">
-            <b>Five quick questions</b>
-            <span>So we can work out your number before the call &mdash; about 30 seconds.</span>
+            <b>A few quick questions</b>
+            <span>So we can work out your number before the call &mdash; under a minute.</span>
           </div>
           <div class="bgrid">
             <label class="bf"><span>Your role <i>*</i></span>
@@ -491,10 +491,16 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
               <select name="capacity" id="q_cap" required>
                 <option value="">Choose&hellip;</option><option>Around 5</option><option>Around 10</option><option>15 or more</option><option>Not sure yet</option>
               </select></label>
-            <label class="bf bf-wide"><span>When would you want calls on your calendar?</span>
+            <label class="bf"><span>When would you want calls on your calendar?</span>
               <select name="timing" id="q_when">
                 <option value="">Choose&hellip;</option><option>As soon as possible</option><option>Within the next month</option><option>In 1–3 months</option><option>Just exploring</option>
               </select></label>
+            <label class="bf"><span>Tried cold email or an outbound agency before?</span>
+              <select name="tried" id="q_tried">
+                <option value="">Choose&hellip;</option><option>Never</option><option>Tried it ourselves</option><option>Used an agency &mdash; it didn't work</option><option>Used an agency &mdash; it worked</option><option>Doing it right now</option>
+              </select></label>
+            <label class="bf bf-wide"><span>What's the #1 thing you want from this call?</span>
+              <input type="text" name="goal" id="q_goal" maxlength="300" placeholder="e.g. Does it fit my industry?"></label>
           </div>
           <p class="berr mono" id="berr" hidden></p>
           <div class="bactions">
@@ -511,7 +517,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
           <p class="bconf" id="bconf"></p>
           <p class="binvite" id="binvite"></p>
           <a class="btn btn-g" id="bcal" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
-          <p class="mono bsub" style="margin-top:16px">Open the email and press <b>Yes</b> on the invite to put it in your calendar. Not there in a few minutes? Check spam &mdash; then email <a href="mailto:aviancelk@gmail.com">aviancelk@gmail.com</a>.</p>
+          <p class="mono bsub" id="binvitehelp" style="margin-top:16px">Open the email and press <b>Yes</b> on the invite to put it in your calendar. Not there in a few minutes? Check spam &mdash; then email <a href="mailto:aviancelk@gmail.com">aviancelk@gmail.com</a>.</p>
 
           <div class="tm tm-after">
             <div class="tm-prep">
@@ -550,7 +556,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a href="index.html" class="logo" style="margin-bottom:18px"><svg class="mk" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><polygon points="28,88 100,128 172,88 172,150 100,190 28,150" fill="#101015" /><polygon points="28,88 100,128 100,190 28,150" fill="#1C1C22" /><polygon points="100,128 172,88 172,150 100,190" fill="#0A0A0C" /><polygon points="30,72 100,110 170,72 100,34" fill="#E0290F" /><g transform="matrix(0.35,-0.19,0.35,0.19,30,72)"><g transform="translate(4,4) scale(0.92)"><path fill-rule="evenodd" d="M100 18 L156 172 L128 172 L117 140 L83 140 L72 172 L44 172 Z M91 114 L109 114 L100 84 Z" fill="#FFFFFF"/></g></g></svg><span>Aviance</span></a>
+        <a href="/" class="logo" style="margin-bottom:18px"><svg class="mk" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><polygon points="28,88 100,128 172,88 172,150 100,190 28,150" fill="#101015" /><polygon points="28,88 100,128 100,190 28,150" fill="#1C1C22" /><polygon points="100,128 172,88 172,150 100,190" fill="#0A0A0C" /><polygon points="30,72 100,110 170,72 100,34" fill="#E0290F" /><g transform="matrix(0.35,-0.19,0.35,0.19,30,72)"><g transform="translate(4,4) scale(0.92)"><path fill-rule="evenodd" d="M100 18 L156 172 L128 172 L117 140 L83 140 L72 172 L44 172 Z M91 114 L109 114 L100 84 Z" fill="#FFFFFF"/></g></g></svg><span>Aviance</span></a>
         <p style="max-width:34ch">AI-native cold email and appointment setting for B2B teams that need a pipeline they can count on.</p>
         <p style="margin-top:16px"><a href="mailto:aviancelk@gmail.com">aviancelk@gmail.com</a></p>
       </div>
@@ -560,7 +566,6 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
         <a href="#services">Appointment setting</a>
         <a href="#services">Deliverability consulting</a>
         <a href="#services">Lead research</a>
-        <a href="#services">Outsourced SDR</a>
       </div>
       <div>
         <h5>Industries</h5>
@@ -573,12 +578,12 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
       </div>
       <div>
         <h5>Company</h5>
-        <a href="index.html#calculator">ROI calculator</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#process">Our process</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="index.html#guarantee">Guarantee</a>
-        <a href="book.html" target="_blank" rel="noopener">Contact</a>
+        <a href="/#calculator">ROI calculator</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#process">Our process</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#guarantee">Guarantee</a>
+        <a href="/book" target="_blank" rel="noopener">Contact</a>
       </div>
     </div>
   </div>
@@ -1483,7 +1488,7 @@ var BOOKING = {
     var site=document.getElementById('f_site').value.trim();
     var what=document.getElementById('f_what').value.trim();
     var qv=function(id){var e=document.getElementById(id);return e?e.value:''};
-    var role=qv('q_role'), deal=qv('q_deal'), chan=qv('q_chan'), cap=qv('q_cap'), when=qv('q_when');
+    var role=qv('q_role'), deal=qv('q_deal'), chan=qv('q_chan'), cap=qv('q_cap'), when=qv('q_when'), tried=qv('q_tried'), goal=qv('q_goal').trim();
 
     var okMail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail);
     bad('f_name',!name); bad('f_email',!okMail); bad('f_company',!co); bad('f_what',!what);
@@ -1533,6 +1538,8 @@ var BOOKING = {
       'Wins customers': chan,
       'Call capacity' : cap,
       'Wants to start': when || '—',
+      'Tried outbound before': tried || '—',
+      'Wants from the call'  : goal || '—',
 
       'Their timezone'  : tz,
       'Starts (UTC)'    : chosenSlot.toISOString(),
@@ -1546,12 +1553,16 @@ var BOOKING = {
       headers: {'Content-Type':'application/json','Accept':'application/json'},
       body   : JSON.stringify({
         name: name, email: mail, company: co, website: site, sells: what, plan: pickedPlan,
-        role: role, dealSize: deal, channel: chan, capacity: cap, timing: when,
+        role: role, dealSize: deal, channel: chan, capacity: cap, timing: when, tried: tried, goal: goal,
         slotStart: chosenSlot.toISOString(), slotEnd: end.toISOString(), theirTz: tz,
         whenTheirs: whenYou, whenHost: whenHost, page: location.pathname,
         company_url2: (document.getElementById('f_hp')||{}).value || ''
       })
-    }).then(function(r){ return r.ok; }).catch(function(){ return false; });
+    }).then(function(r){
+      if (!r.ok) return false;
+      /* emailed: true = the confirmation with the invite really went; false = held (the hub retries it). */
+      return r.json().then(function(j){ return { emailed: j && j.emailed }; }).catch(function(){ return { emailed: null }; });
+    }).catch(function(){ return false; });
 
     /* 2) The email copy we have always sent (kept as a backup). */
     var toEmail = fetch('https://formsubmit.co/ajax/' + encodeURIComponent(BOOKING.EMAIL), {
@@ -1561,7 +1572,7 @@ var BOOKING = {
     }).then(function(r){ return r.ok; }).catch(function(){ return false; });
 
     Promise.all([toHub, toEmail])
-    .then(function(res){ if(!(res[0] || res[1])) throw new Error('neither got it'); succeed(whenYou); })
+    .then(function(res){ if(!(res[0] || res[1])) throw new Error('neither got it'); succeed(whenYou, !!(res[0] && res[0].emailed === true)); })
     .catch(function(){
       btn.disabled = false; btn.textContent = 'Continue →'; window.__bookConfirmed = false;
       elErr.innerHTML = 'That did not send. Please email <a href="mailto:'+BOOKING.EMAIL+
@@ -1573,12 +1584,17 @@ var BOOKING = {
 
   var lastAns = null;
   function esc(t){ return String(t||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]}); }
-  function succeed(whenYou){
+  function succeed(whenYou, emailed){
     form.hidden = true; elDone.hidden = false;
     if (typeof bookStep === 'function') bookStep(3);
     window.__bookConfirmed = false;
     var inv = document.getElementById('binvite'), em = document.getElementById('f_email');
-    if (inv && em && em.value) inv.textContent = 'Calendar invite sent to ' + em.value.trim();
+    /* Only say the invite was sent when the hub says it really went. */
+    if (inv && em && em.value) inv.textContent = emailed
+      ? 'Calendar invite sent to ' + em.value.trim()
+      : 'Your confirmation email to ' + em.value.trim() + ' is on its way shortly. Save the time now with the button below.';
+    var help = document.getElementById('binvitehelp');
+    if (help && !emailed) help.innerHTML = 'Nothing in your inbox within the hour? Check spam &mdash; then email <a href="mailto:aviancelk@gmail.com">aviancelk@gmail.com</a> and we will confirm by hand.';
     ['.tzbar','#dayrow','#slotwrap','#slotnone'].forEach(function(q){ var e=document.querySelector('#sched '+q); if(e) e.style.display='none'; });
     elConf.innerHTML = '<b>' + whenYou + '</b><br>15 minutes, video link to follow.';
     var a = lastAns || {};
@@ -1607,7 +1623,7 @@ var BOOKING = {
   }
 
   /* ---- CTA buttons jump here ---------------------------------------- */
-  /* the plan card the visitor came from (book.html?plan=growth), if any */
+  /* the plan card the visitor came from (/book?plan=growth), if any */
   var pickedPlan = (function(){ try{ var p=(new URLSearchParams(location.search).get('plan')||'').toLowerCase(); return /^(starter|growth|scale)$/.test(p)?p:null; }catch(e){ return null; } })();
 
   try{ buildDays(); }catch(e){ die(); }
@@ -1656,6 +1672,49 @@ var BOOKING = {
 .tm-back{background:none;border:0;padding:0;font:inherit;color:var(--red);text-decoration:underline;cursor:pointer;margin-left:6px}
 .binvite{font-family:var(--mono);font-size:13px;color:var(--ink);margin:-4px 0 16px}
 @media(max-width:560px){.bsteps li{font-size:10px;padding:10px 4px;gap:5px;letter-spacing:.02em}.tm-go .btn{width:100%;justify-content:center}}
+</style>
+<style id="phone-polish">
+/* Phone polish for the booking page: thumb-sized targets, full-width actions, no iOS zoom on focus. */
+@media(max-width:640px){
+  .book-page{padding-top:28px}
+  /* 16px inputs: iPhone Safari zooms the page on anything smaller */
+  .bf input,.bf textarea,.bf select,.tzsel{font-size:16px;min-height:50px;border-radius:0}
+  .bf textarea{min-height:104px}
+  .bf span{font-size:11px;line-height:1.45;margin-bottom:7px;letter-spacing:.03em}
+  .bf span i{white-space:nowrap}
+  .bf{margin-bottom:4px}
+  /* steps: numbers on top, short labels, never three lines */
+  .bsteps{margin-bottom:22px}
+  .bsteps li{flex-direction:column;gap:6px;padding:11px 4px;font-size:10px;line-height:1.25;text-align:center;letter-spacing:.03em}
+  .bsteps li b{width:24px;height:24px;font-size:12px}
+  /* days: four to a screen, snap while swiping, a peek of the next one */
+  .dayrow{scroll-snap-type:x proximity;scrollbar-width:none}
+  .dayrow::-webkit-scrollbar{display:none}
+  .day{min-width:23.5%;padding:14px 6px;scroll-snap-align:start}
+  /* time slots: 44px tall, three across so each is easy to hit */
+  .hrow{grid-template-columns:40px repeat(4,minmax(0,1fr));gap:6px}
+  .hrow .slot{font-size:13px;padding:0;min-height:46px;display:flex;align-items:center;justify-content:center}
+  .tzhint{font-size:11px;line-height:1.55}
+  /* actions: one thumb-wide column, the main button first */
+  .bactions{flex-direction:column;align-items:stretch;gap:10px;margin-top:22px}
+  .bactions .btn{width:100%;justify-content:center;min-height:54px;font-size:14px}
+  .bq-head{margin-top:26px}
+  .bq-head b{font-size:19px}
+  /* step 2 and the "You're booked" page */
+  .tm-go{padding:20px 18px;gap:16px}
+  .tm-go .btn{min-height:54px;font-size:14px}
+  .bdone{padding:32px 16px}
+  .bdone h3{font-size:26px}
+  .bdone .btn{width:100%;justify-content:center;min-height:52px}
+  .bconf{font-size:17px;line-height:1.35}
+  .binvite{font-size:12.5px;line-height:1.5;word-break:break-word}
+  a,button,select,input,textarea{-webkit-tap-highlight-color:rgba(224,41,15,.15)}
+}
+@media(max-width:380px){
+  .hrow{grid-template-columns:34px repeat(4,minmax(0,1fr));gap:4px}
+  .hrow .slot{font-size:12px}
+  .day{min-width:25%}
+}
 </style>
 <style id="anchor-fix">nav.navlock{transform:none!important}</style>
 <script id="anchor-fix-js">
@@ -1725,7 +1784,7 @@ var BOOKING = {
     var card = btn.closest && btn.closest('.price');
     var h = card && card.querySelector('h3');
     var plan = h ? h.textContent.trim().toLowerCase() : '';
-    btn.setAttribute('href', 'book.html' + (/^(starter|growth|scale)$/.test(plan) ? '?plan=' + plan : ''));
+    btn.setAttribute('href', '/book' + (/^(starter|growth|scale)$/.test(plan) ? '?plan=' + plan : ''));
     btn.setAttribute('target', '_blank');
     btn.setAttribute('rel', 'noopener');
   });

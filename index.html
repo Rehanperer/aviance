@@ -725,7 +725,6 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
         <a href="#services">Appointment setting</a>
         <a href="#services">Deliverability consulting</a>
         <a href="#services">Lead research</a>
-        <a href="#services">Outsourced SDR</a>
       </div>
       <div>
         <h5>Industries</h5>
@@ -743,7 +742,7 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
         <a href="#process">Our process</a>
         <a href="#faq">FAQ</a>
         <a href="#guarantee">Guarantee</a>
-        <a href="book.html" target="_blank" rel="noopener">Contact</a>
+        <a href="/book" target="_blank" rel="noopener">Contact</a>
       </div>
     </div>
   </div>
@@ -1856,7 +1855,7 @@ var BOOKING = {
   }
 
   /* ---- CTA buttons jump here ---------------------------------------- */
-  /* the plan card the visitor came from (book.html?plan=growth), if any */
+  /* the plan card the visitor came from (/book?plan=growth), if any */
   var pickedPlan = (function(){ try{ var p=(new URLSearchParams(location.search).get('plan')||'').toLowerCase(); return /^(starter|growth|scale)$/.test(p)?p:null; }catch(e){ return null; } })();
 
   try{ buildDays(); }catch(e){ die(); }
@@ -1956,7 +1955,7 @@ var BOOKING = {
     var card = btn.closest && btn.closest('.price');
     var h = card && card.querySelector('h3');
     var plan = h ? h.textContent.trim().toLowerCase() : '';
-    btn.setAttribute('href', 'book.html' + (/^(starter|growth|scale)$/.test(plan) ? '?plan=' + plan : ''));
+    btn.setAttribute('href', '/book' + (/^(starter|growth|scale)$/.test(plan) ? '?plan=' + plan : ''));
     btn.setAttribute('target', '_blank');
     btn.setAttribute('rel', 'noopener');
   });
