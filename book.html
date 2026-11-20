@@ -464,8 +464,12 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
               <input type="email" name="email" id="f_email" autocomplete="email" required maxlength="120"></label>
             <label class="bf"><span>Company <i>*</i></span>
               <input type="text" name="company" id="f_company" autocomplete="organization" required maxlength="80"></label>
-            <label class="bf"><span>Website</span>
-              <input type="text" name="website" id="f_site" placeholder="yourcompany.com" maxlength="120"></label>
+            <div class="bf" id="f_site_box">
+              <label for="f_site"><span>Company website <i id="f_site_req">*</i></span></label>
+              <input type="text" name="website" id="f_site" placeholder="yourcompany.com" maxlength="120" required inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" aria-describedby="f_site_hint">
+              <small id="f_site_hint" style="display:block;margin-top:6px;font-size:11.5px;line-height:1.45;color:var(--grey)">Just the address is fine, e.g. acme.com. We look at it before the call, so it's about you.</small>
+              <label style="display:flex;align-items:center;gap:8px;margin-top:6px;font-size:12.5px;color:var(--grey);cursor:pointer"><input type="checkbox" id="f_nosite" style="width:auto;min-height:0;margin:0;padding:0;flex:none"> I don't have one yet</label>
+            </div>
             <label class="bf bf-wide"><span>What do you sell, and who to? <i>*</i></span>
               <textarea name="what_you_sell" id="f_what" rows="3" required maxlength="500" placeholder="e.g. Payroll software for UK construction firms with 50–500 staff"></textarea></label>
           </div>
@@ -491,10 +495,8 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
               <select name="capacity" id="q_cap" required>
                 <option value="">Choose&hellip;</option><option>Around 5</option><option>Around 10</option><option>15 or more</option><option>Not sure yet</option>
               </select></label>
-            <label class="bf"><span>When would you want calls on your calendar?</span>
-              <select name="timing" id="q_when">
-                <option value="">Choose&hellip;</option><option>As soon as possible</option><option>Within the next month</option><option>In 1–3 months</option><option>Just exploring</option>
-              </select></label>
+            <label class="bf"><span>Best phone number</span>
+              <input type="tel" name="phone" id="q_phone" autocomplete="tel" inputmode="tel" maxlength="30" placeholder="e.g. +1 512 555 0142"></label>
             <label class="bf"><span>Tried cold email or an outbound agency before?</span>
               <select name="tried" id="q_tried">
                 <option value="">Choose&hellip;</option><option>Never</option><option>Tried it ourselves</option><option>Used an agency &mdash; it didn't work</option><option>Used an agency &mdash; it worked</option><option>Doing it right now</option>
@@ -1216,22 +1218,26 @@ body.mlock{overflow:hidden}
 
 
 /* ==========================================================================
-   BOOKING  —  15-minute slots, 9:00 AM to 9:00 PM in the visitor's timezone.
-   Submits to FormSubmit, which emails BOOKING.EMAIL. No account, no backend.
+   BOOKING  —  15-minute slots inside the owner's call hours (from the hub's
+   Calendar settings, default Mon-Fri 9:00-19:00 US Eastern), shown in the
+   visitor's timezone. Times already booked in the hub are hidden. Submits to
+   the Aviance hub (which holds the time and emails the invite), with
+   FormSubmit as the backup copy to BOOKING.EMAIL.
    ========================================================================== */
 var BOOKING = {
   EMAIL       : "aviancelk@gmail.com",   /* where bookings land            */
   MACHINE     : "https://email-distributor.vercel.app/api/inquiry",  /* the Aviance hub: inquiries land there too */
+  AVAILABILITY: "https://email-distributor.vercel.app/api/booking/availability?days=31", /* call hours + busy times (no names) */
+  /* Used only when the hub cannot be reached: the owner's call hours. */
+  CALL_DEFAULT: { zone: "America/New_York", days: [1,2,3,4,5], hours: ["09:00","19:00"], closed: [] },
   HOST_TZ     : "Asia/Colombo",          /* your timezone, shown in the email */
   SLOT_MINS   : 15,
-  DAY_START   : 9,                       /* 9:00 AM  visitor's time        */
-  DAY_END     : 21,                      /* 9:00 PM  last slot starts 20:45 */
   DAYS_AHEAD  : 21,                      /* how far out to offer           */
   MIN_NOTICE_H: 12,                      /* no bookings sooner than this   */
   WEEKENDS    : false,
 
   /* OPTIONAL — hide slots that land in the middle of YOUR night.
-     Off by default: every 9am-9pm slot in every US zone is offered.
+     Off by default: every slot inside the call hours is offered.
      To protect your sleep, set e.g.  HOST_QUIET: {from:2, to:8}
      which hides anything starting between 2:00 AM and 8:00 AM Sri Lanka time. */
   HOST_QUIET  : null
@@ -1260,10 +1266,11 @@ var BOOKING = {
   function zoneById(id){ for(var i=0;i<ZONES.length;i++) if(ZONES[i].id===id) return ZONES[i]; return null; }
 
   /* ---- timezone maths ---------------------------------------------- */
+  var PF = {};   /* one formatter per zone (making them is the slow part) */
   function partsIn(date, tz){
-    var f = new Intl.DateTimeFormat('en-US',{timeZone:tz,hour12:false,
+    var f = PF[tz] || (PF[tz] = new Intl.DateTimeFormat('en-US',{timeZone:tz,hour12:false,
       year:'numeric',month:'2-digit',day:'2-digit',
-      hour:'2-digit',minute:'2-digit',second:'2-digit'});
+      hour:'2-digit',minute:'2-digit',second:'2-digit'}));
     var o={}; f.formatToParts(date).forEach(function(p){ o[p.type]=p.value; });
     if(o.hour === '24') o.hour = '00';
     return o;
@@ -1315,6 +1322,69 @@ var BOOKING = {
   }catch(e){}
 
   var chosenDay = null, chosenSlot = null;
+
+  /* ---- call hours + busy times from the hub -------------------------- */
+  /* If the hub cannot be reached, the built-in call hours are used and every
+     time is offered; the hub still refuses a taken time when they confirm. */
+  var CALL = BOOKING.CALL_DEFAULT, BUSY = [], TAKEN = [], availAt = 0, availLoading = null;
+  var HHMM = /^\d{2}:\d{2}$/;
+  function hm(v){ var b=String(v).split(':'); return (+b[0])*60 + (+b[1]); }
+  function loadAvail(force){
+    if(!BOOKING.AVAILABILITY || !window.fetch) return Promise.resolve(false);
+    if(!force && availAt && Date.now() - availAt < 20000) return Promise.resolve(false);
+    if(availLoading) return availLoading;
+    var ctl = window.AbortController ? new AbortController() : null;
+    var timer = ctl ? setTimeout(function(){ ctl.abort(); }, 6000) : null;
+    var url = BOOKING.AVAILABILITY + (force ? '&fresh=' + Date.now() : '');
+    availLoading = fetch(url, {headers:{'Accept':'application/json'}, signal: ctl ? ctl.signal : undefined, cache: force ? 'no-store' : 'default'})
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(j){
+        if(!j || !j.ok) return false;
+        if(j.zone && j.hours && HHMM.test(j.hours[0]) && HHMM.test(j.hours[1]) && j.days && j.days.length)
+          CALL = { zone: j.zone, days: j.days, hours: j.hours, closed: j.closed || [] };
+        BUSY = (j.busy || []).map(function(b){ return { s: Date.parse(b.start), e: Date.parse(b.end) }; })
+          .filter(function(b){ return isFinite(b.s) && isFinite(b.e); });
+        availAt = Date.now();
+        return true;
+      })
+      .catch(function(){ return false; })
+      .then(function(ok){ if(timer) clearTimeout(timer); availLoading = null; return ok; });
+    return availLoading;
+  }
+  /* inside the call hours: an open day (in the hub's zone), not closed, the whole call before closing */
+  function inCall(t){
+    try{
+      var p = partsIn(t, CALL.zone);
+      var key = p.year+'-'+p.month+'-'+p.day;
+      var dow = new Date(Date.UTC(+p.year,+p.month-1,+p.day)).getUTCDay();
+      if(CALL.days.indexOf(dow) < 0 || (CALL.closed||[]).indexOf(key) >= 0) return false;
+      var m = (+p.hour)*60 + (+p.minute);
+      return m >= hm(CALL.hours[0]) && m + BOOKING.SLOT_MINS <= hm(CALL.hours[1]);
+    }catch(e){ return true; }
+  }
+  function isBusy(t){
+    var a = t.getTime(), b = a + BOOKING.SLOT_MINS*60000;
+    var all = BUSY.concat(TAKEN);   /* TAKEN: times the hub refused on this visit (kept across refreshes) */
+    for(var i=0;i<all.length;i++) if(a < all[i].e && all[i].s < b) return true;
+    return false;
+  }
+  /* the slot starts on a visitor's day, in hour/minute order (stops early once `until` says so) */
+  function dayTimes(Y, M, D, until){
+    var out = [];
+    for(var h=0; h<24; h++) for(var mi=0; mi<60; mi+=BOOKING.SLOT_MINS){
+      var t = toUTC(Y,M,D,h,mi,tz), p = partsIn(t, tz);
+      if(+p.day !== D || +p.hour !== h) continue;   /* a daylight-saving gap */
+      out.push({h:h, t:t});
+      if(until && until(t)) return out;
+    }
+    return out;
+  }
+  /* new busy times / call hours: redraw the day (keeping their pick if it is still free) */
+  function redraw(){
+    if(!chosenDay || !elDone.hidden) return;   /* nothing drawn yet, or already booked */
+    var keep = chosenSlot ? chosenSlot.getTime() : null;
+    buildDays(chosenDay, keep, true);
+  }
 
   var selTz  = document.getElementById('tzsel');
   var elNow  = document.getElementById('tznow');
@@ -1370,9 +1440,10 @@ var BOOKING = {
   setInterval(paintNow, 30000);
 
   /* ---- days ---------------------------------------------------------- */
-  function buildDays(){
+  function buildDays(prefer, keepSlot, quiet){
     elDays.innerHTML='';
     var now = new Date(), made = 0, i = 0;
+    var cutoff = Date.now() + BOOKING.MIN_NOTICE_H*3600000;
     while(made < BOOKING.DAYS_AHEAD && i < 60){
       var probe = new Date(now.getTime() + i*86400000);
       var p = partsIn(probe, tz);
@@ -1380,6 +1451,10 @@ var BOOKING = {
       i++;
       if(!BOOKING.WEEKENDS && (dow===0 || dow===6)) continue;
       var key = p.year+'-'+p.month+'-'+p.day;
+      /* only days with a time inside the call hours */
+      var hit = false;
+      dayTimes(+p.year,+p.month,+p.day, function(t){ return (hit = t.getTime() >= cutoff && inCall(t)); });
+      if(!hit) continue;
       var btn = document.createElement('button');
       btn.type='button'; btn.className='day'; btn.setAttribute('role','tab');
       btn.dataset.key = key;
@@ -1389,15 +1464,25 @@ var BOOKING = {
       elDays.appendChild(btn);
       made++;
     }
-    var first = elDays.querySelector('.day');
-    if(first) selectDay(first.dataset.key);
+    var want = prefer && elDays.querySelector('.day[data-key="'+prefer+'"]');
+    var first = want || elDays.querySelector('.day');
+    if(first) selectDay(first.dataset.key, want ? keepSlot : null, quiet);
   }
 
-  function selectDay(key){
+  function selectDay(key, keepSlot, quiet){
     chosenDay = key; chosenSlot = null;
     [].forEach.call(elDays.children, function(d){ d.classList.toggle('on', d.dataset.key===key); });
     buildSlots();
+    var kept = keepSlot && elWrap.querySelector('.slot[data-iso="'+new Date(keepSlot).toISOString()+'"]');
+    if(kept){ kept.classList.add('on'); chosenSlot = new Date(keepSlot); return; }
+    if(quiet && !form.hidden){
+      /* a redraw while they fill in the form: the time they had picked has just been taken */
+      if(keepSlot) elPick.innerHTML = '<b>That time has just been taken.</b><small>Please pick another time above. Your answers are kept.</small>';
+      return;
+    }
     form.hidden = true; elDone.hidden = true;
+    /* a day picked by hand: fetch fresh busy times (at most every 20 s) */
+    if(!quiet) loadAvail(false).then(function(changed){ if(changed && chosenDay === key) redraw(); });
   }
 
   /* ---- slots --------------------------------------------------------- */
@@ -1405,11 +1490,12 @@ var BOOKING = {
     elWrap.innerHTML='';
     var bits = chosenDay.split('-'), Y=+bits[0], M=+bits[1], D=+bits[2];
     var cutoff = Date.now() + BOOKING.MIN_NOTICE_H*3600000;
-    var groups = [['Morning',9,12],['Afternoon',12,17],['Evening',17,BOOKING.DAY_END]];
+    var groups = [['Morning',0,12],['Afternoon',12,17],['Evening',17,24]];
     var total = 0;
+    var times = dayTimes(Y,M,D);
 
     groups.forEach(function(g){
-      var name=g[0], from=Math.max(g[1],BOOKING.DAY_START), to=Math.min(g[2],BOOKING.DAY_END);
+      var name=g[0], from=g[1], to=g[2];
       var box=document.createElement('div'); box.className='slotgroup';
       var rows=document.createElement('div'); rows.className='hrows';
       var n=0;
@@ -1419,9 +1505,11 @@ var BOOKING = {
         lab.textContent = (h%12||12) + (h<12?' AM':' PM');
         row.appendChild(lab);
         var open=0;
-        for(var mi=0; mi<60; mi+=BOOKING.SLOT_MINS){
-          var t = toUTC(Y,M,D,h,mi,tz);
-          var ok = t.getTime() >= cutoff;
+        var inHour = times.filter(function(x){ return x.h===h; });
+        for(var si=0; si<inHour.length; si++){
+          var t = inHour[si].t;
+          /* inside the call hours, far enough ahead, and not already booked */
+          var ok = t.getTime() >= cutoff && inCall(t) && !isBusy(t);
           if(ok && BOOKING.HOST_QUIET){
             var hh = +partsIn(t, BOOKING.HOST_TZ).hour;
             var q  = BOOKING.HOST_QUIET;
@@ -1478,6 +1566,46 @@ var BOOKING = {
     if(!form.querySelector('.bf.bad')) elErr.hidden=true;
   }); });
 
+  /* ---- where they came from (?utm_source=cold_call, ?ref=…) ---------- */
+  /* Read from this page's link, else kept from the home page in this tab (sessionStorage). */
+  var TRACK_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','ref'];
+  var leadSrc = (function(){
+    var got = {}, any = false;
+    try {
+      var qs = new URLSearchParams(location.search);
+      TRACK_KEYS.forEach(function(k){ var v=String(qs.get(k)||'').trim().slice(0,100); if(v){ got[k]=v; any=true; } });
+    } catch(e){}
+    try {
+      if (any) sessionStorage.setItem('aviance_src', JSON.stringify(got));
+      else {
+        var kept = JSON.parse(sessionStorage.getItem('aviance_src') || 'null');
+        if (kept && typeof kept === 'object') TRACK_KEYS.forEach(function(k){ if (typeof kept[k]==='string' && kept[k]) got[k]=kept[k].slice(0,100); });
+      }
+    } catch(e){}
+    return got;
+  })();
+  function srcWords(v){
+    v = String(v||'').trim(); if(!v) return '';
+    return {cold_call:'Cold call',coldcall:'Cold call',call:'Cold call',phone:'Cold call',linkedin:'LinkedIn',li:'LinkedIn',email:'Email',cold_email:'Email'}[v.toLowerCase().replace(/[\s-]+/g,'_')] || v;
+  }
+  var cameFrom = srcWords(leadSrc.utm_source) || srcWords(leadSrc.ref) || srcWords(leadSrc.utm_medium);
+
+  /* ---- their website: "acme.com" is fine; we send https://acme.com ---- */
+  function siteUrl(v){
+    v = String(v||'').trim().replace(/\s+/g,''); if(!v) return '';
+    if (/^\/\//.test(v)) v = 'https:' + v;
+    else if (!/^[a-z][a-z0-9+.-]*:/i.test(v)) v = 'https://' + v;
+    try { var u = new URL(v); return (/^https?:$/.test(u.protocol) && /^[^.]+(\.[^.]+)+$/.test(u.hostname)) ? u.href.replace(/\/$/,'') : ''; }
+    catch(e){ return ''; }
+  }
+  var noSiteBox = document.getElementById('f_nosite');
+  if (noSiteBox) noSiteBox.addEventListener('change', function(){
+    var inp = document.getElementById('f_site'), star = document.getElementById('f_site_req');
+    inp.required = !noSiteBox.checked; inp.disabled = noSiteBox.checked;
+    if (star) star.hidden = noSiteBox.checked;
+    if (noSiteBox.checked) { inp.value = ''; bad('f_site', false); }
+  });
+
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
     elErr.hidden = true;
@@ -1485,16 +1613,24 @@ var BOOKING = {
     var name=document.getElementById('f_name').value.trim();
     var mail=document.getElementById('f_email').value.trim();
     var co  =document.getElementById('f_company').value.trim();
-    var site=document.getElementById('f_site').value.trim();
+    var noSite=!!(noSiteBox && noSiteBox.checked);
+    var siteRaw=document.getElementById('f_site').value.trim();
+    var site=noSite ? '' : siteUrl(siteRaw);
     var what=document.getElementById('f_what').value.trim();
     var qv=function(id){var e=document.getElementById(id);return e?e.value:''};
-    var role=qv('q_role'), deal=qv('q_deal'), chan=qv('q_chan'), cap=qv('q_cap'), when=qv('q_when'), tried=qv('q_tried'), goal=qv('q_goal').trim();
+    var role=qv('q_role'), deal=qv('q_deal'), chan=qv('q_chan'), cap=qv('q_cap'), phone=qv('q_phone').trim(), tried=qv('q_tried'), goal=qv('q_goal').trim();
 
     var okMail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail);
-    bad('f_name',!name); bad('f_email',!okMail); bad('f_company',!co); bad('f_what',!what);
+    bad('f_name',!name); bad('f_email',!okMail); bad('f_company',!co); bad('f_what',!what); bad('f_site',!noSite && !site);
+    if(site) document.getElementById('f_site').value = site;
+    var badPhone = !!phone && phone.replace(/\D/g,'').length < 7; bad('q_phone',badPhone);
     bad('q_role',!role); bad('q_deal',!deal); bad('q_chan',!chan); bad('q_cap',!cap);
-    if(!name || !okMail || !co || !what || !role || !deal || !chan || !cap || !chosenSlot){
-      elErr.textContent = !chosenSlot ? 'Please pick a time first.' : 'Please fill in the marked fields.';
+    if(!name || !okMail || !co || !what || !role || !deal || !chan || !cap || !chosenSlot || (!noSite && !site) || badPhone){
+      elErr.textContent = !chosenSlot ? 'Please pick a time first.'
+        : (badPhone && name && okMail && co && what && role && deal && chan && cap && (noSite || site)) ? 'That phone number looks too short. Add the area code, or leave it blank.'
+        : (name && okMail && co && what && role && deal && chan && cap)
+          ? (siteRaw ? 'That website doesn\'t look right. Try something like acme.com.' : 'Please add your company website (acme.com is fine), or tick \u201cI don\'t have one yet\u201d.')
+          : 'Please fill in the marked fields.';
       elErr.hidden = false; return;
     }
     /* step 2 first: who they'll meet, then "Confirm my call" sends it */
@@ -1506,7 +1642,7 @@ var BOOKING = {
     }
 
     var end = new Date(chosenSlot.getTime() + BOOKING.SLOT_MINS*60000);
-    lastAns = {role:role, deal:deal, chan:chan, cap:cap, when:when, co:co, start:chosenSlot, end:end};
+    lastAns = {role:role, deal:deal, chan:chan, cap:cap, co:co, start:chosenSlot, end:end};
     var LONG = {weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'numeric',minute:'2-digit'};
     var whenYou   = fmt(chosenSlot,tz,LONG) + ' ' + tzAbbr(chosenSlot,tz);
     var whenHost  = fmt(chosenSlot,BOOKING.HOST_TZ,LONG);
@@ -1531,13 +1667,14 @@ var BOOKING = {
       'Name'      : name,
       'Email'     : mail,
       'Company'   : co,
-      'Website'   : site || '—',
+      'Website'   : site || (noSite ? 'Does not have one yet' : '—'),
+      'Came from' : cameFrom ? cameFrom + (leadSrc.utm_campaign ? ' (campaign: ' + leadSrc.utm_campaign + ')' : '') : '—',
       'They sell' : what,
       'Role'          : role,
       'Deal size'     : deal,
       'Wins customers': chan,
       'Call capacity' : cap,
-      'Wants to start': when || '—',
+      'Phone'         : phone || '—',
       'Tried outbound before': tried || '—',
       'Wants from the call'  : goal || '—',
 
@@ -1553,26 +1690,38 @@ var BOOKING = {
       headers: {'Content-Type':'application/json','Accept':'application/json'},
       body   : JSON.stringify({
         name: name, email: mail, company: co, website: site, sells: what, plan: pickedPlan,
-        role: role, dealSize: deal, channel: chan, capacity: cap, timing: when, tried: tried, goal: goal,
+        role: role, dealSize: deal, channel: chan, capacity: cap, phone: phone, tried: tried, goal: goal,
         slotStart: chosenSlot.toISOString(), slotEnd: end.toISOString(), theirTz: tz,
         whenTheirs: whenYou, whenHost: whenHost, page: location.pathname,
+        noWebsite: noSite,
+        utm: { source: leadSrc.utm_source || '', medium: leadSrc.utm_medium || '', campaign: leadSrc.utm_campaign || '', content: leadSrc.utm_content || '' },
+        ref: leadSrc.ref || '',
         company_url2: (document.getElementById('f_hp')||{}).value || ''
       })
     }).then(function(r){
+      /* 409: the time was just taken (or is outside the call hours) — nothing was booked */
+      if (r.status === 409) return r.json().catch(function(){ return {}; }).then(function(j){ return { taken: true, error: j && j.error }; });
       if (!r.ok) return false;
       /* emailed: true = the confirmation with the invite really went; false = held (the hub retries it). */
       return r.json().then(function(j){ return { emailed: j && j.emailed }; }).catch(function(){ return { emailed: null }; });
     }).catch(function(){ return false; });
 
-    /* 2) The email copy we have always sent (kept as a backup). */
-    var toEmail = fetch('https://formsubmit.co/ajax/' + encodeURIComponent(BOOKING.EMAIL), {
-      method : 'POST',
-      headers: {'Content-Type':'application/json','Accept':'application/json'},
-      body   : JSON.stringify(payload)
-    }).then(function(r){ return r.ok; }).catch(function(){ return false; });
+    /* 2) The email copy we have always sent (kept as a backup) — only once the hub has not refused the time. */
+    function sendBackup(){
+      return fetch('https://formsubmit.co/ajax/' + encodeURIComponent(BOOKING.EMAIL), {
+        method : 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body   : JSON.stringify(payload)
+      }).then(function(r){ return r.ok; }).catch(function(){ return false; });
+    }
 
-    Promise.all([toHub, toEmail])
-    .then(function(res){ if(!(res[0] || res[1])) throw new Error('neither got it'); succeed(whenYou, !!(res[0] && res[0].emailed === true)); })
+    toHub
+    .then(function(hub){
+      if(hub && hub.taken){ slotTaken(hub.error); return; }
+      var toEmail = sendBackup();
+      if(hub){ succeed(whenYou, hub.emailed === true); return; }   /* the hub has it: the backup finishes on its own */
+      return toEmail.then(function(ok){ if(!ok) throw new Error('neither got it'); succeed(whenYou, false); });
+    })
     .catch(function(){
       btn.disabled = false; btn.textContent = 'Continue →'; window.__bookConfirmed = false;
       elErr.innerHTML = 'That did not send. Please email <a href="mailto:'+BOOKING.EMAIL+
@@ -1581,6 +1730,18 @@ var BOOKING = {
       elErr.hidden = false;
     });
   });
+
+  /* The hub refused the time (someone booked it a moment ago): say so, refresh the times, keep their answers. */
+  function slotTaken(msg){
+    var btn=document.getElementById('bsubmit');
+    btn.disabled = false; btn.textContent = 'Continue →'; window.__bookConfirmed = false;
+    if(chosenSlot) TAKEN.push({ s: chosenSlot.getTime(), e: chosenSlot.getTime() + BOOKING.SLOT_MINS*60000 });
+    elErr.textContent = msg || 'Sorry, someone just booked that time. Please pick another one.';
+    elErr.hidden = false;
+    redraw();
+    loadAvail(true).then(function(){ redraw(); });
+    elWrap.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth', block:'nearest'});
+  }
 
   var lastAns = null;
   function esc(t){ return String(t||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]}); }
@@ -1608,7 +1769,7 @@ var BOOKING = {
     }
     var ta = document.getElementById('tmAns');
     if(ta){
-      var bits=[]; if(a.deal) bits.push('Deal size: '+esc(a.deal)); if(a.chan) bits.push('Wins customers today: '+esc(a.chan)); if(a.when) bits.push('Wants to start: '+esc(a.when));
+      var bits=[]; if(a.deal) bits.push('Deal size: '+esc(a.deal)); if(a.chan) bits.push('Wins customers today: '+esc(a.chan));
       ta.innerHTML = bits.join(' &middot; ');
     }
     var cal = document.getElementById('bcal');
@@ -1626,7 +1787,9 @@ var BOOKING = {
   /* the plan card the visitor came from (/book?plan=growth), if any */
   var pickedPlan = (function(){ try{ var p=(new URLSearchParams(location.search).get('plan')||'').toLowerCase(); return /^(starter|growth|scale)$/.test(p)?p:null; }catch(e){ return null; } })();
 
-  try{ buildDays(); }catch(e){ die(); }
+  try{ buildDays(null, null, true); }catch(e){ die(); }
+  /* the hub's call hours and busy times; until (or unless) they arrive the built-in hours are used */
+  loadAvail(false).then(function(ok){ if(ok) try{ redraw(); }catch(e){} });
 })();
 
 </script>

@@ -498,12 +498,12 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
       <div>
         <div class="head-row rv">
           <div><div class="eyebrow">Your first 2 weeks</div><h2 class="reveal">Kickoff to campaigns live in 14 days</h2></div>
-          <p class="lead">A fixed, transparent build. You approve everything before a single email goes out. If campaigns aren't live within 2 weeks, your next month is free.</p>
+          <p class="lead">A fixed, transparent build &mdash; with a sample run inside it, so we find the message that works before we scale. You approve everything before the full campaign goes out. If campaigns aren't live within 2 weeks, your next month is free.</p>
         </div>
         <div class="steps" id="steps">
-          <div class="step rv"><div class="k">DAYS 1–4 — FOUNDATION</div><h4>Kickoff &amp; setup</h4><p>Kickoff call, ideal customer profile agreed and signed off, domains purchased, inboxes created and placed into warmup.</p></div>
-          <div class="step rv"><div class="k">DAYS 5–11 — BUILD</div><h4>Lists, copy &amp; calendar</h4><p>Verified prospect list built, email sequences written and approved by you, calendar and booking flow connected, deliverability tested.</p></div>
-          <div class="step rv"><div class="k">DAY 14 — LAUNCH</div><h4>Campaigns go live</h4><p>Sending starts and the first replies come in, with discovery calls landing on your calendar. From here, your monthly guarantee is in effect.</p></div>
+          <div class="step rv"><div class="k">DAYS 1–4 — FOUNDATION</div><h4>Kickoff &amp; market map</h4><p>Kickoff call, your total addressable market sized, first draft of your ideal customer profile, domains purchased and inboxes into warmup.</p></div>
+          <div class="step rv"><div class="k">DAYS 5–11 — SAMPLE RUN</div><h4>Find message-market fit</h4><p>A small pilot outreach to a sample of your market tests angles and offers. The winning message and your ICP are signed off by you, and the full list is built.</p></div>
+          <div class="step rv"><div class="k">DAY 14 — LAUNCH</div><h4>Scale what works</h4><p>The full campaign goes live on the proven message, and discovery calls start landing on your calendar. From here, your monthly guarantee is in effect.</p></div>
           <div class="step rv"><div class="k">ONGOING</div><h4>Money-back guarantee</h4><p>Your guaranteed call count every month. Miss it in month one and we refund double what you paid. Miss it in any month after and that month is refunded in full.</p></div>
         </div>
       </div>
@@ -695,8 +695,8 @@ footer{border-top:1px solid var(--ink);padding:56px 0 0}
       
       <div class="faq"><button>What's the catch with the money-back guarantee?<span class="pm">+</span></button><div class="ans"><p>There isn't a hidden one. Double back applies to your first month; after that, a missed month is refunded in full. The guarantee depends on the things we need to do the work: you sign off your ideal customer profile and approve the copy at kickoff, and you keep time free on your calendar for the calls we book. Calls only count when they match the profile you signed off and actually happen &mdash; which is exactly what you'd want counted anyway.</p></div></div>
       <div class="faq"><button>What if you miss my guaranteed number?<span class="pm">+</span></button><div class="ans"><p>You get your money back &mdash; doubled in your first month. If we book fewer than your guaranteed calls in month one &mdash; 5 on Starter, 10 on Growth, 15 on Scale &mdash; we refund twice what you paid for that month. If we miss in any month after that, we refund that month in full. On a 3-month plan, it works on each month's share of what you paid. Calls only count when they actually happen.</p></div></div>
-      <div class="faq"><button>How do I know the meetings will actually be a fit?<span class="pm">+</span></button><div class="ans"><p>Because you define the criteria before anything sends. In week one we agree and document your ideal customer profile — company size, sector, roles, and the accounts to exclude — and you sign it off. A call only counts toward your guarantee if the prospect matches it. We don't move those criteria later to make a month look better.</p></div></div>
-      <div class="faq"><button>How fast will I see my first booked call?<span class="pm">+</span></button><div class="ans"><p>Campaigns go live within two weeks. Days one to four are foundation — kickoff call, ICP signed off, domains purchased, inboxes into warmup. Days five to eleven are build — verified list, sequences written and approved by you, calendar and booking flow connected. By day fourteen campaigns are live and replies start coming in. If we're not live within 2 weeks of kickoff, your next month is free.</p></div></div>
+      <div class="faq"><button>How do I know the meetings will actually be a fit?<span class="pm">+</span></button><div class="ans"><p>Because you define the criteria before anything sends. In your first two weeks we run a small pilot to a sample of your market, then agree and document your ideal customer profile — company size, sector, roles, and the accounts to exclude — and you sign it off. A call only counts toward your guarantee if the prospect matches it. We don't move those criteria later to make a month look better.</p></div></div>
+      <div class="faq"><button>How fast will I see my first booked call?<span class="pm">+</span></button><div class="ans"><p>Campaigns go live within two weeks. Days one to four are foundation — kickoff call, your market sized, first draft of your ICP, domains purchased, inboxes into warmup. Days five to eleven are the sample run — a small pilot to find the message that works, your ICP signed off, verified list, sequences written and approved by you, calendar and booking flow connected. By day fourteen campaigns are live and replies start coming in. If we're not live within 2 weeks of kickoff, your next month is free.</p></div></div>
           <div class="faq"><button>What exactly counts as a "booked call"?<span class="pm">+</span></button><div class="ans"><p>So there's never any ambiguity: a prospect matching the ideal customer profile we agreed at kickoff, who has accepted a meeting at a confirmed time on your calendar. Nothing looser than that gets counted toward your guarantee.</p></div></div>
           <div class="faq"><button>What happens if a prospect no-shows?<span class="pm">+</span></button><div class="ans"><p>It doesn't count toward your monthly number &mdash; only calls that actually happen do. We keep booking until you hit it.</p></div></div>
           
@@ -1951,14 +1951,28 @@ var BOOKING = {
 <script id="book-links">
 (function(){
   if(document.getElementById('book')) return;   /* on the booking page itself */
+  /* Where they came from (?utm_source=cold_call, ?ref=…): kept for this tab and passed on to /book,
+     which opens in a new tab and so cannot read this tab's sessionStorage. */
+  var src = [];
+  try {
+    var KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','ref'], qs = new URLSearchParams(location.search), got = {}, any = false;
+    KEYS.forEach(function(k){ var v = String(qs.get(k)||'').trim().slice(0,100); if (v) { got[k] = v; any = true; } });
+    try {
+      if (any) sessionStorage.setItem('aviance_src', JSON.stringify(got));
+      else { var kept = JSON.parse(sessionStorage.getItem('aviance_src') || 'null'); if (kept && typeof kept === 'object') KEYS.forEach(function(k){ if (typeof kept[k] === 'string' && kept[k]) got[k] = kept[k].slice(0,100); }); }
+    } catch(e){}
+    KEYS.forEach(function(k){ if (got[k]) src.push(k + '=' + encodeURIComponent(got[k])); });
+  } catch(e){}
   document.querySelectorAll('[data-book]').forEach(function(btn){
     var card = btn.closest && btn.closest('.price');
     var h = card && card.querySelector('h3');
     var plan = h ? h.textContent.trim().toLowerCase() : '';
-    btn.setAttribute('href', '/book' + (/^(starter|growth|scale)$/.test(plan) ? '?plan=' + plan : ''));
+    var q = (/^(starter|growth|scale)$/.test(plan) ? ['plan=' + plan] : []).concat(src);
+    btn.setAttribute('href', '/book' + (q.length ? '?' + q.join('&') : ''));
     btn.setAttribute('target', '_blank');
     btn.setAttribute('rel', 'noopener');
   });
+  if (src.length) document.querySelectorAll('a[href="/book"]').forEach(function(a){ a.setAttribute('href', '/book?' + src.join('&')); });
 })();
 </script>
 </body>
